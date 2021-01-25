@@ -42,16 +42,4 @@ public extension ChainableWrapper where Wrapped: UISwitch {
         return self
     }
     
-    @discardableResult
-    func onImage(_ image: UIImage?) -> Self {
-        wrapped.onImage = image
-        return self
-    }
-    
-    @discardableResult
-    func offImage(_ image: UIImage?) -> Self {
-        wrapped.offImage = image
-        return self
-    }
-    
 }
