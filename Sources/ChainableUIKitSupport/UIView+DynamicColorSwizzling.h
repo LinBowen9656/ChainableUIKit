@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 对View的layer的borderColor和shadowColor进行dark mode支持
 @interface UIView(DynamicColor)
 
 @end

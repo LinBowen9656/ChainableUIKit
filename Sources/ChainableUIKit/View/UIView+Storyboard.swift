@@ -34,7 +34,7 @@ public extension UIView {
             layer.maskedCorners = maskedCorners
         }
     }
-    @IBInspectable var isContinuous: Bool {
+    @IBInspectable var isCornerContinuous: Bool {
         get {
             if #available(iOS 13.0, *) {
                 return layer.cornerCurve == .continuous
@@ -57,13 +57,7 @@ public extension UIView {
     static private var borderColorKey: String?
     @IBInspectable var borderColor: UIColor? {
         get {
-            guard let borderColor = objc_getAssociatedObject(self, &UIView.borderColorKey) as? UIColor else {
-                if let borderColor = layer.borderColor {
-                    return UIColor(cgColor: borderColor)
-                } else {
-                    return nil
-                }
-            }
+            guard let borderColor = objc_getAssociatedObject(self, &UIView.borderColorKey) as? UIColor else { return nil }
             return borderColor
         }
         set {
@@ -82,13 +76,7 @@ public extension UIView {
     static private var borderShadowColorKey: String?
     @IBInspectable var borderShadowColor: UIColor? {
         get {
-            guard let shadowColor = objc_getAssociatedObject(self, &UIView.borderShadowColorKey) as? UIColor else {
-                if let shadowColor = layer.shadowColor {
-                    return UIColor(cgColor: shadowColor)
-                } else {
-                    return nil
-                }
-            }
+            guard let shadowColor = objc_getAssociatedObject(self, &UIView.borderShadowColorKey) as? UIColor else { return nil }
             return shadowColor
         }
         set {

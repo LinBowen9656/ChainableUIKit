@@ -243,6 +243,6 @@ public extension ChainableWrapper where Wrapped: UIView {
         return self
     }
     
-    func asType<T>(type: T.Type) -> ChainableWrapper<T> { ChainableWrapper(wrapped: wrapped as! T) }
+    func asType<T>(type: T.Type) -> ChainableWrapper<T> { ChainableWrapper<T>(wrapped: wrapped as! T) }
     
 }

@@ -6,6 +6,8 @@
 //
 
 #import "UIView+DynamicColorSwizzling.h"
+@import ChainableUIKit;
+@import ObjectiveC;
 
 @implementation UIView(DynamicColor)
 
@@ -26,17 +28,17 @@
 }
 
 - (void)traitCollectionDidChangeSwizzlingForDynamicColor:(UITraitCollection *)previousTraitCollection {
+    [self traitCollectionDidChangeSwizzlingForDynamicColor:previousTraitCollection];
     if (@available(iOS 13.0, *)) {
         if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
             if (self.borderColor != nil) {
-                layer.borderColor = [self.borderColor resolvedColorWithTraitCollection:self.traitCollection].CGColor
+                self.layer.borderColor = [self.borderColor resolvedColorWithTraitCollection:self.traitCollection].CGColor;
             }
             if (self.borderShadowColor != nil) {
-                layer.borderColor = [self.borderShadowColor resolvedColorWithTraitCollection:self.traitCollection].CGColor
+                self.layer.shadowColor = [self.borderShadowColor resolvedColorWithTraitCollection:self.traitCollection].CGColor;
             }
         }
     }
-    [self traitCollectionDidChangeSwizzlingForDynamicColor:previousTraitCollection];
 }
 
 @end
