@@ -6,7 +6,7 @@
 //
 
 #import "UIView+DynamicColorSwizzling.h"
-@import ChainableUIKit;
+@import UIKitUtils;
 @import ObjectiveC;
 
 @implementation UIView(DynamicColor)

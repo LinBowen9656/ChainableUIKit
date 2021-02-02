@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIKitUtils
 
 extension UIView: ChainableType {}
 
@@ -15,7 +16,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     
     @discardableResult
     func cornerRadius(_ radius: CGFloat) -> Self {
-        wrapped.layer.cornerRadius = radius
+        wrapped.cornerRadius = radius
         return self
     }
     
@@ -27,31 +28,31 @@ public extension ChainableWrapper where Wrapped: UIView {
     
     @discardableResult
     func borderWidth(_ width: CGFloat) -> Self {
-        wrapped.layer.borderWidth = width
+        wrapped.borderWidth = width
         return self
     }
     
     @discardableResult
-    func borderColor(_ color: UIColor) -> Self {
-        wrapped.layer.borderColor = color.cgColor
+    func borderColor(_ color: UIColor?) -> Self {
+        wrapped.borderColor = color
         return self
     }
     
     @discardableResult
     func shadowRadius(_ radius: CGFloat) -> Self {
-        wrapped.layer.shadowRadius = radius
+        wrapped.borderShadowRadius = radius
         return self
     }
     
     @discardableResult
     func shadowColor(_ color: UIColor?) -> Self {
-        wrapped.layer.shadowColor = color?.cgColor
+        wrapped.borderShadowColor = color
         return self
     }
     
     @discardableResult
     func shadowOpacity(_ opacity: Float) -> Self {
-        wrapped.layer.shadowOpacity = opacity
+        wrapped.borderShadowOpacity = opacity
         return self
     }
     
