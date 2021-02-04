@@ -175,4 +175,29 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
         return self
     }
     
+    @discardableResult
+    func scrollToTop(isAnimated: Bool = false) -> Self {
+        let inset: UIEdgeInsets
+        inset = wrapped.adjustedContentInset
+        wrapped.setContentOffset(CGPoint(x: -inset.left, y: -inset.top), animated: isAnimated)
+        return self
+    }
+    
+    @discardableResult
+    func scrollToBottom(isAnimated: Bool = false) -> Self {
+        let inset: UIEdgeInsets
+        inset = wrapped.adjustedContentInset
+        guard (wrapped.contentSize.height + inset.top + inset.bottom) > wrapped.bounds.height else { return self }
+        wrapped.setContentOffset(CGPoint(x: wrapped.contentOffset.x, y: wrapped.contentSize.height + inset.bottom - wrapped.bounds.height), animated: isAnimated)
+        return self
+    }
+    
+    @discardableResult
+    func stopDecelerating() -> Self {
+        if wrapped.isDecelerating {
+            wrapped.setContentOffset(wrapped.contentOffset, animated: false)
+        }
+        return self
+    }
+    
 }

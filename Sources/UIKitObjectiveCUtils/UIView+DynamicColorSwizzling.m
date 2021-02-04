@@ -31,8 +31,8 @@
     [self traitCollectionDidChangeSwizzlingForDynamicColor:previousTraitCollection];
     if (@available(iOS 13.0, *)) {
         if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
-            if (self.borderColor != nil) {
-                self.layer.borderColor = [self.borderColor resolvedColorWithTraitCollection:self.traitCollection].CGColor;
+            if (self.borderStrokeColor != nil) {
+                self.layer.borderColor = [self.borderStrokeColor resolvedColorWithTraitCollection:self.traitCollection].CGColor;
             }
             if (self.borderShadowColor != nil) {
                 self.layer.shadowColor = [self.borderShadowColor resolvedColorWithTraitCollection:self.traitCollection].CGColor;

@@ -27,14 +27,14 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func borderWidth(_ width: CGFloat) -> Self {
-        wrapped.borderWidth = width
+    func borderStrokeWidth(_ width: CGFloat) -> Self {
+        wrapped.borderStrokeWidth = width
         return self
     }
     
     @discardableResult
-    func borderColor(_ color: UIColor?) -> Self {
-        wrapped.borderColor = color
+    func borderStrokeColor(_ color: UIColor?) -> Self {
+        wrapped.borderStrokeColor = color
         return self
     }
     

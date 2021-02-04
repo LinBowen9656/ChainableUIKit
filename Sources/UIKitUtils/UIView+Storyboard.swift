@@ -50,18 +50,18 @@ public extension UIView {
             }
         }
     }
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable var borderStrokeWidth: CGFloat {
         get { layer.borderWidth }
         set { layer.borderWidth = newValue }
     }
-    static private var borderColorKey: String?
-    @IBInspectable var borderColor: UIColor? {
+    static private var borderStrokeColorKey: String?
+    @IBInspectable var borderStrokeColor: UIColor? {
         get {
-            guard let borderColor = objc_getAssociatedObject(self, &UIView.borderColorKey) as? UIColor else { return nil }
+            guard let borderColor = objc_getAssociatedObject(self, &UIView.borderStrokeColorKey) as? UIColor else { return nil }
             return borderColor
         }
         set {
-            objc_setAssociatedObject(self, &UIView.borderColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &UIView.borderStrokeColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             if #available(iOS 13.0, *) {
                 layer.borderColor = newValue?.resolvedColor(with: traitCollection).cgColor
             } else {
