@@ -7,6 +7,8 @@
 
 import UIKit
 
+private var tapGestureRecognizerKey: Void?
+
 public extension UIView {
     
     /// 视图所在的ViewController
@@ -127,6 +129,29 @@ public extension UIView {
     @IBInspectable private var rotatedTransform: CGFloat {
         get { 0 }
         set { transform = transform.rotated(by: newValue) }
+    }
+    private var tapGestureRecognizer: UITapGestureRecognizer {
+        get {
+            guard let gesture = objc_getAssociatedObject(self, &tapGestureRecognizerKey) as? UITapGestureRecognizer else {
+                let gesture = UITapGestureRecognizer()
+                self.tapGestureRecognizer = gesture
+                addGestureRecognizer(gesture)
+                return gesture
+            }
+            if gesture.view != self {
+                addGestureRecognizer(gesture)
+            }
+            return gesture
+        }
+        set {
+            objc_setAssociatedObject(self, &tapGestureRecognizerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    func onTap(handler: @escaping () -> Void) {
+        tapGestureRecognizer.addActionHandler { _ in
+            handler()
+        }
     }
     
     /// 获取UIView特定标识符的约束

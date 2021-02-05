@@ -165,6 +165,12 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
+    func onTap(handler: @escaping () -> Void) -> Self {
+        wrapped.onTap(handler: handler)
+        return self
+    }
+    
+    @discardableResult
     func isHidden(_ value: Bool) -> Self {
         wrapped.isHidden = value
         return self

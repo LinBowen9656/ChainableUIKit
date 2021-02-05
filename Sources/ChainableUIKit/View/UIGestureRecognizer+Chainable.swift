@@ -41,4 +41,18 @@ public extension ChainableWrapper where Wrapped: UIGestureRecognizer {
         return self
     }
     
+    @discardableResult
+    func addActionHandler(_ handler: @escaping (Wrapped) -> Void) -> Self {
+        wrapped.addActionHandler { gestureRecognizer in
+            handler(gestureRecognizer as! Wrapped)
+        }
+        return self
+    }
+    
+    @discardableResult
+    func removeActionHandler() -> Self {
+        wrapped.removeActionHandler()
+        return self
+    }
+    
 }
