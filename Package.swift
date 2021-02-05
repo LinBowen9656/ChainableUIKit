@@ -4,16 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "UtilsKit",
+    name: "ChainableUIKit",
     platforms: [.iOS(.v11)],
     products: [
-        .library(name: "UtilsKit", targets: ["UtilsKit"]),
         .library(
             name: "ChainableUIKit",
             targets: ["ChainableUIKit", "UIKitObjectiveCUtils"])
     ],
     targets: [
-        .target(name: "UtilsKit"),
         .target(name: "UIKitUtils"),
         .target(name: "ChainableUIKit", dependencies: [.target(name: "UIKitUtils")]),
         .target(name: "UIKitObjectiveCUtils", dependencies: [.target(name: "UIKitUtils")]),
