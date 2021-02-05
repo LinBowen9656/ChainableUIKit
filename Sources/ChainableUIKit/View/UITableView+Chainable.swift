@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIKitUtils
 
 public extension ChainableWrapper where Wrapped: UITableView {
     
