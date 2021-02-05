@@ -32,9 +32,81 @@ public extension UIViewController {
     
 }
 
-extension UINavigationController {
+public extension UINavigationController {
     
     /// 根视图控制器
     var rootViewController: UIViewController? { viewControllers.first }
+    
+    /// 拥有完成回调的Push
+    ///
+    /// - Parameters:
+    ///   - viewController: 将Push到的View Controller
+    ///   - animated: 是否显示动画
+    ///   - completion: 完成回调
+    func pushViewController(_ controller: UIViewController, isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completionHandler)
+        pushViewController(controller, animated: isAnimated)
+        CATransaction.commit()
+    }
+    
+    /// 拥有完成回调的Pop
+    ///
+    /// - Parameters:
+    ///   - animated: 是否显示动画
+    ///   - completion: 完成回调
+    /// - Returns: 被Pop的View Controller
+    @discardableResult
+    func popViewController(isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> UIViewController? {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completionHandler)
+        let poppedViewController = popViewController(animated: isAnimated)
+        CATransaction.commit()
+        return poppedViewController
+    }
+    
+    /// 拥有完成回调的Pop
+    ///
+    /// - Parameters:
+    ///   - viewController: 将Pop到的View Controller
+    ///   - animated: 是否显示动画
+    ///   - completion: 完成回调
+    /// - Returns: 被Pop的View Controller数组
+    @discardableResult
+    func popToViewController(_ controller: UIViewController, isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> [UIViewController]? {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completionHandler)
+        let viewControllers = popToViewController(controller, animated: isAnimated)
+        CATransaction.commit()
+        return viewControllers
+    }
+    
+    /// 拥有完成回调的Pop
+    ///
+    /// - Parameters:
+    ///   - animated: 是否显示动画
+    ///   - completion: 完成回调
+    /// - Returns: 被Pop的View Controller数组
+    @discardableResult
+    func popToRootViewController(isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> [UIViewController]? {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completionHandler)
+        let viewControllers = popToRootViewController(animated: isAnimated)
+        CATransaction.commit()
+        return viewControllers
+    }
+    
+    /// 拥有回调的SetViewController
+    /// - Parameters:
+    ///   - viewControllers: 用来替换入栈的控制器
+    ///   - animated: 是否显示动画
+    ///   - completion: 完成回调
+    func setViewControllers(_ controllers: [UIViewController], isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completionHandler)
+        setViewControllers(controllers, animated: isAnimated)
+        CATransaction.commit()
+        return
+    }
     
 }

@@ -11,6 +11,8 @@ extension UIViewController: ChainableType {}
 
 public extension ChainableWrapper where Wrapped: UIViewController {
     
+    var controller: Wrapped { wrapped }
+    
     @discardableResult
     func title(_ title: String?) -> Self {
         wrapped.title = title
@@ -44,6 +46,30 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     @discardableResult
     func isExtendedLayoutIncludesOpaqueBars(_ value: Bool) -> Self {
         wrapped.extendedLayoutIncludesOpaqueBars = value
+        return self
+    }
+    
+    @discardableResult
+    func showViewController(_ controller: UIViewController, sender: Any?) -> Self {
+        wrapped.show(controller, sender: sender)
+        return self
+    }
+    
+    @discardableResult
+    func showDetailViewController(_ controller: UIViewController, sender: Any?) -> Self {
+        wrapped.showDetailViewController(controller, sender: sender)
+        return self
+    }
+    
+    @discardableResult
+    func present(_ controller: UIViewController, isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> Self {
+        wrapped.present(controller, animated: isAnimated, completion: completionHandler)
+        return self
+    }
+    
+    @discardableResult
+    func dismiss(isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> Self {
+        wrapped.dismiss(animated: isAnimated, completion: completionHandler)
         return self
     }
     

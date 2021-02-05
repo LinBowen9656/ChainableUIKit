@@ -6,51 +6,37 @@
 //
 
 import UIKit
+import UIKitUtils
 
 public extension ChainableWrapper where Wrapped: UINavigationController {
     
     @discardableResult
     func pushViewController(_ controller: UIViewController, isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> Self {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock(completionHandler)
-        wrapped.pushViewController(controller, animated: isAnimated)
-        CATransaction.commit()
+        wrapped.pushViewController(controller, isAnimated: isAnimated, completionHandler: completionHandler)
         return self
     }
     
     @discardableResult
     func popViewController(isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> Self {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock(completionHandler)
-        wrapped.popViewController(animated: isAnimated)
-        CATransaction.commit()
+        wrapped.popViewController(isAnimated: isAnimated, completionHandler: completionHandler)
         return self
     }
     
     @discardableResult
     func popToViewController(_ controller: UIViewController, isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> Self {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock(completionHandler)
-        wrapped.popToViewController(controller, animated: isAnimated)
-        CATransaction.commit()
+        wrapped.popToViewController(controller, isAnimated: isAnimated, completionHandler: completionHandler)
         return self
     }
     
     @discardableResult
     func popToRootViewController(isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> Self {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock(completionHandler)
-        wrapped.popToRootViewController(animated: isAnimated)
-        CATransaction.commit()
+        wrapped.popToRootViewController(isAnimated: isAnimated, completionHandler: completionHandler)
         return self
     }
     
     @discardableResult
     func viewControllers(_ controllers: [UIViewController], isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> Self {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock(completionHandler)
-        wrapped.setViewControllers(controllers, animated: isAnimated)
-        CATransaction.commit()
+        wrapped.setViewControllers(controllers, isAnimated: isAnimated, completionHandler: completionHandler)
         return self
     }
     
