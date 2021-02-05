@@ -22,20 +22,20 @@ public extension ChainableWrapper where Wrapped: UISegmentedControl {
     }
     
     @discardableResult
-    func insertSegment(image: UIImage?, index: Int, isAnimated: Bool = false) -> Self {
+    func insertSegment(image: UIImage?, index: Int, isAnimated: Bool = true) -> Self {
         wrapped.insertSegment(with: image, at: index, animated: isAnimated)
         return self
     }
     
     @discardableResult
-    func insertSegment(title: String?, index: Int, isAnimated: Bool = false) -> Self {
+    func insertSegment(title: String?, index: Int, isAnimated: Bool = true) -> Self {
         wrapped.insertSegment(withTitle: title, at: index, animated: isAnimated)
         return self
     }
     
     @available(iOS 14.0, *)
     @discardableResult
-    func insertSegment(action: UIAction, index: Int, isAnimated: Bool = false) -> Self {
+    func insertSegment(action: UIAction, index: Int, isAnimated: Bool = true) -> Self {
         wrapped.insertSegment(action: action, at: index, animated: isAnimated)
         return self
     }
@@ -47,7 +47,7 @@ public extension ChainableWrapper where Wrapped: UISegmentedControl {
     }
     
     @discardableResult
-    func removeSegment(_ index: Int, isAnimated: Bool = false) -> Self {
+    func removeSegment(_ index: Int, isAnimated: Bool = true) -> Self {
         wrapped.removeSegment(at: index, animated: isAnimated)
         return self
     }

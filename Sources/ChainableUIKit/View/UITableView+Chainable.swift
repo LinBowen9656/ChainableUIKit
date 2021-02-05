@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UITableView {
     
     @discardableResult
-    func registerCell(cellClass: AnyClass, reuseIdentifier: String) -> Self {
+    func registerCell(cellClass: UITableViewCell.Type, reuseIdentifier: String) -> Self {
         wrapped.register(cellClass, forCellReuseIdentifier: reuseIdentifier)
         return self
     }
@@ -22,7 +22,7 @@ public extension ChainableWrapper where Wrapped: UITableView {
     }
     
     @discardableResult
-    func registerSectionHeaderFooterView(viewClass: AnyClass, reuseIdentifier: String) -> Self {
+    func registerSectionHeaderFooterView(viewClass: UIView.Type, reuseIdentifier: String) -> Self {
         wrapped.register(viewClass, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
         return self
     }
@@ -130,13 +130,13 @@ public extension ChainableWrapper where Wrapped: UITableView {
     }
     
     @discardableResult
-    func selectRow(indexPath: IndexPath?, isAnimated: Bool = false, scrollPosition: UITableView.ScrollPosition) -> Self {
+    func selectRow(indexPath: IndexPath?, isAnimated: Bool = true, scrollPosition: UITableView.ScrollPosition) -> Self {
         wrapped.selectRow(at: indexPath, animated: isAnimated, scrollPosition: scrollPosition)
         return self
     }
     
     @discardableResult
-    func deselectRow(indexPath: IndexPath, isAnimated: Bool = false) -> Self {
+    func deselectRow(indexPath: IndexPath, isAnimated: Bool = true) -> Self {
         wrapped.deselectRow(at: indexPath, animated: isAnimated)
         return self
     }
@@ -189,7 +189,7 @@ public extension ChainableWrapper where Wrapped: UITableView {
     }
     
     @discardableResult
-    func update(operation: DataSourceOperation, isAnimated: Bool = false, emptyViewHandler: ((UIView) -> Void)? = nil, completionHandler: ((Bool) -> Void)? = nil) -> Self {
+    func update(operation: DataSourceOperation, isAnimated: Bool = true, emptyViewHandler: ((UIView) -> Void)? = nil, completionHandler: ((Bool) -> Void)? = nil) -> Self {
         wrapped.viewWithTag(.max)?.removeFromSuperview()
         switch operation {
         case .diff(let diffOperations):
@@ -330,19 +330,19 @@ public extension ChainableWrapper where Wrapped: UITableView {
     }
     
     @discardableResult
-    func scrollToRow(_ indexPath: IndexPath, scrollPosition: UITableView.ScrollPosition, isAnimated: Bool = false) -> Self {
+    func scrollToRow(_ indexPath: IndexPath, scrollPosition: UITableView.ScrollPosition, isAnimated: Bool = true) -> Self {
         wrapped.scrollToRow(at: indexPath, at: scrollPosition, animated: isAnimated)
         return self
     }
     
     @discardableResult
-    func scrollToNearestSelectedRow(scrollPosition: UITableView.ScrollPosition, isAnimated: Bool = false) -> Self {
+    func scrollToNearestSelectedRow(scrollPosition: UITableView.ScrollPosition, isAnimated: Bool = true) -> Self {
         wrapped.scrollToNearestSelectedRow(at: scrollPosition, animated: isAnimated)
         return self
     }
     
     @discardableResult
-    func scrollToLastRow(isAnimated: Bool = false) -> Self {
+    func scrollToLastRow(isAnimated: Bool = true) -> Self {
         let numberOfSections = wrapped.numberOfSections
         guard numberOfSections > 0 else { return self }
         for index in 1...numberOfSections {
@@ -356,7 +356,7 @@ public extension ChainableWrapper where Wrapped: UITableView {
     }
     
     @discardableResult
-    func isEditing(_ value: Bool, isAnimated: Bool = false) -> Self {
+    func isEditing(_ value: Bool, isAnimated: Bool = true) -> Self {
         wrapped.setEditing(value, animated: isAnimated)
         return self
     }

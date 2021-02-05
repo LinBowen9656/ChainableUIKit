@@ -22,7 +22,7 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func contentOffset(_ offset: CGPoint, isAnimated: Bool = false) -> Self {
+    func contentOffset(_ offset: CGPoint, isAnimated: Bool = true) -> Self {
         wrapped.setContentOffset(offset, animated: isAnimated)
         return self
     }
@@ -106,13 +106,13 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func visibleRect(_ rect: CGRect, isAnimated: Bool = false) -> Self {
+    func visibleRect(_ rect: CGRect, isAnimated: Bool = true) -> Self {
         wrapped.scrollRectToVisible(rect, animated: isAnimated)
         return self
     }
     
     @discardableResult
-    func zoomScale(_ scale: CGFloat, isAnimated: Bool = false) -> Self {
+    func zoomScale(_ scale: CGFloat, isAnimated: Bool = true) -> Self {
         wrapped.setZoomScale(scale, animated: isAnimated)
         return self
     }
@@ -176,7 +176,7 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func scrollToTop(isAnimated: Bool = false) -> Self {
+    func scrollToTop(isAnimated: Bool = true) -> Self {
         let inset: UIEdgeInsets
         inset = wrapped.adjustedContentInset
         wrapped.setContentOffset(CGPoint(x: -inset.left, y: -inset.top), animated: isAnimated)
@@ -184,7 +184,7 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func scrollToBottom(isAnimated: Bool = false) -> Self {
+    func scrollToBottom(isAnimated: Bool = true) -> Self {
         let inset: UIEdgeInsets
         inset = wrapped.adjustedContentInset
         guard (wrapped.contentSize.height + inset.top + inset.bottom) > wrapped.bounds.height else { return self }

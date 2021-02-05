@@ -16,7 +16,7 @@ public extension ChainableWrapper where Wrapped: UIDatePicker {
     }
     
     @discardableResult
-    func date(_ date: Date, isAnimated: Bool = false) -> Self {
+    func date(_ date: Date, isAnimated: Bool = true) -> Self {
         wrapped.setDate(date, animated: isAnimated)
         return self
     }

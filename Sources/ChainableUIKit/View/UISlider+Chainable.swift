@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UISlider {
     
     @discardableResult
-    func value(_ value: Float, isAnimated: Bool = false) -> Self {
+    func value(_ value: Float, isAnimated: Bool = true) -> Self {
         wrapped.setValue(value, animated: isAnimated)
         return self
     }

@@ -88,13 +88,13 @@ public extension ChainableWrapper where Wrapped: UITableViewCell {
     }
     
     @discardableResult
-    func isSelected(_ value: Bool, isAnimated: Bool = false) -> Self {
+    func isSelected(_ value: Bool, isAnimated: Bool = true) -> Self {
         wrapped.setSelected(value, animated: isAnimated)
         return self
     }
     
     @discardableResult
-    func isHighlighted(_ value: Bool, isAnimated: Bool = false) -> Self {
+    func isHighlighted(_ value: Bool, isAnimated: Bool = true) -> Self {
         wrapped.setHighlighted(value, animated: isAnimated)
         return self
     }

@@ -58,7 +58,7 @@ public extension ChainableWrapper where Wrapped: UISearchBar {
     }
     
     @discardableResult
-    func isShowsCancelButton(_ value: Bool, isAnimated: Bool = false) -> Self {
+    func isShowsCancelButton(_ value: Bool, isAnimated: Bool = true) -> Self {
         wrapped.setShowsCancelButton(value, animated: isAnimated)
         return self
     }
@@ -88,7 +88,7 @@ public extension ChainableWrapper where Wrapped: UISearchBar {
     }
     
     @discardableResult
-    func isShowsScopeBar(_ value: Bool, isAnimated: Bool = false) -> Self {
+    func isShowsScopeBar(_ value: Bool, isAnimated: Bool = true) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.setShowsScope(value, animated: isAnimated)
         } else {

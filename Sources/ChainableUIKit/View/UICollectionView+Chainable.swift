@@ -16,7 +16,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func registerCell(cellClass: AnyClass, reuseIdentifier: String) -> Self {
+    func registerCell(cellClass: UICollectionViewCell.Type, reuseIdentifier: String) -> Self {
         wrapped.register(cellClass, forCellWithReuseIdentifier: reuseIdentifier)
         return self
     }
@@ -28,7 +28,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func registerSupplementaryView(viewClass: AnyClass, kind: String, reuseIdentifier: String) -> Self {
+    func registerSupplementaryView(viewClass: UIView.Type, kind: String, reuseIdentifier: String) -> Self {
         wrapped.register(viewClass, forSupplementaryViewOfKind: kind, withReuseIdentifier: reuseIdentifier)
         return self
     }
@@ -46,7 +46,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func collectionViewLayout(_ layout: UICollectionViewLayout, isAnimated: Bool = false, completionHandler: ((Bool) -> Void)? = nil) -> Self {
+    func collectionViewLayout(_ layout: UICollectionViewLayout, isAnimated: Bool = true, completionHandler: ((Bool) -> Void)? = nil) -> Self {
         wrapped.setCollectionViewLayout(layout, animated: isAnimated, completion: completionHandler)
         return self
     }
@@ -61,7 +61,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func update(operation: DataSourceOperation, isAnimated: Bool = false, emptyViewHandler: ((UIView) -> Void)? = nil, completionHandler: ((Bool) -> Void)? = nil) -> Self {
+    func update(operation: DataSourceOperation, isAnimated: Bool = true, emptyViewHandler: ((UIView) -> Void)? = nil, completionHandler: ((Bool) -> Void)? = nil) -> Self {
         wrapped.viewWithTag(.max)?.removeFromSuperview()
         switch operation {
         case .diff(let diffOperations):
@@ -184,13 +184,13 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func selectItem(indexPath: IndexPath?, isAnimated: Bool = false, scrollPosition: UICollectionView.ScrollPosition) -> Self {
+    func selectItem(indexPath: IndexPath?, isAnimated: Bool = true, scrollPosition: UICollectionView.ScrollPosition) -> Self {
         wrapped.selectItem(at: indexPath, animated: isAnimated, scrollPosition: scrollPosition)
         return self
     }
     
     @discardableResult
-    func deselectItem(indexPath: IndexPath, isAnimated: Bool = false) -> Self {
+    func deselectItem(indexPath: IndexPath, isAnimated: Bool = true) -> Self {
         wrapped.deselectItem(at: indexPath, animated: isAnimated)
         return self
     }
@@ -238,13 +238,13 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func scrollToItem(_ indexPath: IndexPath, scrollPosition: UICollectionView.ScrollPosition, isAnimated: Bool = false) -> Self {
+    func scrollToItem(_ indexPath: IndexPath, scrollPosition: UICollectionView.ScrollPosition, isAnimated: Bool = true) -> Self {
         wrapped.scrollToItem(at: indexPath, at: scrollPosition, animated: isAnimated)
         return self
     }
     
     @discardableResult
-    func scrollToLastItem(isAnimated: Bool = false) -> Self {
+    func scrollToLastItem(isAnimated: Bool = true) -> Self {
         let numberOfSections = wrapped.numberOfSections
         guard numberOfSections > 0 else { return self }
         for index in 1...numberOfSections {

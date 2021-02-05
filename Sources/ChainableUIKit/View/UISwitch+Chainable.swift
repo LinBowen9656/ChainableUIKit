@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UISwitch {
     
     @discardableResult
-    func isOn(_ value: Bool, isAnimated: Bool = false) -> Self {
+    func isOn(_ value: Bool, isAnimated: Bool = true) -> Self {
         wrapped.setOn(value, animated: isAnimated)
         return self
     }

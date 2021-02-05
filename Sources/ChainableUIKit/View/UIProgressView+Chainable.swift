@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UIProgressView {
     
     @discardableResult
-    func progress(_ value: Float, isAnimated: Bool = false) -> Self {
+    func progress(_ value: Float, isAnimated: Bool = true) -> Self {
         wrapped.setProgress(value, animated: isAnimated)
         return self
     }
