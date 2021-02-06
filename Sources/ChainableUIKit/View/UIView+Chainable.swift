@@ -12,8 +12,6 @@ extension UIView: ChainableType {}
 
 public extension ChainableWrapper where Wrapped: UIView {
     
-    var view: Wrapped { wrapped }
-    
     @discardableResult
     func cornerRadius(_ radius: CGFloat) -> Self {
         wrapped.cornerRadius = radius
@@ -69,7 +67,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func backgroundColor(_ color: UIColor) -> Self {
+    func backgroundColor(_ color: UIColor?) -> Self {
         wrapped.backgroundColor = color
         return self
     }
@@ -275,7 +273,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     @_functionBuilder
     struct ConstraintsBuilder {
         
-        static func buildBlock(_ constraints: NSLayoutConstraint...) -> [NSLayoutConstraint] { constraints }
+        public static func buildBlock(_ constraints: NSLayoutConstraint...) -> [NSLayoutConstraint] { constraints }
         
     }
     
@@ -520,6 +518,18 @@ public extension ChainableWrapper where Wrapped: UIView {
         if #available(iOS 13.0, *) {
             wrapped.transform3D = transform3D
         }
+        return self
+    }
+    
+    @discardableResult
+    func becomeFirstResponder() -> Self {
+        wrapped.becomeFirstResponder()
+        return self
+    }
+    
+    @discardableResult
+    func resignFirstResponder() -> Self {
+        wrapped.resignFirstResponder()
         return self
     }
     

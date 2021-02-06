@@ -12,7 +12,7 @@ public extension ChainableWrapper where Wrapped: UIAlertController {
     @_functionBuilder
     struct AlertActionBuilder {
         
-        static func buildBlock(_ actions: UIAlertAction...) -> [UIAlertAction] { actions }
+        public static func buildBlock(_ actions: UIAlertAction...) -> [UIAlertAction] { actions }
         
     }
     

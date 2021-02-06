@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ChainableWrapper where Wrapped: UITextView {
+public extension ChainableWrapper where Wrapped: UITextView {
     
     @discardableResult
     func text(_ string: String?) -> Self {

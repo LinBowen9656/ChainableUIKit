@@ -7,6 +7,8 @@
 
 import UIKit
 
+extension UIBarItem: ChainableType {}
+
 public extension ChainableWrapper where Wrapped: UIBarItem {
     
     @discardableResult

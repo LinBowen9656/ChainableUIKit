@@ -11,8 +11,6 @@ extension UIViewController: ChainableType {}
 
 public extension ChainableWrapper where Wrapped: UIViewController {
     
-    var controller: Wrapped { wrapped }
-    
     @discardableResult
     func title(_ title: String?) -> Self {
         wrapped.title = title
@@ -187,6 +185,18 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     @discardableResult
     func restorationClass(_ restorationClass: UIViewControllerRestoration.Type?) -> Self {
         wrapped.restorationClass = restorationClass
+        return self
+    }
+    
+    @discardableResult
+    func becomeFirstResponder() -> Self {
+        wrapped.becomeFirstResponder()
+        return self
+    }
+    
+    @discardableResult
+    func resignFirstResponder() -> Self {
+        wrapped.resignFirstResponder()
         return self
     }
     

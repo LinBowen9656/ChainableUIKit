@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ChainableWrapper where Wrapped: UILabel {
+public extension ChainableWrapper where Wrapped: UILabel {
     
     @discardableResult
     func text(_ value: String?) -> Self {
