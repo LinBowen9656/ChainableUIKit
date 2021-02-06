@@ -153,14 +153,44 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
+    func directionalLayoutMargins(_ insets: NSDirectionalEdgeInsets) -> Self {
+        wrapped.directionalLayoutMargins = insets
+        return self
+    }
+    
+    @discardableResult
+    func layoutMargins(_ insets: UIEdgeInsets) -> Self {
+        wrapped.layoutMargins = insets
+        return self
+    }
+    
+    @discardableResult
+    func isPreservesSuperviewLayoutMargins(_ value: Bool) -> Self {
+        wrapped.preservesSuperviewLayoutMargins = value
+        return self
+    }
+    
+    @discardableResult
+    func isInsetsLayoutMarginsFromSafeArea(_ value: Bool) -> Self {
+        wrapped.insetsLayoutMarginsFromSafeArea = value
+        return self
+    }
+    
+    @discardableResult
     func alpha(_ value: CGFloat) -> Self {
         wrapped.alpha = value
         return self
     }
     
     @discardableResult
-    func addGesture(_ gesture: UIGestureRecognizer) -> Self {
+    func addGestureRecognizer(_ gesture: UIGestureRecognizer) -> Self {
         wrapped.addGestureRecognizer(gesture)
+        return self
+    }
+    
+    @discardableResult
+    func removeGestureRecognizer(_ gesture: UIGestureRecognizer) -> Self {
+        wrapped.removeGestureRecognizer(gesture)
         return self
     }
     
@@ -183,7 +213,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func isClipToBounds(_ value: Bool) -> Self {
+    func isClipsToBounds(_ value: Bool) -> Self {
         wrapped.clipsToBounds = value
         return self
     }
@@ -197,6 +227,12 @@ public extension ChainableWrapper where Wrapped: UIView {
     @discardableResult
     func frame(_ value: CGRect) -> Self {
         wrapped.frame = value
+        return self
+    }
+    
+    @discardableResult
+    func bounds(_ value: CGRect) -> Self {
+        wrapped.bounds = value
         return self
     }
     
@@ -250,6 +286,241 @@ public extension ChainableWrapper where Wrapped: UIView {
         return self
     }
     
-    func asType<T>(type: T.Type) -> ChainableWrapper<T> { ChainableWrapper<T>(wrapped: wrapped as! T) }
+    @discardableResult
+    func isOpaque(_ value: Bool) -> Self {
+        wrapped.isOpaque = value
+        return self
+    }
+    
+    @discardableResult
+    func tintAdjustmentMode(_ mode: UIView.TintAdjustmentMode) -> Self {
+        wrapped.tintAdjustmentMode = mode
+        return self
+    }
+    
+    @discardableResult
+    func maskView(_ view: UIView?) -> Self {
+        wrapped.mask = view
+        return self
+    }
+    
+    @discardableResult
+    func isMultipleTouchEnabled(_ value: Bool) -> Self {
+        wrapped.isMultipleTouchEnabled = value
+        return self
+    }
+    
+    @discardableResult
+    func isExclusiveTouch(_ value: Bool) -> Self {
+        wrapped.isExclusiveTouch = value
+        return self
+    }
+    
+    @discardableResult
+    func addConstraints(_ constraints: [NSLayoutConstraint]) -> Self {
+        wrapped.addConstraints(constraints)
+        return self
+    }
+    
+    @discardableResult
+    func removeConstraints(_ constraints: [NSLayoutConstraint]) -> Self {
+        wrapped.removeConstraints(constraints)
+        return self
+    }
+    
+    @discardableResult
+    func addLayoutGuide(_ layoutGuide: UILayoutGuide) -> Self {
+        wrapped.addLayoutGuide(layoutGuide)
+        return self
+    }
+    
+    @discardableResult
+    func removeLayoutGuide(_ layoutGuide: UILayoutGuide) -> Self {
+        wrapped.removeLayoutGuide(layoutGuide)
+        return self
+    }
+    
+    @discardableResult
+    func invalidateIntrinsicContentSize() -> Self {
+        wrapped.invalidateIntrinsicContentSize()
+        return self
+    }
+    
+    @discardableResult
+    func contentCompressionResistancePriority(_ priority: UILayoutPriority, axis: NSLayoutConstraint.Axis) -> Self {
+        wrapped.setContentCompressionResistancePriority(priority, for: axis)
+        return self
+    }
+    
+    @discardableResult
+    func contentHuggingPriority(_ priority: UILayoutPriority, axis: NSLayoutConstraint.Axis) -> Self {
+        wrapped.setContentHuggingPriority(priority, for: axis)
+        return self
+    }
+    
+    @discardableResult
+    func setNeedsUpdateConstraints() -> Self {
+        wrapped.setNeedsUpdateConstraints()
+        return self
+    }
+    
+    @discardableResult
+    func updateConstraintsIfNeeded() -> Self {
+        wrapped.updateConstraintsIfNeeded()
+        return self
+    }
+    
+    @discardableResult
+    func exerciseAmbiguityInLayout() -> Self {
+        wrapped.exerciseAmbiguityInLayout()
+        return self
+    }
+    
+    @discardableResult
+    func sizeToFit() -> Self {
+        wrapped.sizeToFit()
+        return self
+    }
+    
+    @discardableResult
+    func isAutoresizesSubviews(_ value: Bool) -> Self {
+        wrapped.autoresizesSubviews = value
+        return self
+    }
+    
+    @discardableResult
+    func autoresizingMask(_ autoresizingMask: UIView.AutoresizingMask) -> Self {
+        wrapped.autoresizingMask = autoresizingMask
+        return self
+    }
+    
+    @available(iOS 13.0, *)
+    @discardableResult
+    func overrideUserInterfaceStyle(_ style: UIUserInterfaceStyle) -> Self {
+        wrapped.overrideUserInterfaceStyle = style
+        return self
+    }
+    
+    @discardableResult
+    func semanticContentAttribute(_ attribute: UISemanticContentAttribute) -> Self {
+        wrapped.semanticContentAttribute = attribute
+        return self
+    }
+    
+    @discardableResult
+    func addInteraction(_ interaction: UIInteraction) -> Self {
+        wrapped.addInteraction(interaction)
+        return self
+    }
+    
+    @discardableResult
+    func removeLayoutGuide(_ interaction: UIInteraction) -> Self {
+        wrapped.removeInteraction(interaction)
+        return self
+    }
+    
+    @discardableResult
+    func setNeedsDisplay() -> Self {
+        wrapped.setNeedsDisplay()
+        return self
+    }
+    
+    @discardableResult
+    func setNeedsDisplay(_ rect: CGRect) -> Self {
+        wrapped.setNeedsDisplay(rect)
+        return self
+    }
+    
+    @discardableResult
+    func contentScaleFactor(_ factor: CGFloat) -> Self {
+        wrapped.contentScaleFactor = factor
+        return self
+    }
+    
+    @discardableResult
+    func addMotionEffect(_ effect: UIMotionEffect) -> Self {
+        wrapped.addMotionEffect(effect)
+        return self
+    }
+    
+    @discardableResult
+    func removeMotionEffect(_ effect: UIMotionEffect) -> Self {
+        wrapped.removeMotionEffect(effect)
+        return self
+    }
+    
+    @discardableResult
+    func restorationIdentifier(_ identifier: String?) -> Self {
+        wrapped.restorationIdentifier = identifier
+        return self
+    }
+    
+    @discardableResult
+    func endEditing(_ isForce: Bool) -> Self {
+        wrapped.endEditing(isForce)
+        return self
+    }
+    
+    @discardableResult
+    func isAccessibilityIgnoresInvertColors(_ value: Bool) -> Self {
+        wrapped.accessibilityIgnoresInvertColors = value
+        return self
+    }
+    
+    @discardableResult
+    func focusGroupIdentifier(_ identifier: String?) -> Self {
+        if #available(iOS 14.0, *) {
+            wrapped.focusGroupIdentifier = identifier
+        }
+        return self
+    }
+    
+    @discardableResult
+    func largeContentImage(_ image: UIImage?) -> Self {
+        if #available(iOS 13.0, *) {
+            wrapped.largeContentImage = image
+        }
+        return self
+    }
+    
+    @discardableResult
+    func largeContentImageInsets(_ insets: UIEdgeInsets) -> Self {
+        if #available(iOS 13.0, *) {
+            wrapped.largeContentImageInsets = insets
+        }
+        return self
+    }
+    
+    @discardableResult
+    func largeContentTitle(_ title: String?) -> Self {
+        if #available(iOS 13.0, *) {
+            wrapped.largeContentTitle = title
+        }
+        return self
+    }
+    
+    @discardableResult
+    func isScalesLargeContentImage(_ value: Bool) -> Self {
+        if #available(iOS 13.0, *) {
+            wrapped.scalesLargeContentImage = value
+        }
+        return self
+    }
+    
+    @discardableResult
+    func isShowsLargeContentViewer(_ value: Bool) -> Self {
+        if #available(iOS 13.0, *) {
+            wrapped.showsLargeContentViewer = value
+        }
+        return self
+    }
+    
+    @discardableResult
+    func transform3D(_ transform3D: CATransform3D) -> Self {
+        if #available(iOS 13.0, *) {
+            wrapped.transform3D = transform3D
+        }
+        return self
+    }
     
 }

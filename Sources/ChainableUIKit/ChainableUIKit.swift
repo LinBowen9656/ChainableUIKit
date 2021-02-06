@@ -9,7 +9,7 @@ import Foundation
 
 public struct ChainableWrapper<Wrapped> {
     
-    public let wrapped: Wrapped
+    var wrapped: Wrapped
     
     public init(wrapped: Wrapped) {
         self.wrapped = wrapped
