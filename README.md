@@ -18,3 +18,8 @@ UIView().chainable
     .borderColor(.black)
     .borderWidth(1)
 ```
+
+## Release Notes
+
+### 1.1.0
+- Make UITextField and UITextView, which conforms to the UITextInputTraits protocol, chain-able.
