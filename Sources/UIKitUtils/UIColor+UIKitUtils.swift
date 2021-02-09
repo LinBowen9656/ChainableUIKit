@@ -30,9 +30,9 @@ public extension UIColor {
         return alpha
     }
     /// RGB字符串
-    var rgbHexString: String { String(format: "#%02X%02X%02X", redValue * 255, greenValue * 255, blueValue * 255) }
+    var rgbHexString: String { String(format: "#%02X%02X%02X", Int(redValue * 255), Int(greenValue * 255), Int(blueValue * 255)) }
     /// RGBA字符串
-    var rgbaHexString: String { String(format: "#%02X%02X%02X%02X", redValue * 255, greenValue * 255, blueValue * 255, alphaValue * 255) }
+    var rgbaHexString: String { String(format: "#%02X%02X%02X%02X", Int(redValue * 255), Int(greenValue * 255), Int(blueValue * 255), Int(alphaValue * 255)) }
     /// 是否是暗色系颜色
     var isDark: Bool { 1 - ((redValue * 0.299) + (greenValue * 0.587) + (blueValue * 0.114)) > 0.411 }
     /// 颜色对应的互补色
