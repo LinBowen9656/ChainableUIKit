@@ -21,5 +21,10 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.1.1
+
+- Fix a bug that get UIColor HexString wrong.
+
 ### 1.1.0
+
 - Make UITextField and UITextView, which conforms to the UITextInputTraits protocol, chain-able.
