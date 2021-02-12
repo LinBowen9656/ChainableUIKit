@@ -21,6 +21,10 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.1.2
+
+- Fix SPM warning.
+
 ### 1.1.1
 
 - Fix a bug that get UIColor HexString wrong.
