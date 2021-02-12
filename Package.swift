@@ -14,7 +14,11 @@ let package = Package(
     targets: [
         .target(name: "UIKitUtils"),
         .target(name: "ChainableUIKit", dependencies: [.target(name: "UIKitUtils")]),
-        .target(name: "UIKitObjectiveCUtils", dependencies: [.target(name: "UIKitUtils")]),
+        .target(
+            name: "UIKitObjectiveCUtils",
+            dependencies: [.target(name: "UIKitUtils")],
+            publicHeadersPath: ""
+        ),
         .testTarget(name: "ChainableUIKitTests", dependencies: ["ChainableUIKit"])
     ]
 )
