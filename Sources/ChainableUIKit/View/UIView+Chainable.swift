@@ -279,7 +279,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     
     @discardableResult
     func layout(@ConstraintsBuilder builder: (UIView) -> [NSLayoutConstraint]) -> Self {
-        wrapped.translatesAutoresizingMaskIntoConstraints = true
+        wrapped.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(builder(wrapped))
         return self
     }
