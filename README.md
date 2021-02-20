@@ -21,6 +21,10 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.1.3
+
+- Fix a bug that set `translatesAutoresizingMaskIntoConstraints` to `true` when active layout constraints.
+
 ### 1.1.2
 
 - Fix SPM warning.
