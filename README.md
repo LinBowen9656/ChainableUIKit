@@ -21,6 +21,10 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.2.0
+
+- Add a function that can clear UITableView and UICollectionView selection on Apearance.
+
 ### 1.1.3
 
 - Fix a bug that set `translatesAutoresizingMaskIntoConstraints` to `true` when active layout constraints.
