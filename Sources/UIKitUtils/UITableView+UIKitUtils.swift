@@ -46,4 +46,20 @@ public extension UITableView {
         tableViewHeightCache = [:]
     }
     
+    func clearSelectionWhenViewWillAppear(transitionCoordinator: UIViewControllerTransitionCoordinator?) {
+        if let selectedIndexPath = indexPathForSelectedRow {
+            if let coordinator = transitionCoordinator {
+                coordinator.animate { _ in
+                    self.deselectRow(at: selectedIndexPath, animated: true)
+                } completion: { context in
+                    if context.isCancelled {
+                        self.selectRow(at: selectedIndexPath, animated: false, scrollPosition: .none)
+                    }
+                }
+            } else {
+                deselectRow(at: selectedIndexPath, animated: true)
+            }
+        }
+    }
+    
 }

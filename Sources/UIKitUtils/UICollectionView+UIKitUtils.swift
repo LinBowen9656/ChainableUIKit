@@ -54,4 +54,26 @@ public extension UICollectionView {
         return ((availableWidth - (maxNumColumns - 1) * minSpacing) / maxNumColumns).rounded(.down)
     }
     
+    func clearSelectionWhenViewWillAppear(transitionCoordinator: UIViewControllerTransitionCoordinator?) {
+        if let selectedIndexPaths = indexPathsForSelectedItems {
+            if let coordinator = transitionCoordinator {
+                coordinator.animate { _ in
+                    selectedIndexPaths.forEach { indexPath in
+                        self.deselectItem(at: indexPath, animated: true)
+                    }
+                } completion: { context in
+                    if context.isCancelled {
+                        selectedIndexPaths.forEach { indexPath in
+                            self.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+                        }
+                    }
+                }
+            } else {
+                selectedIndexPaths.forEach { indexPath in
+                    self.deselectItem(at: indexPath, animated: true)
+                }
+            }
+        }
+    }
+    
 }
