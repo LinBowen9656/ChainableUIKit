@@ -48,13 +48,25 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func showViewController(_ controller: UIViewController, sender: Any?) -> Self {
+    func showByViewController(_ controller: UIViewController, sender: Any? = nil) -> Self {
+        controller.show(wrapped, sender: sender)
+        return self
+    }
+    
+    @discardableResult
+    func presentByViewController(_ controller: UIViewController, isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> Self {
+        controller.present(wrapped, animated: isAnimated, completion: completionHandler)
+        return self
+    }
+    
+    @discardableResult
+    func show(_ controller: UIViewController, sender: Any? = nil) -> Self {
         wrapped.show(controller, sender: sender)
         return self
     }
     
     @discardableResult
-    func showDetailViewController(_ controller: UIViewController, sender: Any?) -> Self {
+    func showDetail(_ controller: UIViewController, sender: Any? = nil) -> Self {
         wrapped.showDetailViewController(controller, sender: sender)
         return self
     }
