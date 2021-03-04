@@ -21,6 +21,10 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.3.0
+- Add a chain-able function that UIViewController can be show by other UIViewController.
+- Change the `show` and `showDetail` function name.
+
 ### 1.2.0
 
 - Add a function that can clear UITableView and UICollectionView selection on Apearance.
