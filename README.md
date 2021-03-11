@@ -21,7 +21,12 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.3.1
+
+- Fix a bug that set frame of empty view to wrong value.
+
 ### 1.3.0
+
 - Add a chain-able function that UIViewController can be show by other UIViewController.
 - Change the `show` and `showDetail` function name.
 
