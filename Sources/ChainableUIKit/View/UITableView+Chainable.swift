@@ -196,7 +196,7 @@ public extension ChainableWrapper where Wrapped: UITableView {
             if let emptyViewHandler = emptyViewHandler, isTableViewEmpty {
                 let emptyBackgroundView = UIView()
                 emptyBackgroundView.tag = .max
-                emptyBackgroundView.frame = wrapped.bounds
+                emptyBackgroundView.frame.size = wrapped.bounds.size
                 emptyBackgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 wrapped.insertSubview(emptyBackgroundView, at: 0)
                 emptyViewHandler(emptyBackgroundView)

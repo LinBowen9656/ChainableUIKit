@@ -67,7 +67,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
             if let emptyViewHandler = emptyViewHandler, isCollectionViewEmpty {
                 let emptyBackgroundView = UIView()
                 emptyBackgroundView.tag = .max
-                emptyBackgroundView.frame = wrapped.bounds
+                emptyBackgroundView.frame.size = wrapped.bounds.size
                 emptyBackgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 wrapped.insertSubview(emptyBackgroundView, at: 0)
                 emptyViewHandler(emptyBackgroundView)
