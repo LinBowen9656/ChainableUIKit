@@ -21,6 +21,10 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.3.2
+
+- When table view and collection view didn't on the window, call update will force to call reload data.
+
 ### 1.3.1
 
 - Fix a bug that set frame of empty view to wrong value.
