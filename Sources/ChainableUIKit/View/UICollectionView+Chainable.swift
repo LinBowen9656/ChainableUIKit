@@ -63,96 +63,90 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     @discardableResult
     func update(operation: DataSourceOperation, isAnimated: Bool = true, emptyViewHandler: ((UIView) -> Void)? = nil, completionHandler: ((Bool) -> Void)? = nil) -> Self {
         wrapped.viewWithTag(.max)?.removeFromSuperview()
-        switch operation {
-        case .diff(let diffOperations):
-            if isAnimated {
-                wrapped.performBatchUpdates {
-                    diffOperations.forEach { diffOperation in
-                        switch diffOperation {
-                        case .insertSections(let indexSet):
-                            wrapped.insertSections(indexSet)
-                        case .deleteSections(let indexSet):
-                            wrapped.deleteSections(indexSet)
-                        case .updateSections(let indexSet):
-                            wrapped.reloadSections(indexSet)
-                        case .moveSections(let indexs):
-                            indexs.forEach { (atIndex, toIndex) in
-                                wrapped.moveSection(atIndex, toSection: toIndex)
-                            }
-                        case .insert(let indexPaths):
-                            wrapped.insertItems(at: indexPaths)
-                        case .delete(let indexPaths):
-                            wrapped.deleteItems(at: indexPaths)
-                        case .update(let indexPaths):
-                            wrapped.reloadItems(at: indexPaths)
-                        case .move(let indexPaths):
-                            indexPaths.forEach { (atIndexPath, toIndexPath) in
-                                wrapped.moveItem(at: atIndexPath, to: toIndexPath)
-                            }
-                        }
-                    }
-                } completion: {
-                    if let emptyViewHandler = emptyViewHandler, isCollectionViewEmpty {
-                        let emptyBackgroundView = UIView()
-                        emptyBackgroundView.tag = .max
-                        emptyBackgroundView.frame.size = wrapped.bounds.size
-                        emptyBackgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                        wrapped.insertSubview(emptyBackgroundView, at: 0)
-                        emptyViewHandler(emptyBackgroundView)
-                    }
-                    completionHandler?($0)
-                }
-            } else {
-                UIView.performWithoutAnimation {
-                    wrapped.performBatchUpdates {
-                        diffOperations.forEach { diffOperation in
-                            switch diffOperation {
-                            case .insertSections(let indexSet):
-                                wrapped.insertSections(indexSet)
-                            case .deleteSections(let indexSet):
-                                wrapped.deleteSections(indexSet)
-                            case .updateSections(let indexSet):
-                                wrapped.reloadSections(indexSet)
-                            case .moveSections(let indexs):
-                                indexs.forEach { (atIndex, toIndex) in
-                                    wrapped.moveSection(atIndex, toSection: toIndex)
-                                }
-                            case .insert(let indexPaths):
-                                wrapped.insertItems(at: indexPaths)
-                            case .delete(let indexPaths):
-                                wrapped.deleteItems(at: indexPaths)
-                            case .update(let indexPaths):
-                                wrapped.reloadItems(at: indexPaths)
-                            case .move(let indexPaths):
-                                indexPaths.forEach { (atIndexPath, toIndexPath) in
-                                    wrapped.moveItem(at: atIndexPath, to: toIndexPath)
-                                }
-                            }
-                        }
-                    } completion: {
-                        if let emptyViewHandler = emptyViewHandler, isCollectionViewEmpty {
-                            let emptyBackgroundView = UIView()
-                            emptyBackgroundView.tag = .max
-                            emptyBackgroundView.frame.size = wrapped.bounds.size
-                            emptyBackgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                            wrapped.insertSubview(emptyBackgroundView, at: 0)
-                            emptyViewHandler(emptyBackgroundView)
-                        }
-                        completionHandler?($0)
-                    }
-                }
-            }
-        case .reload:
-            wrapped.reloadData()
+        func handler(isFinished: Bool) -> Void {
             if let emptyViewHandler = emptyViewHandler, isCollectionViewEmpty {
                 let emptyBackgroundView = UIView()
                 emptyBackgroundView.tag = .max
-                emptyBackgroundView.frame.size = wrapped.bounds.size
+                emptyBackgroundView.frame = wrapped.bounds
                 emptyBackgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 wrapped.insertSubview(emptyBackgroundView, at: 0)
                 emptyViewHandler(emptyBackgroundView)
             }
-            completionHandler?(true)
+            completionHandler?(isFinished)
+        }
+        switch operation {
+        case .diff(let diffOperations):
+            if wrapped.window == nil {
+                if !diffOperations.isEmpty {
+                    wrapped.reloadData()
+                }
+                handler(isFinished: true)
+            } else {
+                if !diffOperations.isEmpty {
+                    if isAnimated {
+                        wrapped.performBatchUpdates({
+                            diffOperations.forEach { diffOperation in
+                                switch diffOperation {
+                                case .insertSections(let indexSet):
+                                    wrapped.insertSections(indexSet)
+                                case .deleteSections(let indexSet):
+                                    wrapped.deleteSections(indexSet)
+                                case .updateSections(let indexSet):
+                                    wrapped.reloadSections(indexSet)
+                                case .moveSections(let indexs):
+                                    indexs.forEach { (atIndex, toIndex) in
+                                        wrapped.moveSection(atIndex, toSection: toIndex)
+                                    }
+                                case .insert(let indexPaths):
+                                    wrapped.insertItems(at: indexPaths)
+                                case .delete(let indexPaths):
+                                    wrapped.deleteItems(at: indexPaths)
+                                case .update(let indexPaths):
+                                    wrapped.reloadItems(at: indexPaths)
+                                case .move(let indexPaths):
+                                    indexPaths.forEach { (atIndexPath, toIndexPath) in
+                                        wrapped.moveItem(at: atIndexPath, to: toIndexPath)
+                                    }
+                                }
+                            }
+                        }, completion: handler)
+                    } else {
+                        UIView.performWithoutAnimation {
+                            wrapped.performBatchUpdates({
+                                diffOperations.forEach { diffOperation in
+                                    switch diffOperation {
+                                    case .insertSections(let indexSet):
+                                        wrapped.insertSections(indexSet)
+                                    case .deleteSections(let indexSet):
+                                        wrapped.deleteSections(indexSet)
+                                    case .updateSections(let indexSet):
+                                        wrapped.reloadSections(indexSet)
+                                    case .moveSections(let indexs):
+                                        indexs.forEach { (atIndex, toIndex) in
+                                            wrapped.moveSection(atIndex, toSection: toIndex)
+                                        }
+                                    case .insert(let indexPaths):
+                                        wrapped.insertItems(at: indexPaths)
+                                    case .delete(let indexPaths):
+                                        wrapped.deleteItems(at: indexPaths)
+                                    case .update(let indexPaths):
+                                        wrapped.reloadItems(at: indexPaths)
+                                    case .move(let indexPaths):
+                                        indexPaths.forEach { (atIndexPath, toIndexPath) in
+                                            wrapped.moveItem(at: atIndexPath, to: toIndexPath)
+                                        }
+                                    }
+                                }
+                            }, completion: handler)
+                        }
+                    }
+                } else {
+                    handler(isFinished: true)
+                }
+            }
+        case .reload:
+            wrapped.reloadData()
+            handler(isFinished: true)
         }
         return self
     }
