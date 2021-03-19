@@ -110,7 +110,7 @@ public extension ChainableWrapper where Wrapped: UILabel {
     }
     
     @discardableResult
-    func shadowOffset(_ offset: CGSize) -> Self {
+    func textShadowOffset(_ offset: CGSize) -> Self {
         wrapped.shadowOffset = offset
         return self
     }

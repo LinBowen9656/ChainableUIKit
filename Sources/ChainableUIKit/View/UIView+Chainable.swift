@@ -55,6 +55,12 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
+    func shadowOffset(_ offset: CGSize) -> Self {
+        wrapped.borderShadowOffset = offset
+        return self
+    }
+    
+    @discardableResult
     func tintColor(_ color: UIColor) -> Self {
         wrapped.tintColor = color
         return self
