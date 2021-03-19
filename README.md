@@ -21,6 +21,10 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.4.0
+
+- Add a chain-able function that UIView set shadow offset.
+
 ### 1.3.3
 
 - Fix a bug that set frame of empty view to wrong value.
