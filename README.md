@@ -21,6 +21,10 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.5.0
+
+- Add a chain-able function that exchanges the arranged subview at the specified indices.
+
 ### 1.4.0
 
 - Add a chain-able function that UIView set shadow offset.
