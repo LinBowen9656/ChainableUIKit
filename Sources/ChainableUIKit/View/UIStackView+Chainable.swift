@@ -28,6 +28,16 @@ public extension ChainableWrapper where Wrapped: UIStackView {
     }
     
     @discardableResult
+    func exchangeArrangedSubview(_ index: Int, atIndex: Int) -> Self {
+        guard index != atIndex else { return }
+        let view = wrapped.arrangedSubviews[index]
+        let spacing = wrapped.customSpacing(after: view)
+        view.removeFromSuperview()
+        wrapped.insertArrangedSubview(view, at: atIndex)
+        wrapped.setCustomSpacing(spacing, after: view)
+    }
+    
+    @discardableResult
     func alignment(_ alignment: UIStackView.Alignment) -> Self {
         wrapped.alignment = alignment
         return self
