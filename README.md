@@ -5,8 +5,8 @@ Make UIKit chain-able.
 ## Requirements
 
 - iOS 11.0+
-- Xcode 12.4+
-- Swift 5.3+
+- Xcode 12.5+
+- Swift 5.4+
 
 ## Usage
 
@@ -20,6 +20,10 @@ UIView().chainable
 ```
 
 ## Release Notes
+
+### 1.6.0
+
+- Update to Swift 5.4, replaced @_functionBuilder with @resultBuilder.
 
 ### 1.5.0
 
