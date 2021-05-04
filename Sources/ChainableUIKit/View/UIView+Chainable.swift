@@ -276,7 +276,7 @@ public extension ChainableWrapper where Wrapped: UIView {
         return self
     }
     
-    @_functionBuilder
+    @resultBuilder
     struct ConstraintsBuilder {
         
         public static func buildBlock(_ constraints: NSLayoutConstraint...) -> [NSLayoutConstraint] { constraints }

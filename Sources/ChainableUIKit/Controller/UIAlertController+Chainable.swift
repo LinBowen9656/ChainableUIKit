@@ -9,7 +9,7 @@ import UIKit
 
 public extension ChainableWrapper where Wrapped: UIAlertController {
     
-    @_functionBuilder
+    @resultBuilder
     struct AlertActionBuilder {
         
         public static func buildBlock(_ actions: UIAlertAction...) -> [UIAlertAction] { actions }
