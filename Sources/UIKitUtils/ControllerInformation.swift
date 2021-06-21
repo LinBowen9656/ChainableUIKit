@@ -14,7 +14,6 @@ public extension ControllerInformation {
     var topWindow: UIWindow? { UIApplication.shared.windows.last }
     var keyWindow: UIWindow? { UIApplication.shared.windows.last { $0.isKeyWindow } }
     /// 获取当前ViewController
-    /// 获取当前ViewController
     var currentViewController: UIViewController? {
         var resultVC: UIViewController? = getCurrentViewController(viewController: rootViewController)
         while resultVC?.presentedViewController != nil {
