@@ -21,6 +21,10 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.6.1
+
+- Add functions to get the CGAffineTransform value.
+
 ### 1.6.0
 
 - Update to Swift 5.4, replaced @_functionBuilder with @resultBuilder.
