@@ -21,6 +21,12 @@ UIView().chainable
 
 ## Release Notes
 
+### 1.7.0
+
+- Support iOS 15.
+- Fix a bug that the `ChainableWrapper` with struct value can't call function.
+- Add `custom` function to call the `ChainableWrapper`'s function in the closure.
+
 ### 1.6.1
 
 - Add functions to get the CGAffineTransform value.
