@@ -191,4 +191,12 @@ public extension ChainableWrapper where Wrapped: UITextView {
         return self
     }
     
+    @discardableResult
+    func interactionState(_ state: Any) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.interactionState = state
+        }
+        return self
+    }
+    
 }

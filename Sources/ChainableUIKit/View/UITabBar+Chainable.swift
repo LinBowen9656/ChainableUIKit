@@ -22,6 +22,15 @@ public extension ChainableWrapper where Wrapped: UITabBar {
         return self
     }
     
+    @available(iOS 13.0, *)
+    @discardableResult
+    func scrollEdgeAppearance(_ appearance: UITabBarAppearance) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.scrollEdgeAppearance = appearance
+        }
+        return self
+    }
+    
     @available(iOS, obsoleted: 13.0, message: "iOS 13.0以上请使用Appearance相关方法")
     @discardableResult
     func barStyle(_ style: UIBarStyle) -> Self {

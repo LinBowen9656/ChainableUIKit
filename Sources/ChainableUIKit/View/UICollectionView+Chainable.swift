@@ -251,4 +251,28 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
         return self
     }
     
+    @discardableResult
+    func reconfigureItems(at indexPaths: [IndexPath]) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.reconfigureItems(at: indexPaths)
+        }
+        return self
+    }
+    
+    @discardableResult
+    func isAllowsFocus(_ value: Bool) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.allowsFocus = value
+        }
+        return self
+    }
+    
+    @discardableResult
+    func isAllowsFocusDuringEditing(_ value: Bool) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.allowsFocusDuringEditing = value
+        }
+        return self
+    }
+    
 }

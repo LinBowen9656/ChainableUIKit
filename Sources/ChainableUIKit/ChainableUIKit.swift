@@ -9,10 +9,14 @@ import Foundation
 
 public struct ChainableWrapper<Wrapped> {
     
-    public var wrapped: Wrapped
+    public let wrapped: Wrapped
     
     public init(wrapped: Wrapped) {
         self.wrapped = wrapped
+    }
+    
+    public mutating func custom(_ handler: (Self) -> Self) -> Self {
+        handler(self)
     }
     
 }

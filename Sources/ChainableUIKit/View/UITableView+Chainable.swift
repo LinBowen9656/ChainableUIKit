@@ -356,4 +356,52 @@ public extension ChainableWrapper where Wrapped: UITableView {
         return self
     }
     
+    @discardableResult
+    func sectionHeaderTopPadding(_ padding: CGFloat) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.sectionHeaderTopPadding = padding
+        }
+        return self
+    }
+    
+    @discardableResult
+    func reconfigureRows(at indexPaths: [IndexPath]) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.reconfigureRows(at: indexPaths)
+        }
+        return self
+    }
+    
+    @discardableResult
+    func isAllowsFocus(_ value: Bool) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.allowsFocus = value
+        }
+        return self
+    }
+    
+    @discardableResult
+    func isAllowsFocusDuringEditing(_ value: Bool) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.allowsFocusDuringEditing = value
+        }
+        return self
+    }
+    
+    @discardableResult
+    func fillerRowHeight(_ height: CGFloat) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.fillerRowHeight = height
+        }
+        return self
+    }
+    
+    @discardableResult
+    func isPrefetchingEnabled(_ value: Bool) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.isPrefetchingEnabled = value
+        }
+        return self
+    }
+    
 }

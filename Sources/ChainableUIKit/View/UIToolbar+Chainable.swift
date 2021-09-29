@@ -63,4 +63,22 @@ public extension ChainableWrapper where Wrapped: UIToolbar {
         return self
     }
     
+    @available(iOS 13.0, *)
+    @discardableResult
+    func scrollEdgeAppearance(_ appearance: UIToolbarAppearance?) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.scrollEdgeAppearance = appearance
+        }
+        return self
+    }
+    
+    @available(iOS 13.0, *)
+    @discardableResult
+    func compactScrollEdgeAppearance(_ appearance: UIToolbarAppearance?) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.compactScrollEdgeAppearance = appearance
+        }
+        return self
+    }
+    
 }

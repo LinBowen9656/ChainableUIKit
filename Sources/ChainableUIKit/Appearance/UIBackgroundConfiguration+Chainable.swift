@@ -14,63 +14,95 @@ extension UIBackgroundConfiguration: ChainableType {}
 public extension ChainableWrapper where Wrapped == UIBackgroundConfiguration {
     
     @discardableResult
-    mutating func customView(_ view: UIView?) -> Self {
-        wrapped.customView = view
-        return self
+    func customView(_ view: UIView?) -> Self {
+        var wrap = wrapped
+        wrap.customView = view
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func cornerRadius(_ radius: CGFloat) -> Self {
-        wrapped.cornerRadius = radius
-        return self
+    func cornerRadius(_ radius: CGFloat) -> Self {
+        var wrap = wrapped
+        wrap.cornerRadius = radius
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func backgroundInsets(_ insets: NSDirectionalEdgeInsets) -> Self {
-        wrapped.backgroundInsets = insets
-        return self
+    func backgroundInsets(_ insets: NSDirectionalEdgeInsets) -> Self {
+        var wrap = wrapped
+        wrap.backgroundInsets = insets
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func edgesAddingLayoutMarginsToBackgroundInsets(_ edge: NSDirectionalRectEdge) -> Self {
-        wrapped.edgesAddingLayoutMarginsToBackgroundInsets = edge
-        return self
+    func edgesAddingLayoutMarginsToBackgroundInsets(_ edge: NSDirectionalRectEdge) -> Self {
+        var wrap = wrapped
+        wrap.edgesAddingLayoutMarginsToBackgroundInsets = edge
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func backgroundColor(_ color: UIColor?) -> Self {
-        wrapped.backgroundColor = color
-        return self
+    func backgroundColor(_ color: UIColor?) -> Self {
+        var wrap = wrapped
+        wrap.backgroundColor = color
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func backgroundColorTransformer(_ transformer: UIConfigurationColorTransformer?) -> Self {
-        wrapped.backgroundColorTransformer = transformer
-        return self
+    func backgroundColorTransformer(_ transformer: UIConfigurationColorTransformer?) -> Self {
+        var wrap = wrapped
+        wrap.backgroundColorTransformer = transformer
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func strokeColor(_ color: UIColor?) -> Self {
-        wrapped.strokeColor = color
-        return self
+    func strokeColor(_ color: UIColor?) -> Self {
+        var wrap = wrapped
+        wrap.strokeColor = color
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func strokeColorTransformer(_ transformer: UIConfigurationColorTransformer?) -> Self {
-        wrapped.strokeColorTransformer = transformer
-        return self
+    func strokeColorTransformer(_ transformer: UIConfigurationColorTransformer?) -> Self {
+        var wrap = wrapped
+        wrap.strokeColorTransformer = transformer
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func strokeWidth(_ width: CGFloat) -> Self {
-        wrapped.strokeWidth = width
-        return self
+    func strokeWidth(_ width: CGFloat) -> Self {
+        var wrap = wrapped
+        wrap.strokeWidth = width
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func strokeOutset(_ outset: CGFloat) -> Self {
-        wrapped.strokeOutset = outset
-        return self
+    func strokeOutset(_ outset: CGFloat) -> Self {
+        var wrap = wrapped
+        wrap.strokeOutset = outset
+        return ChainableWrapper(wrapped: wrap)
+    }
+    
+    @discardableResult
+    func image(_ image: UIImage?) -> Self {
+        if #available(iOS 15.0, *) {
+            var wrap = wrapped
+            wrap.image = image
+            return ChainableWrapper(wrapped: wrap)
+        } else {
+            return self
+        }
+    }
+    
+    @discardableResult
+    func imageContentMode(_ contentMode: UIView.ContentMode) -> Self {
+        if #available(iOS 15.0, *) {
+            var wrap = wrapped
+            wrap.imageContentMode = contentMode
+            return ChainableWrapper(wrapped: wrap)
+        } else {
+            return self
+        }
     }
     
 }

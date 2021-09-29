@@ -16,6 +16,15 @@ public extension ChainableWrapper where Wrapped: UITabBarItem {
         return self
     }
     
+    @available(iOS 13.0, *)
+    @discardableResult
+    func scrollEdgeAppearance(_ appearance: UITabBarAppearance) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.scrollEdgeAppearance = appearance
+        }
+        return self
+    }
+    
     @discardableResult
     func badgeValue(_ string: String?) -> Self {
         wrapped.badgeValue = string

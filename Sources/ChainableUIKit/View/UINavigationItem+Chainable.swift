@@ -93,6 +93,15 @@ public extension ChainableWrapper where Wrapped: UINavigationItem {
         return self
     }
     
+    @available(iOS 13.0, *)
+    @discardableResult
+    func compactScrollEdgeAppearance(_ appearance: UINavigationBarAppearance?) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.compactScrollEdgeAppearance = appearance
+        }
+        return self
+    }
+    
     @discardableResult
     func searchController(_ controller: UISearchController?) -> Self {
         wrapped.searchController = controller

@@ -141,4 +141,13 @@ public extension ChainableWrapper where Wrapped: UITableViewCell {
         return self
     }
     
+    @available(iOS 14.0, *)
+    @discardableResult
+    func configurationUpdateHandler(_ handler: ((_ cell: UITableViewCell, _ state: UICellConfigurationState) -> Void)?) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.configurationUpdateHandler = handler
+        }
+        return self
+    }
+    
 }

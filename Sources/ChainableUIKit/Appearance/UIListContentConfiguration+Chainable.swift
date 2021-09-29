@@ -14,87 +14,101 @@ extension UIListContentConfiguration: ChainableType {}
 public extension ChainableWrapper where Wrapped == UIListContentConfiguration {
     
     @discardableResult
-    mutating func image(_ image: UIImage?) -> Self {
-        wrapped.image = image
-        return self
+    func image(_ image: UIImage?) -> Self {
+        var wrap = wrapped
+        wrap.image = image
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func text(_ text: String?) -> Self {
-        wrapped.text = text
-        return self
+    func text(_ text: String?) -> Self {
+        var wrap = wrapped
+        wrap.text = text
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func attributedText(_ attributedString: NSAttributedString?) -> Self {
-        wrapped.attributedText = attributedString
-        return self
+    func attributedText(_ attributedString: NSAttributedString?) -> Self {
+        var wrap = wrapped
+        wrap.attributedText = attributedString
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func secondaryText(_ text: String?) -> Self {
-        wrapped.secondaryText = text
-        return self
+    func secondaryText(_ text: String?) -> Self {
+        var wrap = wrapped
+        wrap.secondaryText = text
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func secondaryAttributedText(_ attributedString: NSAttributedString?) -> Self {
-        wrapped.secondaryAttributedText = attributedString
-        return self
+    func secondaryAttributedText(_ attributedString: NSAttributedString?) -> Self {
+        var wrap = wrapped
+        wrap.secondaryAttributedText = attributedString
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func imageProperties(_ properties: UIListContentConfiguration.ImageProperties) -> Self {
-        wrapped.imageProperties = properties
-        return self
+    func imageProperties(_ properties: UIListContentConfiguration.ImageProperties) -> Self {
+        var wrap = wrapped
+        wrap.imageProperties = properties
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func textProperties(_ properties: UIListContentConfiguration.TextProperties) -> Self {
-        wrapped.textProperties = properties
-        return self
+    func textProperties(_ properties: UIListContentConfiguration.TextProperties) -> Self {
+        var wrap = wrapped
+        wrap.textProperties = properties
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func secondaryTextProperties(_ properties: UIListContentConfiguration.TextProperties) -> Self {
-        wrapped.secondaryTextProperties = properties
-        return self
+    func secondaryTextProperties(_ properties: UIListContentConfiguration.TextProperties) -> Self {
+        var wrap = wrapped
+        wrap.secondaryTextProperties = properties
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func axesPreservingSuperviewLayoutMargins(_ axis: UIAxis) -> Self {
-        wrapped.axesPreservingSuperviewLayoutMargins = axis
-        return self
+    func axesPreservingSuperviewLayoutMargins(_ axis: UIAxis) -> Self {
+        var wrap = wrapped
+        wrap.axesPreservingSuperviewLayoutMargins = axis
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func directionalLayoutMargins(_ insets: NSDirectionalEdgeInsets) -> Self {
-        wrapped.directionalLayoutMargins = insets
-        return self
+    func directionalLayoutMargins(_ insets: NSDirectionalEdgeInsets) -> Self {
+        var wrap = wrapped
+        wrap.directionalLayoutMargins = insets
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func isPrefersSideBySideTextAndSecondaryText(_ value: Bool) -> Self {
-        wrapped.prefersSideBySideTextAndSecondaryText = value
-        return self
+    func isPrefersSideBySideTextAndSecondaryText(_ value: Bool) -> Self {
+        var wrap = wrapped
+        wrap.prefersSideBySideTextAndSecondaryText = value
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func imageToTextPadding(_ padding: CGFloat) -> Self {
-        wrapped.imageToTextPadding = padding
-        return self
+    func imageToTextPadding(_ padding: CGFloat) -> Self {
+        var wrap = wrapped
+        wrap.imageToTextPadding = padding
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func textToSecondaryTextHorizontalPadding(_ padding: CGFloat) -> Self {
-        wrapped.textToSecondaryTextHorizontalPadding = padding
-        return self
+    func textToSecondaryTextHorizontalPadding(_ padding: CGFloat) -> Self {
+        var wrap = wrapped
+        wrap.textToSecondaryTextHorizontalPadding = padding
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func textToSecondaryTextVerticalPadding(_ padding: CGFloat) -> Self {
-        wrapped.textToSecondaryTextVerticalPadding = padding
-        return self
+    func textToSecondaryTextVerticalPadding(_ padding: CGFloat) -> Self {
+        var wrap = wrapped
+        wrap.textToSecondaryTextVerticalPadding = padding
+        return ChainableWrapper(wrapped: wrap)
     }
     
 }
@@ -106,45 +120,52 @@ extension UIListContentConfiguration.ImageProperties: ChainableType {}
 public extension ChainableWrapper where Wrapped == UIListContentConfiguration.ImageProperties {
     
     @discardableResult
-    mutating func preferredSymbolConfiguration(_ configuration: UIImage.SymbolConfiguration?) -> Self {
-        wrapped.preferredSymbolConfiguration = configuration
-        return self
+    func preferredSymbolConfiguration(_ configuration: UIImage.SymbolConfiguration?) -> Self {
+        var wrap = wrapped
+        wrap.preferredSymbolConfiguration = configuration
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func tintColor(_ color: UIColor?) -> Self {
-        wrapped.tintColor = color
-        return self
+    func tintColor(_ color: UIColor?) -> Self {
+        var wrap = wrapped
+        wrap.tintColor = color
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func tintColorTransformer(_ transformer: UIConfigurationColorTransformer?) -> Self {
-        wrapped.tintColorTransformer = transformer
-        return self
+    func tintColorTransformer(_ transformer: UIConfigurationColorTransformer?) -> Self {
+        var wrap = wrapped
+        wrap.tintColorTransformer = transformer
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func cornerRadius(_ radius: CGFloat) -> Self {
-        wrapped.cornerRadius = radius
-        return self
+    func cornerRadius(_ radius: CGFloat) -> Self {
+        var wrap = wrapped
+        wrap.cornerRadius = radius
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func maximumSize(_ size: CGSize) -> Self {
-        wrapped.maximumSize = size
-        return self
+    func maximumSize(_ size: CGSize) -> Self {
+        var wrap = wrapped
+        wrap.maximumSize = size
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func reservedLayoutSize(_ size: CGSize) -> Self {
-        wrapped.reservedLayoutSize = size
-        return self
+    func reservedLayoutSize(_ size: CGSize) -> Self {
+        var wrap = wrapped
+        wrap.reservedLayoutSize = size
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func isAccessibilityIgnoresInvertColors(_ value: Bool) -> Self {
-        wrapped.accessibilityIgnoresInvertColors = value
-        return self
+    func isAccessibilityIgnoresInvertColors(_ value: Bool) -> Self {
+        var wrap = wrapped
+        wrap.accessibilityIgnoresInvertColors = value
+        return ChainableWrapper(wrapped: wrap)
     }
     
 }
@@ -156,69 +177,80 @@ extension UIListContentConfiguration.TextProperties: ChainableType {}
 public extension ChainableWrapper where Wrapped == UIListContentConfiguration.TextProperties {
     
     @discardableResult
-    mutating func font(_ font: UIFont) -> Self {
-        wrapped.font = font
-        return self
+    func font(_ font: UIFont) -> Self {
+        var wrap = wrapped
+        wrap.font = font
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func color(_ color: UIColor) -> Self {
-        wrapped.color = color
-        return self
+    func color(_ color: UIColor) -> Self {
+        var wrap = wrapped
+        wrap.color = color
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func colorTransformer(_ transformer: UIConfigurationColorTransformer?) -> Self {
-        wrapped.colorTransformer = transformer
-        return self
+    func colorTransformer(_ transformer: UIConfigurationColorTransformer?) -> Self {
+        var wrap = wrapped
+        wrap.colorTransformer = transformer
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func alignment(_ alignment: UIListContentConfiguration.TextProperties.TextAlignment) -> Self {
-        wrapped.alignment = alignment
-        return self
+    func alignment(_ alignment: UIListContentConfiguration.TextProperties.TextAlignment) -> Self {
+        var wrap = wrapped
+        wrap.alignment = alignment
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func lineBreakMode(_ mode: NSLineBreakMode) -> Self {
-        wrapped.lineBreakMode = mode
-        return self
+    func lineBreakMode(_ mode: NSLineBreakMode) -> Self {
+        var wrap = wrapped
+        wrap.lineBreakMode = mode
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func numberOfLines(_ value: Int) -> Self {
-        wrapped.numberOfLines = value
-        return self
+    func numberOfLines(_ value: Int) -> Self {
+        var wrap = wrapped
+        wrap.numberOfLines = value
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func isAdjustsFontSizeToFitWidth(_ value: Bool) -> Self {
-        wrapped.adjustsFontSizeToFitWidth = value
-        return self
+    func isAdjustsFontSizeToFitWidth(_ value: Bool) -> Self {
+        var wrap = wrapped
+        wrap.adjustsFontSizeToFitWidth = value
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func minimumScaleFactor(_ factor: CGFloat) -> Self {
-        wrapped.minimumScaleFactor = factor
-        return self
+    func minimumScaleFactor(_ factor: CGFloat) -> Self {
+        var wrap = wrapped
+        wrap.minimumScaleFactor = factor
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func isAllowsDefaultTighteningForTruncation(_ value: Bool) -> Self {
-        wrapped.allowsDefaultTighteningForTruncation = value
-        return self
+    func isAllowsDefaultTighteningForTruncation(_ value: Bool) -> Self {
+        var wrap = wrapped
+        wrap.allowsDefaultTighteningForTruncation = value
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func isAdjustsFontForContentSizeCategory(_ value: Bool) -> Self {
-        wrapped.adjustsFontForContentSizeCategory = value
-        return self
+    func isAdjustsFontForContentSizeCategory(_ value: Bool) -> Self {
+        var wrap = wrapped
+        wrap.adjustsFontForContentSizeCategory = value
+        return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    mutating func transform(_ transform: UIListContentConfiguration.TextProperties.TextTransform) -> Self {
-        wrapped.transform = transform
-        return self
+    func transform(_ transform: UIListContentConfiguration.TextProperties.TextTransform) -> Self {
+        var wrap = wrapped
+        wrap.transform = transform
+        return ChainableWrapper(wrapped: wrap)
     }
     
 }

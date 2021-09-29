@@ -69,4 +69,11 @@ public extension ChainableWrapper where Wrapped: UISlider {
         return self
     }
     
+    @available(iOS 15.0, *)
+    @discardableResult
+    func preferredBehavioralStyle(_ style: UIBehavioralStyle) -> Self {
+        wrapped.preferredBehavioralStyle = style
+        return self
+    }
+    
 }

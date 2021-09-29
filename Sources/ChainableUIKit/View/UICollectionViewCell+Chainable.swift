@@ -63,4 +63,13 @@ public extension ChainableWrapper where Wrapped: UICollectionViewCell {
         return self
     }
     
+    @available(iOS 14.0, *)
+    @discardableResult
+    func configurationUpdateHandler(_ handler: ((_ cell: UICollectionViewCell, _ state: UICellConfigurationState) -> Void)?) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.configurationUpdateHandler = handler
+        }
+        return self
+    }
+    
 }

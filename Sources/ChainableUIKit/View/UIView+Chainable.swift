@@ -539,4 +539,34 @@ public extension ChainableWrapper where Wrapped: UIView {
         return self
     }
     
+    @available(iOS 15.0, *)
+    @discardableResult
+    func focusEffect(_ effect: UIFocusEffect) -> Self {
+        wrapped.focusEffect = effect
+        return self
+    }
+    
+    @available(iOS 15.0, *)
+    @discardableResult
+    func focusGroupPriority(_ priority: UIFocusGroupPriority) -> Self {
+        wrapped.focusGroupPriority = priority
+        return self
+    }
+    
+    @discardableResult
+    func maximumContentSizeCategory(_ category: UIContentSizeCategory) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.maximumContentSizeCategory = category
+        }
+        return self
+    }
+    
+    @discardableResult
+    func minimumContentSizeCategory(_ category: UIContentSizeCategory) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.minimumContentSizeCategory = category
+        }
+        return self
+    }
+    
 }

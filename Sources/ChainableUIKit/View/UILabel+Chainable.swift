@@ -121,4 +121,12 @@ public extension ChainableWrapper where Wrapped: UILabel {
         return self
     }
     
+    @discardableResult
+    func isShowsExpansionTextWhenTruncated(_ value: Bool) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.showsExpansionTextWhenTruncated = value
+        }
+        return self
+    }
+    
 }

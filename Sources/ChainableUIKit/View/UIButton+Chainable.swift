@@ -117,4 +117,50 @@ public extension ChainableWrapper where Wrapped: UIButton {
         return self
     }
     
+    @available(iOS 15.0, *)
+    @discardableResult
+    func configuration(_ configuration: UIButton.Configuration?) -> Self {
+        wrapped.configuration = configuration
+        return self
+    }
+    
+    @discardableResult
+    func automaticallyUpdatesConfiguration(_ value: Bool) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.automaticallyUpdatesConfiguration = value
+        }
+        return self
+    }
+    
+    @discardableResult
+    func setNeedsUpdateConfiguration() -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.setNeedsUpdateConfiguration()
+        }
+        return self
+    }
+    
+    @discardableResult
+    func configurationUpdateHandler(_ handler: ((UIButton) -> Void)?) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.configurationUpdateHandler = handler
+        }
+        return self
+    }
+    
+    @available(iOS 15.0, *)
+    @discardableResult
+    func preferredBehavioralStyle(_ style: UIBehavioralStyle) -> Self {
+        wrapped.preferredBehavioralStyle = style
+        return self
+    }
+    
+    @discardableResult
+    func isChangesSelectionAsPrimaryAction(_ value: Bool) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.changesSelectionAsPrimaryAction = value
+        }
+        return self
+    }
+    
 }

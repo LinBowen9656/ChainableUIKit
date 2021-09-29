@@ -79,4 +79,28 @@ public extension ChainableWrapper where Wrapped: UIControl {
         return self
     }
     
+    @discardableResult
+    func isShowsMenuAsPrimaryAction(_ value: Bool) -> Self {
+        if #available(iOS 14.0, *) {
+            wrapped.showsMenuAsPrimaryAction = value
+        }
+        return self
+    }
+    
+    @discardableResult
+    func isContextMenuInteractionEnabled(_ value: Bool) -> Self {
+        if #available(iOS 14.0, *) {
+            wrapped.isContextMenuInteractionEnabled = value
+        }
+        return self
+    }
+    
+    @discardableResult
+    func toolTip(_ tip: String) -> Self {
+        if #available(iOS 15.0, *) {
+            wrapped.toolTip = tip
+        }
+        return self
+    }
+    
 }
