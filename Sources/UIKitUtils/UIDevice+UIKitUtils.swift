@@ -119,6 +119,8 @@ public extension UIDevice {
         case appleWatchSE_44mm
         case appleWatchSeries6_40mm
         case appleWatchSeries6_44mm
+        case appleWatchSeries7_41mm
+        case appleWatchSeries7_45mm
         #elseif os(tvOS)
         case appleTV2
         case appleTV3
@@ -247,6 +249,8 @@ public extension UIDevice {
             case .appleWatchSeries6_44mm: return "Apple Watch Series 6 44mm"
             case .appleWatchSE_40mm: return "Apple Watch SE 40mm"
             case .appleWatchSE_44mm: return "Apple Watch SE 44mm"
+            case .appleWatchSeries7_41mm: return "Apple Watch Series 7 41mm"
+            case .appleWatchSeries7_45mm: return "Apple Watch Series 7 45mm"
             case .simulator(let model): return "Simulator (\(model.description))"
             case .unknown(let identifier): return identifier
             }
@@ -404,37 +408,41 @@ public extension UIDevice {
             #elseif os(watchOS)
             switch rawValue {
             case "Watch1,1":
-                self = .appleWatch_38
+                self = .appleWatch_38mm
             case "Watch1,2":
-                self = .appleWatch_42
+                self = .appleWatch_42mm
             case "Watch2.6":
-                self = .appleWatchSeries1_38
+                self = .appleWatchSeries1_38mm
             case "Watch2.7":
-                self = .appleWatchSeries1_42
+                self = .appleWatchSeries1_42mm
             case "Watch2.3":
-                self = .appleWatchSeries2_38
+                self = .appleWatchSeries2_38mm
             case "Watch2.4":
-                self = .appleWatchSeries2_42
+                self = .appleWatchSeries2_42mm
             case "Watch3,1", "Watch3,3":
-                self = .appleWatchSeries3_38
+                self = .appleWatchSeries3_38mm
             case "Watch3,2", "Watch3,4":
-                self = .appleWatchSeries3_42
+                self = .appleWatchSeries3_42mm
             case "Watch4,1", "Watch4,3":
-                self = .appleWatchSeries4_40
+                self = .appleWatchSeries4_40mm
             case "Watch4,2", "Watch4,4":
-                self = .appleWatchSeries4_44
+                self = .appleWatchSeries4_44mm
             case "Watch5,1", "Watch5,3":
-                self = .appleWatchSeries5_40
+                self = .appleWatchSeries5_40mm
             case "Watch5,2", "Watch5,4":
-                self = .appleWatchSeries5_44
+                self = .appleWatchSeries5_44mm
             case "Watch5,9", "Watch5,11":
-                self = .appleWatchSE_40
+                self = .appleWatchSE_40mm
             case "Watch5,10", "Watch5,12":
-                self = .appleWatchSE_44
+                self = .appleWatchSE_44mm
             case "Watch6,1", "Watch6,3":
-                self = .appleWatchSeries6_40
+                self = .appleWatchSeries6_40mm
             case "Watch6,2", "Watch6,4":
-                self = .appleWatchSeries6_44
+                self = .appleWatchSeries6_44mm
+            case "Watch6,6", "Watch6,8":
+                self = .appleWatchSeries7_41mm
+            case "Watch6,7", "Watch6,9":
+                self = .appleWatchSeries7_45mm
             case "i386", "x86_64", "arm64":
                 self = .simulator(Device(hardwareString: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "watchOS"))
             default:
