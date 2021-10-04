@@ -12,7 +12,7 @@ public protocol HapticFeedbackable {}
 public extension HapticFeedbackable {
     
     func hapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        if UIDevice.current.modelName == .iPhone6S || UIDevice.current.modelName == .iPhone6SPlus {
+        if UIDevice.device == .iPhone6s || UIDevice.device == .iPhone6sPlus {
             switch style {
             case .light, .medium:
                 AudioServicesPlaySystemSound(1519)
