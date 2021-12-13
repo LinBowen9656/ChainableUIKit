@@ -15,7 +15,8 @@ public struct ChainableWrapper<Wrapped> {
         self.wrapped = wrapped
     }
     
-    public mutating func custom(_ handler: (Self) -> Self) -> Self {
+    @discardableResult
+    public func custom(_ handler: (Self) -> Self) -> Self {
         handler(self)
     }
     
