@@ -2,6 +2,12 @@
 
 -----
 
+## 2.1.1
+
+* Fix a bug that `custom` function can't be called.
+
+-----
+
 ## 2.1.0
 
 * UIWindow, UIContextualAction and UISwipeActionsConfiguration now support chain-able calls.
