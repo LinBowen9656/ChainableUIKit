@@ -48,6 +48,12 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
+    func pushByNavigationController(_ navigationController: UINavigationController?, isAnimated: Bool = true) -> Self {
+        navigationController?.pushViewController(wrapped, animated: isAnimated)
+        return self
+    }
+    
+    @discardableResult
     func showByViewController(_ controller: UIViewController, sender: Any? = nil) -> Self {
         controller.show(wrapped, sender: sender)
         return self
