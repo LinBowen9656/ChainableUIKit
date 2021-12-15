@@ -2,6 +2,12 @@
 
 -----
 
+## 2.2.0
+
+* Add `pushByNavigationController` function.
+
+-----
+
 ## 2.1.1
 
 * Fix a bug that `custom` function can't be called.
