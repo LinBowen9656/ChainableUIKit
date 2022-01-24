@@ -2,7 +2,7 @@
 //  UITableView+UIKitUtils.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/5.
+//  Created by 林博文 on 2021/2/5.
 //
 
 import UIKit
@@ -23,6 +23,10 @@ public extension UITableView {
         }
     }
     
+    /// Cache the cell height.
+    /// - Parameters:
+    ///   - cell: The cell you want to cache height.
+    ///   - id: The ID associated with height.
     func cacheTableViewCellHeight(cell: UITableViewCell, id: AnyHashable) {
         guard frame.size.width > 0 && frame.size.height > 0 && cell.frame.height.isFinite else { return }
         if tableViewHeightCache[frame.width] == nil {
@@ -31,21 +35,31 @@ public extension UITableView {
         tableViewHeightCache[frame.width]?[id] = cell.frame.height
     }
     
+    /// Get the height cache of ID.
+    /// - Parameter id: The ID which you want to get height cache.
+    /// - Returns: The height cache of ID.
     func getTableViewCacheHeight(id: AnyHashable) -> CGFloat {
         guard frame.size.width > 0 && frame.size.height > 0, let cacheHeight = tableViewHeightCache[frame.width]?[id] else { return UITableView.automaticDimension }
         return cacheHeight
     }
     
+    /// Clear the cache of ID.
+    /// - Parameter id: The ID which you want to clear height cache.
     func invalidateHeightCache(id: AnyHashable) {
         for height in tableViewHeightCache.keys {
             tableViewHeightCache[height]?[id] = nil
         }
     }
     
+    /// Clear cache.
     func invalidateAllHeightCache() {
         tableViewHeightCache = [:]
     }
     
+    /// Clear selection when view will appear.
+    ///
+    /// Call in the `viewWillAppear`.
+    /// - Parameter transitionCoordinator: Controller's `transitionCoordinator`.
     func clearSelectionWhenViewWillAppear(transitionCoordinator: UIViewControllerTransitionCoordinator?) {
         if let selectedIndexPath = indexPathForSelectedRow {
             if let coordinator = transitionCoordinator {

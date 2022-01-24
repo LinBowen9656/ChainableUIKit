@@ -2,7 +2,7 @@
 //  UICollectionView+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/4.
+//  Created by 林博文 on 2021/2/4.
 //
 
 import UIKit
@@ -46,7 +46,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func collectionViewLayout(_ layout: UICollectionViewLayout, isAnimated: Bool = true, completionHandler: ((Bool) -> Void)? = nil) -> Self {
+    func collectionViewLayout(_ layout: UICollectionViewLayout, isAnimated: Bool = false, completionHandler: ((Bool) -> Void)? = nil) -> Self {
         wrapped.setCollectionViewLayout(layout, animated: isAnimated, completion: completionHandler)
         return self
     }
@@ -82,8 +82,35 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
                 }
                 handler(isFinished: true)
             } else {
-                if !diffOperations.isEmpty {
-                    if isAnimated {
+                if isAnimated {
+                    wrapped.performBatchUpdates({
+                        diffOperations.forEach { diffOperation in
+                            switch diffOperation {
+                            case .insertSections(let indexSet):
+                                wrapped.insertSections(indexSet)
+                            case .deleteSections(let indexSet):
+                                wrapped.deleteSections(indexSet)
+                            case .updateSections(let indexSet):
+                                wrapped.reloadSections(indexSet)
+                            case .moveSections(let indexs):
+                                indexs.forEach { (atIndex, toIndex) in
+                                    wrapped.moveSection(atIndex, toSection: toIndex)
+                                }
+                            case .insert(let indexPaths):
+                                wrapped.insertItems(at: indexPaths)
+                            case .delete(let indexPaths):
+                                wrapped.deleteItems(at: indexPaths)
+                            case .update(let indexPaths):
+                                wrapped.reloadItems(at: indexPaths)
+                            case .move(let indexPaths):
+                                indexPaths.forEach { (atIndexPath, toIndexPath) in
+                                    wrapped.moveItem(at: atIndexPath, to: toIndexPath)
+                                }
+                            }
+                        }
+                    }, completion: handler)
+                } else {
+                    UIView.performWithoutAnimation {
                         wrapped.performBatchUpdates({
                             diffOperations.forEach { diffOperation in
                                 switch diffOperation {
@@ -110,38 +137,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
                                 }
                             }
                         }, completion: handler)
-                    } else {
-                        UIView.performWithoutAnimation {
-                            wrapped.performBatchUpdates({
-                                diffOperations.forEach { diffOperation in
-                                    switch diffOperation {
-                                    case .insertSections(let indexSet):
-                                        wrapped.insertSections(indexSet)
-                                    case .deleteSections(let indexSet):
-                                        wrapped.deleteSections(indexSet)
-                                    case .updateSections(let indexSet):
-                                        wrapped.reloadSections(indexSet)
-                                    case .moveSections(let indexs):
-                                        indexs.forEach { (atIndex, toIndex) in
-                                            wrapped.moveSection(atIndex, toSection: toIndex)
-                                        }
-                                    case .insert(let indexPaths):
-                                        wrapped.insertItems(at: indexPaths)
-                                    case .delete(let indexPaths):
-                                        wrapped.deleteItems(at: indexPaths)
-                                    case .update(let indexPaths):
-                                        wrapped.reloadItems(at: indexPaths)
-                                    case .move(let indexPaths):
-                                        indexPaths.forEach { (atIndexPath, toIndexPath) in
-                                            wrapped.moveItem(at: atIndexPath, to: toIndexPath)
-                                        }
-                                    }
-                                }
-                            }, completion: handler)
-                        }
                     }
-                } else {
-                    handler(isFinished: true)
                 }
             }
         case .reload:

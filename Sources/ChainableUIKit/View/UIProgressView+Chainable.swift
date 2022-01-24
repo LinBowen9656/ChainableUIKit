@@ -2,7 +2,7 @@
 //  UIProgressView+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/1/18.
+//  Created by 林博文 on 2021/1/18.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UIProgressView {
     
     @discardableResult
-    func progress(_ value: Float, isAnimated: Bool = true) -> Self {
+    func progress(_ value: Float, isAnimated: Bool = false) -> Self {
         wrapped.setProgress(value, animated: isAnimated)
         return self
     }

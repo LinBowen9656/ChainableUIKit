@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  UIDatePicker+Chainable.swift
 //  
 //
 //  Created by 林博文 on 2021/1/31.
@@ -16,7 +16,7 @@ public extension ChainableWrapper where Wrapped: UIDatePicker {
     }
     
     @discardableResult
-    func date(_ date: Date, isAnimated: Bool = true) -> Self {
+    func date(_ date: Date, isAnimated: Bool = false) -> Self {
         wrapped.setDate(date, animated: isAnimated)
         return self
     }

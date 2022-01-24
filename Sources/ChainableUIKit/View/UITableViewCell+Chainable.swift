@@ -2,7 +2,7 @@
 //  UITableViewCell+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/4.
+//  Created by 林博文 on 2021/2/4.
 //
 
 import UIKit
@@ -88,13 +88,13 @@ public extension ChainableWrapper where Wrapped: UITableViewCell {
     }
     
     @discardableResult
-    func isSelected(_ value: Bool, isAnimated: Bool = true) -> Self {
+    func isSelected(_ value: Bool, isAnimated: Bool = false) -> Self {
         wrapped.setSelected(value, animated: isAnimated)
         return self
     }
     
     @discardableResult
-    func isHighlighted(_ value: Bool, isAnimated: Bool = true) -> Self {
+    func isHighlighted(_ value: Bool, isAnimated: Bool = false) -> Self {
         wrapped.setHighlighted(value, animated: isAnimated)
         return self
     }

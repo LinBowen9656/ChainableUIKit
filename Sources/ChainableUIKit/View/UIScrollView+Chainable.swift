@@ -2,7 +2,7 @@
 //  UIScrollView+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/1/18.
+//  Created by 林博文 on 2021/1/18.
 //
 
 import UIKit
@@ -22,7 +22,7 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func contentOffset(_ offset: CGPoint, isAnimated: Bool = true) -> Self {
+    func contentOffset(_ offset: CGPoint, isAnimated: Bool = false) -> Self {
         wrapped.setContentOffset(offset, animated: isAnimated)
         return self
     }
@@ -106,13 +106,13 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func visibleRect(_ rect: CGRect, isAnimated: Bool = true) -> Self {
+    func visibleRect(_ rect: CGRect, isAnimated: Bool = false) -> Self {
         wrapped.scrollRectToVisible(rect, animated: isAnimated)
         return self
     }
     
     @discardableResult
-    func zoomScale(_ scale: CGFloat, isAnimated: Bool = true) -> Self {
+    func zoomScale(_ scale: CGFloat, isAnimated: Bool = false) -> Self {
         wrapped.setZoomScale(scale, animated: isAnimated)
         return self
     }
@@ -177,16 +177,14 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     
     @discardableResult
     func scrollToTop(isAnimated: Bool = true) -> Self {
-        let inset: UIEdgeInsets
-        inset = wrapped.adjustedContentInset
+        let inset = wrapped.adjustedContentInset
         wrapped.setContentOffset(CGPoint(x: -inset.left, y: -inset.top), animated: isAnimated)
         return self
     }
     
     @discardableResult
     func scrollToBottom(isAnimated: Bool = true) -> Self {
-        let inset: UIEdgeInsets
-        inset = wrapped.adjustedContentInset
+        let inset = wrapped.adjustedContentInset
         guard (wrapped.contentSize.height + inset.top + inset.bottom) > wrapped.bounds.height else { return self }
         wrapped.setContentOffset(CGPoint(x: wrapped.contentOffset.x, y: wrapped.contentSize.height + inset.bottom - wrapped.bounds.height), animated: isAnimated)
         return self

@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UIToolbar {
     
     @discardableResult
-    func items(_ items: [UIBarButtonItem]?, isAnimated: Bool = true) -> Self {
+    func items(_ items: [UIBarButtonItem]?, isAnimated: Bool = false) -> Self {
         wrapped.setItems(items, animated: isAnimated)
         return self
     }

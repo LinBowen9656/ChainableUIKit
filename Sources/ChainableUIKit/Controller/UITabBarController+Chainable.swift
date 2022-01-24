@@ -2,7 +2,7 @@
 //  UITabBarController+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/5.
+//  Created by 林博文 on 2021/2/5.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UITabBarController {
     
     @discardableResult
-    func viewControllers(_ controllers: [UIViewController], isAnimated: Bool = true) -> Self {
+    func viewControllers(_ controllers: [UIViewController], isAnimated: Bool = false) -> Self {
         wrapped.setViewControllers(controllers, animated: isAnimated)
         return self
     }

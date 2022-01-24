@@ -8,8 +8,6 @@
 import UIKit
 import UIKitUtils
 
-extension UIView: ChainableType {}
-
 public extension ChainableWrapper where Wrapped: UIView {
     
     @discardableResult
@@ -152,6 +150,14 @@ public extension ChainableWrapper where Wrapped: UIView {
     func removeSubview(_ view: UIView) -> Self {
         if view.superview == wrapped {
             view.removeFromSuperview()
+        }
+        return self
+    }
+    
+    @discardableResult
+    func removeAllSubviews() -> Self {
+        wrapped.subviews.forEach {
+            $0.removeFromSuperview()
         }
         return self
     }
@@ -309,6 +315,12 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
+    func maskLayer(_ layer: CALayer?) -> Self {
+        wrapped.layer.mask = layer
+        return self
+    }
+    
+    @discardableResult
     func isMultipleTouchEnabled(_ value: Bool) -> Self {
         wrapped.isMultipleTouchEnabled = value
         return self
@@ -418,7 +430,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func removeLayoutGuide(_ interaction: UIInteraction) -> Self {
+    func removeInteraction(_ interaction: UIInteraction) -> Self {
         wrapped.removeInteraction(interaction)
         return self
     }
@@ -468,6 +480,18 @@ public extension ChainableWrapper where Wrapped: UIView {
     @discardableResult
     func isAccessibilityIgnoresInvertColors(_ value: Bool) -> Self {
         wrapped.accessibilityIgnoresInvertColors = value
+        return self
+    }
+    
+    @discardableResult
+    func setNeedsFocusUpdate() -> Self {
+        wrapped.setNeedsFocusUpdate()
+        return self
+    }
+    
+    @discardableResult
+    func updateFocusIfNeeded() -> Self {
+        wrapped.updateFocusIfNeeded()
         return self
     }
     
@@ -524,18 +548,6 @@ public extension ChainableWrapper where Wrapped: UIView {
         if #available(iOS 13.0, *) {
             wrapped.transform3D = transform3D
         }
-        return self
-    }
-    
-    @discardableResult
-    func becomeFirstResponder() -> Self {
-        wrapped.becomeFirstResponder()
-        return self
-    }
-    
-    @discardableResult
-    func resignFirstResponder() -> Self {
-        wrapped.resignFirstResponder()
         return self
     }
     

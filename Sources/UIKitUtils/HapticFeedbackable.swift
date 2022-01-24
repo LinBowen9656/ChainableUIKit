@@ -1,7 +1,7 @@
 //
 //  HapticFeedbackable.swift
 //
-//  Created by 柴阿文 on 2020/3/27.
+//  Created by 林博文 on 2020/3/27.
 //
 
 import UIKit

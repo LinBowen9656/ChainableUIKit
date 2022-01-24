@@ -2,7 +2,7 @@
 //  UISlider+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/1/18.
+//  Created by 林博文 on 2021/1/18.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UISlider {
     
     @discardableResult
-    func value(_ value: Float, isAnimated: Bool = true) -> Self {
+    func value(_ value: Float, isAnimated: Bool = false) -> Self {
         wrapped.setValue(value, animated: isAnimated)
         return self
     }

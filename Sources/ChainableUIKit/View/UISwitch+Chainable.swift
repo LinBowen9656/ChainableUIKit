@@ -2,7 +2,7 @@
 //  UISwitch+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/1/18.
+//  Created by 林博文 on 2021/1/18.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UISwitch {
     
     @discardableResult
-    func isOn(_ value: Bool, isAnimated: Bool = true) -> Self {
+    func isOn(_ value: Bool, isAnimated: Bool = false) -> Self {
         wrapped.setOn(value, animated: isAnimated)
         return self
     }
@@ -24,7 +24,7 @@ public extension ChainableWrapper where Wrapped: UISwitch {
     
     @discardableResult
     func title(_ string: String?) -> Self {
-        if #available(iOS 14.0, *) {
+        if #available(iOS 14.0, *), UIDevice.current.userInterfaceIdiom == .mac {
             wrapped.title = string
         }
         return self

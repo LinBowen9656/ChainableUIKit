@@ -9,10 +9,10 @@ import UIKit
 
 public extension UIBezierPath {
     
-    /// 平滑圆角的贝塞尔曲线
+    /// Creates and returns a new Bézier path object with a continuous rounded rectangular path.
     /// - Parameters:
-    ///   - rect: 大小位置
-    ///   - continuousCornerRadius: 圆角半径
+    ///   - rect: The rectangle that defines the basic shape of the path.
+    ///   - continuousCornerRadius: The radius of each corner oval.
     convenience init(rect: CGRect, continuousCornerRadius: CGFloat) {
         self.init()
         let limit = min(rect.size.width, rect.size.height) / 2 / 1.52866483

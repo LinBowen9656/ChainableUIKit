@@ -2,7 +2,7 @@
 //  UISplitViewController+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/5.
+//  Created by 林博文 on 2021/2/5.
 //
 
 import UIKit
@@ -13,6 +13,12 @@ public extension ChainableWrapper where Wrapped: UISplitViewController {
     @discardableResult
     func viewController(_ controller: UIViewController?, column: UISplitViewController.Column) -> Self {
         wrapped.setViewController(controller, for: column)
+        return self
+    }
+    
+    @discardableResult
+    func viewControllers(_ controllers: [UIViewController]) -> Self {
+        wrapped.viewControllers = controllers
         return self
     }
     

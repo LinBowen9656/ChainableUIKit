@@ -102,8 +102,8 @@ public extension ChainableWrapper where Wrapped: UINavigationBar {
     
     @available(iOS, obsoleted: 13.0, message: "iOS 13.0以上请使用Appearance相关方法")
     @discardableResult
-    func backgroundImage(_ image: UIImage?, barMetrics: UIBarMetrics = .default) -> Self {
-        wrapped.setBackgroundImage(image, for: barMetrics)
+    func backgroundImage(_ image: UIImage?, position: UIBarPosition = .any, barMetrics: UIBarMetrics = .default) -> Self {
+        wrapped.setBackgroundImage(image, for: position, barMetrics: barMetrics)
         return self
     }
     

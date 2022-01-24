@@ -12,6 +12,12 @@ extension UIGestureRecognizer: ChainableType {}
 public extension ChainableWrapper where Wrapped: UIGestureRecognizer {
     
     @discardableResult
+    func state(_ state: UIGestureRecognizer.State) -> Self {
+        wrapped.state = state
+        return self
+    }
+    
+    @discardableResult
     func requireToFail(_ gesture: UIGestureRecognizer) -> Self {
         wrapped.require(toFail: gesture)
         return self
@@ -38,6 +44,36 @@ public extension ChainableWrapper where Wrapped: UIGestureRecognizer {
     @discardableResult
     func isDelaysTouchesEnded(_ value: Bool) -> Self {
         wrapped.delaysTouchesEnded = value
+        return self
+    }
+    
+    @discardableResult
+    func allowedPressTypes(_ types: [UIPress.PressType]) -> Self {
+        wrapped.allowedPressTypes = types.map { NSNumber(value: $0.rawValue) }
+        return self
+    }
+    
+    @discardableResult
+    func allowedTouchTypes(_ types: [UITouch.TouchType]) -> Self {
+        wrapped.allowedTouchTypes = types.map { NSNumber(value: $0.rawValue) }
+        return self
+    }
+    
+    @discardableResult
+    func isRequiresExclusiveTouchType(_ value: Bool) -> Self {
+        wrapped.requiresExclusiveTouchType = value
+        return self
+    }
+    
+    @discardableResult
+    func addTarget(target: Any, action: Selector) -> Self {
+        wrapped.addTarget(target, action: action)
+        return self
+    }
+    
+    @discardableResult
+    func removeTarget(target: Any?, action: Selector?) -> Self {
+        wrapped.removeTarget(target, action: action)
         return self
     }
     

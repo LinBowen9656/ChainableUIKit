@@ -2,14 +2,14 @@
 //  UIImage+UIKitUtils.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/5.
+//  Created by 林博文 on 2021/2/5.
 //
 
 import UIKit
 
 public extension UIImage {
     
-    /// 获取图片平均颜色
+    /// Get the average color of image.
     var averageColor: UIColor {
         guard let ciImage = ciImage else { return .clear }
         let parameters = [kCIInputImageKey: ciImage, kCIInputExtentKey: CIVector(cgRect: ciImage.extent)]
@@ -20,11 +20,10 @@ public extension UIImage {
         return UIColor(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255, alpha: CGFloat(bitmap[3]) / 255)
     }
     
-    /// 生成纯色图片
-    ///
+    /// Creates and returns a new solid color image object.
     /// - Parameters:
-    ///   - color: 颜色
-    ///   - size: 图片大小
+    ///   - color: The color of image.
+    ///   - size: The image Size.
     convenience init(color: UIColor, size: CGSize) {
         let rect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
         UIGraphicsBeginImageContext(rect.size)
@@ -36,15 +35,13 @@ public extension UIImage {
         self.init(cgImage: cgImage!)
     }
     
-    /// 生成渐变色图片
-    /// - Parameter colors: 渐变颜色
-    /// - Parameter size: 图片大小
-    /// - Parameter startPoint: 渐变相对起始位置，默认为(0.5, 0)
-    /// - Parameter endPoint: 渐变相对结束位置，默认为(0.5, 1)
+    /// Creates and returns a new gradient color image object.
+    /// - Parameter colors: An array of `UIColor` objects defining the color of each gradient stop
+    /// - Parameter size: The image Size.
+    /// - Parameter startPoint: The start point corresponds to the first stop of the gradient. Default value is (0.5, 0).
+    /// - Parameter endPoint: The end point of the gradient when drawn in the coordinate space. Default value is (0.5, 1).
     convenience init?(colors: [UIColor], size: CGSize, startPoint: CGPoint = CGPoint(x: 0.5, y: 0), endPoint: CGPoint = CGPoint(x: 0.5, y: 1)) {
-        guard !colors.isEmpty else {
-            return nil
-        }
+        guard !colors.isEmpty else { return nil }
         let rect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = rect
@@ -58,30 +55,23 @@ public extension UIImage {
         self.init(cgImage: cgImage!)
     }
     
-    
-    /// 指示器形状
     enum IndicatorShape {
-        /// 椭圆形
+        
         case oval
-        /// 三角形
         case triangle
-        /// 详情
         case disclosure
-        /// 勾选
         case checkmark
-        /// 返回
         case back
-        /// 关闭
         case close
+        
     }
     
-    
-    /// 生成常见指示器图片
+    /// Creates and returns a new indicator image object.
     /// - Parameters:
-    ///   - shape: 形状
-    ///   - size: 大小
-    ///   - lineWidth: 线宽，如形状不由线构成则不受该参数影响
-    ///   - tintColor: 颜色
+    ///   - shape: The shape of indicator.
+    ///   - size: The image Size.
+    ///   - lineWidth: The line width of the shape. Unaffected by this parameter if the shape does not consist of lines.
+    ///   - tintColor: The color of Shape.
     convenience init(shape: IndicatorShape, size: CGSize, lineWidth: CGFloat = 3, tintColor: UIColor) {
         UIGraphicsBeginImageContext(size)
         let context = UIGraphicsGetCurrentContext()
@@ -148,21 +138,21 @@ public extension UIImage {
         self.init(cgImage: cgImage)
     }
     
-    /// 生成二维码图片
+    /// Creates and returns a new QR code image object.
     /// - Parameters:
-    ///   - qrCodeText: 二维码包含文字
-    ///   - centerImage: 二维码中间图片，默认为空
+    ///   - qrCodeText: The text which stored in the QR code.
+    ///   - centerImage: The image overlay on center of the QR code image.
     convenience init?(qrCodeText: String, centerImage: UIImage? = nil) {
-        // 创建滤镜
+        // Create filter.
         let filter = CIFilter(name: "CIQRCodeGenerator")
         filter?.setDefaults()
-        // 将文字加入二维码
+        // Set input text.
         filter?.setValue(qrCodeText.data(using: .utf8), forKey: "inputMessage")
-        // 设置容错率
+        // Set correction level.
         filter?.setValue("H", forKey: "inputCorrectionLevel")
-        // 取出生成的二维码（不清晰）
+        // Get the unclear output image.
         if let outputImage = filter?.outputImage {
-            // 生成清晰度更好的二维码
+            // Create the output image.
             let integral = outputImage.extent.integral
             let proportion = min(300 / integral.width, 300 / integral.height)
             let width = integral.width * proportion
@@ -176,18 +166,18 @@ public extension UIImage {
             bitmapRef.draw(bitmapImage, in: integral)
             let cgImage = bitmapRef.makeImage()!
             let qrCodeImage = UIImage(cgImage: cgImage)
-            // 如果有一个头像的话，将头像加入二维码中心
+            // Overlay the image if `centerImage` is not `nil`.
             if let centerImage = centerImage {
-                // 开启图片上下文
+                // Begin draw context.
                 UIGraphicsBeginImageContext(qrCodeImage.size)
-                // 绘制背景图片
+                // Draw QR code.
                 qrCodeImage.draw(in: CGRect(origin: .zero, size: qrCodeImage.size))
                 let x = (qrCodeImage.size.width - 100) * 0.5
                 let y = (qrCodeImage.size.height - 100) * 0.5
                 centerImage.draw(in: CGRect(x: x, y: y, width: 100, height: 100))
-                // 取出绘制好的图片
+                // Get the output image.
                 let newImage = UIGraphicsGetImageFromCurrentImageContext()
-                // 关闭上下文
+                // End draw context.
                 UIGraphicsEndImageContext()
                 if let cgImage = newImage?.cgImage {
                     self.init(cgImage: cgImage)
@@ -201,10 +191,9 @@ public extension UIImage {
         return nil
     }
     
-    /// 重设图片大小
-    ///
-    /// - Parameter reSize: 设置图片大小
-    /// - Returns: 转化后的图片
+    /// Returns a new image which is resize from this image.
+    /// - Parameter reSize: The image Size.
+    /// - Returns: The new image with the given size.
     func reSizeImage(reSize: CGSize) -> UIImage? {
         if reSize.width <= 0 || reSize.height <= 0 {
             return nil
@@ -216,10 +205,10 @@ public extension UIImage {
         return reSizeImage
     }
     
-    /// 等比例缩放图片
+    /// Returns a new image which is scaled from this image.
     ///
-    /// - Parameter scaleSize: 缩放倍数
-    /// - Returns: 转化后的图片
+    /// - Parameter scaleSize: The scale factor.
+    /// - Returns: The new image with the given scale.
     func scaleImage(scaleSize: CGFloat) -> UIImage? {
         let reSize = CGSize(width: size.width * scaleSize, height: size.height * scaleSize)
         return reSizeImage(reSize: reSize)

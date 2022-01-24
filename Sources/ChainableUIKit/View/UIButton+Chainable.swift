@@ -133,7 +133,7 @@ public extension ChainableWrapper where Wrapped: UIButton {
     }
     
     @discardableResult
-    func setNeedsUpdateConfiguration() -> Self {
+    func updateConfiguration() -> Self {
         if #available(iOS 15.0, *) {
             wrapped.setNeedsUpdateConfiguration()
         }

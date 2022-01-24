@@ -2,7 +2,7 @@
 //  UIListContentConfiguration+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/6.
+//  Created by 林博文 on 2021/2/6.
 //
 
 import UIKit
@@ -21,9 +21,9 @@ public extension ChainableWrapper where Wrapped == UIListContentConfiguration {
     }
     
     @discardableResult
-    func text(_ text: String?) -> Self {
+    func text(_ string: String?) -> Self {
         var wrap = wrapped
-        wrap.text = text
+        wrap.text = string
         return ChainableWrapper(wrapped: wrap)
     }
     
@@ -35,9 +35,9 @@ public extension ChainableWrapper where Wrapped == UIListContentConfiguration {
     }
     
     @discardableResult
-    func secondaryText(_ text: String?) -> Self {
+    func secondaryText(_ string: String?) -> Self {
         var wrap = wrapped
-        wrap.secondaryText = text
+        wrap.secondaryText = string
         return ChainableWrapper(wrapped: wrap)
     }
     

@@ -2,12 +2,10 @@
 //  UIViewController+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/4.
+//  Created by 林博文 on 2021/2/4.
 //
 
 import UIKit
-
-extension UIViewController: ChainableType {}
 
 public extension ChainableWrapper where Wrapped: UIViewController {
     
@@ -48,14 +46,20 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func pushByNavigationController(_ navigationController: UINavigationController?, isAnimated: Bool = true) -> Self {
-        navigationController?.pushViewController(wrapped, animated: isAnimated)
+    func pushByNavigationController(_ navigationController: UINavigationController?, isAnimated: Bool = true, completionHandler: (() -> Void)? = nil) -> Self {
+        navigationController?.pushViewController(wrapped, isAnimated: isAnimated, completionHandler: completionHandler)
         return self
     }
     
     @discardableResult
-    func showByViewController(_ controller: UIViewController, sender: Any? = nil) -> Self {
-        controller.show(wrapped, sender: sender)
+    func showByViewController(_ controller: UIViewController, sender: Any? = nil, completionHandler: (() -> Void)? = nil) -> Self {
+        controller.show(viewController: wrapped, sender: sender, completionHandler: completionHandler)
+        return self
+    }
+    
+    @discardableResult
+    func showDetailByViewController(_ controller: UIViewController, sender: Any? = nil, completionHandler: (() -> Void)? = nil) -> Self {
+        controller.showDetail(viewController: wrapped, sender: sender, completionHandler: completionHandler)
         return self
     }
     
@@ -66,14 +70,14 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func show(_ controller: UIViewController, sender: Any? = nil) -> Self {
-        wrapped.show(controller, sender: sender)
+    func show(viewController: UIViewController, sender: Any? = nil) -> Self {
+        wrapped.show(viewController, sender: sender)
         return self
     }
     
     @discardableResult
-    func showDetail(_ controller: UIViewController, sender: Any? = nil) -> Self {
-        wrapped.showDetailViewController(controller, sender: sender)
+    func showDetail(viewController: UIViewController, sender: Any? = nil) -> Self {
+        wrapped.showDetailViewController(viewController, sender: sender)
         return self
     }
     
@@ -159,7 +163,7 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func toolbarItems(_ items: [UIBarButtonItem]?, isAnimated: Bool) -> Self {
+    func toolbarItems(_ items: [UIBarButtonItem]?, isAnimated: Bool = false) -> Self {
         wrapped.setToolbarItems(items, animated: isAnimated)
         return self
     }
@@ -189,7 +193,7 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func isEditing(_ value: Bool, isAnimated: Bool) -> Self {
+    func isEditing(_ value: Bool, isAnimated: Bool = true) -> Self {
         wrapped.setEditing(value, animated: isAnimated)
         return self
     }
@@ -202,19 +206,8 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     
     @discardableResult
     func restorationClass(_ restorationClass: UIViewControllerRestoration.Type?) -> Self {
+        
         wrapped.restorationClass = restorationClass
-        return self
-    }
-    
-    @discardableResult
-    func becomeFirstResponder() -> Self {
-        wrapped.becomeFirstResponder()
-        return self
-    }
-    
-    @discardableResult
-    func resignFirstResponder() -> Self {
-        wrapped.resignFirstResponder()
         return self
     }
     

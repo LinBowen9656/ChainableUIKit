@@ -2,7 +2,7 @@
 //  UIDevice+UIKitUtils.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/5.
+//  Created by 林博文 on 2021/2/5.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 public extension UIDevice {
     
     static var device: Device { Device(hardwareString: current.hardwareString) }
-    /// 是否是iOS版本App运行在Mac上
+    /// A Boolean value that indicates whether the process is an iPhone or iPad app running on a Mac.
     var isiOSAppOnMac: Bool {
         if #available(iOS 14.0, *) {
             return ProcessInfo.processInfo.isiOSAppOnMac
@@ -18,6 +18,7 @@ public extension UIDevice {
             return false
         }
     }
+    /// Get the device model string.
     var hardwareString: String {
         var systemInfo = utsname()
         uname(&systemInfo)

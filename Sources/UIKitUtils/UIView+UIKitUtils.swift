@@ -2,7 +2,7 @@
 //  UIView+UIKitUtils.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/5.
+//  Created by 林博文 on 2021/2/5.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ private var tapGestureRecognizerKey: Void?
 
 public extension UIView {
     
-    /// 视图所在的ViewController
+    /// Get the controller of the view.
     var responderViewController: UIViewController? {
         for tempView in sequence(first: self, next: { $0.superview }) {
             if let responder = tempView.next as? UIViewController {
@@ -20,7 +20,7 @@ public extension UIView {
         }
         return nil
     }
-    /// 是否正在显示
+    /// A Boolean value that indicates whether the view visible.
     var isVisible: Bool {
         guard let window = window else { return false }
         let viewFrame = window.convert(frame, from: superview)
@@ -31,10 +31,12 @@ public extension UIView {
         }
         return true
     }
+    /// The radius to use when drawing rounded corners for the background.
     @IBInspectable var cornerRadius: CGFloat {
         get { layer.cornerRadius }
         set { layer.cornerRadius = newValue }
     }
+    /// Interface Builder property to set `maskedCorners`.
     @IBInspectable private var maskedCornersArray: CGRect {
         get {
             CGRect(x: layer.maskedCorners.contains(.layerMinXMinYCorner) ? 1 : 0, y: layer.maskedCorners.contains(.layerMaxXMinYCorner) ? 1 : 0, width: layer.maskedCorners.contains(.layerMinXMaxYCorner) ? 1 : 0, height: layer.maskedCorners.contains(.layerMaxXMaxYCorner) ? 1 : 0)
@@ -56,6 +58,7 @@ public extension UIView {
             layer.maskedCorners = maskedCorners
         }
     }
+    /// Defines the curve used for rendering the rounded corners.
     @IBInspectable var isCornerContinuous: Bool {
         get {
             if #available(iOS 13.0, *) {
@@ -72,11 +75,13 @@ public extension UIView {
             }
         }
     }
+    /// Set the border line width.
     @IBInspectable var borderStrokeWidth: CGFloat {
         get { layer.borderWidth }
         set { layer.borderWidth = newValue }
     }
     static private var borderStrokeColorKey: Void?
+    /// Set the border line color.
     @IBInspectable var borderStrokeColor: UIColor? {
         get {
             guard let borderColor = objc_getAssociatedObject(self, &UIView.borderStrokeColorKey) as? UIColor else { return nil }
@@ -91,11 +96,13 @@ public extension UIView {
             }
         }
     }
+    /// Set the shadow radius.
     @IBInspectable var borderShadowRadius: CGFloat {
         get { layer.shadowRadius }
         set { layer.shadowRadius = newValue }
     }
     static private var borderShadowColorKey: Void?
+    /// Set the shadow color.
     @IBInspectable var borderShadowColor: UIColor? {
         get {
             guard let shadowColor = objc_getAssociatedObject(self, &UIView.borderShadowColorKey) as? UIColor else { return nil }
@@ -110,61 +117,65 @@ public extension UIView {
             }
         }
     }
+    /// Set the shadow opacity.
     @IBInspectable var borderShadowOpacity: Float {
         get { layer.shadowOpacity }
         set { layer.shadowOpacity = newValue }
     }
+    /// Set the shadow offset.
     @IBInspectable var borderShadowOffset: CGSize {
         get { layer.shadowOffset }
         set { layer.shadowOffset = newValue }
     }
+    /// Interface Builder property to set `transform`.
     @IBInspectable private var translationTransform: CGPoint {
         get { .zero }
         set { transform = transform.translatedBy(x: newValue.x, y: newValue.y)  }
     }
+    /// Interface Builder property to set `transform`.
     @IBInspectable private var scaleTransform: CGPoint {
         get { .zero }
         set { transform = transform.scaledBy(x: newValue.x, y: newValue.y)  }
     }
+    /// Interface Builder property to set `transform`.
     @IBInspectable private var rotatedTransform: CGFloat {
         get { 0 }
         set { transform = transform.rotated(by: newValue) }
     }
     private var tapGestureRecognizer: UITapGestureRecognizer {
-        get {
-            guard let gesture = objc_getAssociatedObject(self, &tapGestureRecognizerKey) as? UITapGestureRecognizer else {
-                let gesture = UITapGestureRecognizer()
-                self.tapGestureRecognizer = gesture
-                addGestureRecognizer(gesture)
-                return gesture
-            }
-            if gesture.view != self {
-                addGestureRecognizer(gesture)
-            }
+        guard let gesture = objc_getAssociatedObject(self, &tapGestureRecognizerKey) as? UITapGestureRecognizer else {
+            let gesture = UITapGestureRecognizer()
+            objc_setAssociatedObject(self, &tapGestureRecognizerKey, gesture, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return gesture
         }
-        set {
-            objc_setAssociatedObject(self, &tapGestureRecognizerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return gesture
+    }
+    
+    /// Adds an action to perform when this view recognizes a tap gesture.
+    /// - Parameter handler: The action to perform.
+    func onTap(handler: (() -> Void)?) {
+        if let handler = handler {
+            if tapGestureRecognizer.view != self {
+                addGestureRecognizer(tapGestureRecognizer)
+            }
+            tapGestureRecognizer.addActionHandler { _ in
+                handler()
+            }
+        } else {
+            removeGestureRecognizer(tapGestureRecognizer)
         }
     }
     
-    func onTap(handler: @escaping () -> Void) {
-        tapGestureRecognizer.addActionHandler { _ in
-            handler()
-        }
-    }
-    
-    /// 获取UIView特定标识符的约束
-    ///
-    /// - Parameter identifier: 标识符
-    /// - Returns: 筛选后的约束
-    func constraintWithIdentifier(identifier: String) -> [NSLayoutConstraint] {
+    /// Get the constraints with the identifier in view.
+    /// - Parameter identifier: The identifier of constraint
+    /// - Returns: The constraints with the identifier in view.
+    func constraints(with identifier: String) -> [NSLayoutConstraint] {
         constraints.filter { $0.identifier == identifier }
     }
     
-    /// 获取UIView特定类型父视图
-    /// - Parameter type: 父视图的类型
-    /// - Returns: 父视图
+    /// Get the superview of the specified type.
+    /// - Parameter type: Superview's type.
+    /// - Returns: The superview of the specified type.
     func superview<T: UIView>(type: T.Type) -> T? {
         for view in sequence(first: self.superview, next: { $0?.superview }) {
             if let typeView = view as? T {

@@ -2,7 +2,7 @@
 //  UITabBarItem+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/5.
+//  Created by 林博文 on 2021/2/5.
 //
 
 import UIKit
@@ -18,7 +18,7 @@ public extension ChainableWrapper where Wrapped: UITabBarItem {
     
     @available(iOS 13.0, *)
     @discardableResult
-    func scrollEdgeAppearance(_ appearance: UITabBarAppearance) -> Self {
+    func scrollEdgeAppearance(_ appearance: UITabBarAppearance?) -> Self {
         if #available(iOS 15.0, *) {
             wrapped.scrollEdgeAppearance = appearance
         }
@@ -54,7 +54,7 @@ public extension ChainableWrapper where Wrapped: UITabBarItem {
     
     @available(iOS, obsoleted: 13.0, message: "iOS 13.0以上请使用Appearance相关方法")
     @discardableResult
-    func badgeTextAttributes(_ attributes: [NSAttributedString.Key : Any]?, state: UIControl.State) -> Self {
+    func badgeTextAttributes(_ attributes: [NSAttributedString.Key : Any]?, state: UIControl.State = .normal) -> Self {
         wrapped.setBadgeTextAttributes(attributes, for: state)
         return self
     }

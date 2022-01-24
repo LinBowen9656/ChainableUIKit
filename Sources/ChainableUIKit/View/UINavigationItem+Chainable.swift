@@ -2,7 +2,7 @@
 //  UINavigationItem+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/5.
+//  Created by 林博文 on 2021/2/5.
 //
 
 import UIKit
@@ -43,7 +43,7 @@ public extension ChainableWrapper where Wrapped: UINavigationItem {
     }
     
     @discardableResult
-    func isHidesBackButton(_ value: Bool, isAnimated: Bool = true) -> Self {
+    func isHidesBackButton(_ value: Bool, isAnimated: Bool = false) -> Self {
         wrapped.setHidesBackButton(value, animated: isAnimated)
         return self
     }
@@ -61,13 +61,13 @@ public extension ChainableWrapper where Wrapped: UINavigationItem {
     }
     
     @discardableResult
-    func leftBarButtonItems(_ items: [UIBarButtonItem]?, isAnimated: Bool = true) -> Self {
+    func leftBarButtonItems(_ items: [UIBarButtonItem]?, isAnimated: Bool = false) -> Self {
         wrapped.setLeftBarButtonItems(items, animated: isAnimated)
         return self
     }
     
     @discardableResult
-    func rightBarButtonItems(_ items: [UIBarButtonItem]?, isAnimated: Bool = true) -> Self {
+    func rightBarButtonItems(_ items: [UIBarButtonItem]?, isAnimated: Bool = false) -> Self {
         wrapped.setRightBarButtonItems(items, animated: isAnimated)
         return self
     }

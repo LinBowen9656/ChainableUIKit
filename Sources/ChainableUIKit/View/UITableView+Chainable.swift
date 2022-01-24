@@ -2,7 +2,7 @@
 //  UITableView+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/4.
+//  Created by 林博文 on 2021/2/4.
 //
 
 import UIKit
@@ -211,8 +211,35 @@ public extension ChainableWrapper where Wrapped: UITableView {
                 }
                 handler(isFinished: true)
             } else {
-                if !diffOperations.isEmpty {
-                    if isAnimated {
+                if isAnimated {
+                    wrapped.performBatchUpdates({
+                        diffOperations.forEach { diffOperation in
+                            switch diffOperation {
+                            case .insertSections(let indexSet):
+                                wrapped.insertSections(indexSet, with: .automatic)
+                            case .deleteSections(let indexSet):
+                                wrapped.deleteSections(indexSet, with: .automatic)
+                            case .updateSections(let indexSet):
+                                wrapped.reloadSections(indexSet, with: .automatic)
+                            case .moveSections(let indexs):
+                                indexs.forEach { (atIndex, toIndex) in
+                                    wrapped.moveSection(atIndex, toSection: toIndex)
+                                }
+                            case .insert(let indexPaths):
+                                wrapped.insertRows(at: indexPaths, with: .automatic)
+                            case .delete(let indexPaths):
+                                wrapped.deleteRows(at: indexPaths, with: .automatic)
+                            case .update(let indexPaths):
+                                wrapped.reloadRows(at: indexPaths, with: .automatic)
+                            case .move(let indexPaths):
+                                indexPaths.forEach { (atIndexPath, toIndexPath) in
+                                    wrapped.moveRow(at: atIndexPath, to: toIndexPath)
+                                }
+                            }
+                        }
+                    }, completion: handler)
+                } else {
+                    UIView.performWithoutAnimation {
                         wrapped.performBatchUpdates({
                             diffOperations.forEach { diffOperation in
                                 switch diffOperation {
@@ -239,38 +266,7 @@ public extension ChainableWrapper where Wrapped: UITableView {
                                 }
                             }
                         }, completion: handler)
-                    } else {
-                        UIView.performWithoutAnimation {
-                            wrapped.performBatchUpdates({
-                                diffOperations.forEach { diffOperation in
-                                    switch diffOperation {
-                                    case .insertSections(let indexSet):
-                                        wrapped.insertSections(indexSet, with: .automatic)
-                                    case .deleteSections(let indexSet):
-                                        wrapped.deleteSections(indexSet, with: .automatic)
-                                    case .updateSections(let indexSet):
-                                        wrapped.reloadSections(indexSet, with: .automatic)
-                                    case .moveSections(let indexs):
-                                        indexs.forEach { (atIndex, toIndex) in
-                                            wrapped.moveSection(atIndex, toSection: toIndex)
-                                        }
-                                    case .insert(let indexPaths):
-                                        wrapped.insertRows(at: indexPaths, with: .automatic)
-                                    case .delete(let indexPaths):
-                                        wrapped.deleteRows(at: indexPaths, with: .automatic)
-                                    case .update(let indexPaths):
-                                        wrapped.reloadRows(at: indexPaths, with: .automatic)
-                                    case .move(let indexPaths):
-                                        indexPaths.forEach { (atIndexPath, toIndexPath) in
-                                            wrapped.moveRow(at: atIndexPath, to: toIndexPath)
-                                        }
-                                    }
-                                }
-                            }, completion: handler)
-                        }
                     }
-                } else {
-                    handler(isFinished: true)
                 }
             }
         case .reload:

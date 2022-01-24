@@ -2,7 +2,7 @@
 //  ControllerInformation.swift
 //  
 //
-//  Created by 柴阿文 on 2021/2/5.
+//  Created by 林博文 on 2021/2/5.
 //
 
 import UIKit
@@ -11,9 +11,11 @@ public protocol ControllerInformation {}
 
 public extension ControllerInformation {
     
+    /// Get the lastest window.
     var topWindow: UIWindow? { UIApplication.shared.windows.last }
+    /// Get the lastest key window.
     var keyWindow: UIWindow? { UIApplication.shared.windows.last { $0.isKeyWindow } }
-    /// 获取当前ViewController
+    /// Get the topest of view controller.
     var currentViewController: UIViewController? {
         var resultVC: UIViewController? = getCurrentViewController(viewController: rootViewController)
         while resultVC?.presentedViewController != nil {
@@ -21,13 +23,9 @@ public extension ControllerInformation {
         }
         return resultVC
     }
-    /// 获取根控制器
+    /// Get root view controller.
     var rootViewController: UIViewController? { keyWindow?.rootViewController }
     
-    /// 获取当前ViewController递归函数
-    ///
-    /// - Parameter viewController: 要进行递归的View Controller
-    /// - Returns: 顶层View Controller
     private func getCurrentViewController(viewController: UIViewController?) -> UIViewController? {
         switch viewController {
         case let navigationController as UINavigationController:
@@ -41,13 +39,12 @@ public extension ControllerInformation {
         }
     }
     
-    /// Dismiss到指定View Controller
-    ///
+    /// Dismiss to the specified view controller.
     /// - Parameters:
-    ///   - fromViewController: 原视图
-    ///   - toViewController: 将要Dismiss的View Controller类型
-    ///   - animated: 是否显示动画
-    ///   - completion: 完成回调
+    ///   - fromViewController: The controller which you want to dismiss.
+    ///   - toViewController: The controller that you want to be at the top of the stack.
+    ///   - isAnimated: Specify true to animate the transition or false if you do not want the transition to be animated.
+    ///   - completionHandler: The closure to execute after the view controller is dismissed.
     func dismissToController<T: UIViewController>(fromViewController: UIViewController, toViewController: T.Type, isAnimated: Bool, completionHandler: (() -> Void)? = nil) {
         var vc = fromViewController.presentingViewController
         while !(vc is T) {
@@ -56,11 +53,10 @@ public extension ControllerInformation {
         vc?.dismiss(animated: isAnimated, completion: completionHandler)
     }
     
-    /// 返回根视图
-    ///
+    /// Back to the root view controller.
     /// - Parameters:
-    ///   - animated: 是否显示动画
-    ///   - completion: 完成回调
+    ///   - isAnimated: Specify true to animate the transition or false if you do not want the transition to be animated.
+    ///   - completionHandler: The closure to execute after the view controller is dismissed.
     func backToRootViewController(isAnimated: Bool, completionHandler: (() -> Void)? = nil) {
         var vc = currentViewController
         if vc?.presentingViewController != nil {

@@ -2,7 +2,7 @@
 //  UIStackView+Chainable.swift
 //  
 //
-//  Created by 柴阿文 on 2021/1/18.
+//  Created by 林博文 on 2021/1/18.
 //
 
 import UIKit
@@ -29,7 +29,7 @@ public extension ChainableWrapper where Wrapped: UIStackView {
     
     @discardableResult
     func exchangeArrangedSubview(_ index: Int, atIndex: Int) -> Self {
-        guard index != atIndex else { return self }
+        guard index != atIndex, index < wrapped.arrangedSubviews.count, atIndex < wrapped.arrangedSubviews.count else { return self }
         let view = wrapped.arrangedSubviews[index]
         let spacing = wrapped.customSpacing(after: view)
         view.removeFromSuperview()
