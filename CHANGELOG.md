@@ -2,6 +2,14 @@
 
 -----
 
+## 3.0.0
+
+* Modify methods.
+* Add unit tests.
+* Fix bugs.
+
+-----
+
 ## 2.2.0
 
 * Add `pushByNavigationController` function.
