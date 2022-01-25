@@ -2,6 +2,12 @@
 
 -----
 
+## 3.0.1
+
+* Ignore the UISwitch title when the user interface idiom is mac.
+
+-----
+
 ## 3.0.0
 
 * Modify methods.
