@@ -24,7 +24,7 @@ public extension ChainableWrapper where Wrapped: UISwitch {
     
     @discardableResult
     func title(_ string: String?) -> Self {
-        if #available(iOS 14.0, *), UIDevice.current.userInterfaceIdiom == .mac {
+        if #available(iOS 14.0, *), wrapped.traitCollection.userInterfaceIdiom == .mac {
             wrapped.title = string
         }
         return self
