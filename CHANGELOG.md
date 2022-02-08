@@ -2,6 +2,15 @@
 
 -----
 
+## 3.1.0
+
+* Fix a bug that the rgbHexString of UIColor is sometimes wrong.
+* Add a new function to calculate the color.
+* Change the parameter type of the `invalidateHeightCache` to `Array`.
+* Add unit test.
+
+-----
+
 ## 3.0.1
 
 * Ignore the UISwitch title when the user interface idiom is mac.
