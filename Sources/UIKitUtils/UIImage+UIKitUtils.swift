@@ -11,7 +11,14 @@ public extension UIImage {
     
     /// Get the average color of image.
     var averageColor: UIColor {
-        guard let ciImage = ciImage else { return .clear }
+        let ciImage: CIImage
+        if let image = self.ciImage {
+            ciImage = image
+        } else if let image = cgImage {
+            ciImage = CIImage(cgImage: image)
+        } else {
+            return .clear
+        }
         let parameters = [kCIInputImageKey: ciImage, kCIInputExtentKey: CIVector(cgRect: ciImage.extent)]
         guard let outputImage = CIFilter(name: "CIAreaAverage", parameters: parameters)?.outputImage else { return .clear }
         var bitmap = [UInt8](repeating: 0, count: 4)
