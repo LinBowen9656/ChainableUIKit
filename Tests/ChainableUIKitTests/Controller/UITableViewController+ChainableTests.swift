@@ -10,14 +10,14 @@ import XCTest
 
 final class UITableViewControllerChainableTests: XCTestCase {
     
-    func isClearsSelectionOnViewWillAppear() {
+    func testIsClearsSelectionOnViewWillAppear() {
         let result = UITableViewController().chainable
             .isClearsSelectionOnViewWillAppear(true)
             .wrapped.clearsSelectionOnViewWillAppear
         XCTAssert(result)
     }
     
-    func refreshControl() {
+    func testRefreshControl() {
         let refreshControl = UIRefreshControl()
         let result = UITableViewController().chainable
             .refreshControl(refreshControl)

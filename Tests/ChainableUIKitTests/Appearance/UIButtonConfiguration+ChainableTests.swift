@@ -114,7 +114,7 @@ final class UIButtonConfigurationChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func preferredSymbolConfigurationForImage() {
+    func testPreferredSymbolConfigurationForImage() {
         let configuration = UIImage.SymbolConfiguration(pointSize: 5)
         let result = UIButton.Configuration.plain().chainable
             .preferredSymbolConfigurationForImage(configuration)
