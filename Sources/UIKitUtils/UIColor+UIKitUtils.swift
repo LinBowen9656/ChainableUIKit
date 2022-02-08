@@ -34,9 +34,9 @@ public extension UIColor {
         return alpha
     }
     /// RGB hex string of the color object.
-    var rgbHexString: String { String(format: "#%02X%02X%02X", Int(redValue * 255), Int(greenValue * 255), Int(blueValue * 255)) }
+    var rgbHexString: String { String(format: "#%02X%02X%02X", Int((redValue * 255).rounded()), Int((greenValue * 255).rounded()), Int((blueValue * 255).rounded())) }
     /// RGBA hex string of the color object.
-    var rgbaHexString: String { String(format: "#%02X%02X%02X%02X", Int(redValue * 255), Int(greenValue * 255), Int(blueValue * 255), Int(alphaValue * 255)) }
+    var rgbaHexString: String { String(format: "#%02X%02X%02X%02X", Int((redValue * 255).rounded()), Int((greenValue * 255).rounded()), Int((blueValue * 255).rounded()), Int((alphaValue * 255).rounded())) }
     /// A Boolean value that indicates whether the color is dark color.
     var isDark: Bool { 1 - ((redValue * 0.299) + (greenValue * 0.587) + (blueValue * 0.114)) > 0.411 }
     /// The complementary color of the color object.
