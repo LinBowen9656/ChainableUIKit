@@ -97,7 +97,7 @@ public extension ChainableWrapper where Wrapped: UIControl {
     
     @discardableResult
     func toolTip(_ tip: String) -> Self {
-        if #available(iOS 15.0, *) {
+        if #available(iOS 15.0, macCatalyst 15.0, *), UIDevice.current.isiOSAppOnMac {
             wrapped.toolTip = tip
         }
         return self
