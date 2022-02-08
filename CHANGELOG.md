@@ -2,6 +2,14 @@
 
 -----
 
+## 3.1.1
+
+* Fix the bug of not being able to get the average color of the image.
+* Add completionHandler after show UIViewController.
+* Add unit test.
+
+-----
+
 ## 3.1.0
 
 * Fix a bug that the rgbHexString of UIColor is sometimes wrong.
