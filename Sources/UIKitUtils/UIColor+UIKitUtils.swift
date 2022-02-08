@@ -53,4 +53,18 @@ public extension UIColor {
         return UIColor(red: resultRed, green: resultGreen, blue: resultBlue, alpha: resultAlpha)
     }
     
+    /// Convert the color object to another color.
+    /// - Parameters:
+    ///   - color: The target color.
+    ///   - progress: The progress value of convert.
+    /// - Returns: The color after converted.
+    func become(color: UIColor, progress: CGFloat) -> UIColor {
+        let progress = max(0, min(progress, 1))
+        let finalRed = redValue + (color.redValue - redValue) * progress
+        let finalGreen = greenValue + (color.greenValue - greenValue) * progress
+        let finalBlue = blueValue + (color.blueValue - blueValue) * progress
+        let finalAlpha = alphaValue + (color.alphaValue - alphaValue) * progress
+        return UIColor(red: finalRed, green: finalGreen, blue: finalBlue, alpha: finalAlpha)
+    }
+    
 }

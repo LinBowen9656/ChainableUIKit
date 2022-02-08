@@ -44,10 +44,12 @@ public extension UITableView {
     }
     
     /// Clear the cache of ID.
-    /// - Parameter id: The ID which you want to clear height cache.
-    func invalidateHeightCache(id: AnyHashable) {
-        for height in tableViewHeightCache.keys {
-            tableViewHeightCache[height]?[id] = nil
+    /// - Parameter ids: The ID which you want to clear height cache.
+    func invalidateHeightCache(ids: [AnyHashable]) {
+        for tableViewWidth in tableViewHeightCache.keys {
+            for id in ids {
+                tableViewHeightCache[tableViewWidth]?[id] = nil
+            }
         }
     }
     

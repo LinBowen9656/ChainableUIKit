@@ -44,11 +44,11 @@ public extension UICollectionView {
     }
     
     /// Clear the cache of ID.
-    /// - Parameter id: The ID which you want to clear size cache.
+    /// - Parameter ids: The ID which you want to clear size cache.
     func invalidateSizeCache(ids: [AnyHashable]) {
-        for size in collectionViewSizeCache.keys {
+        for collectionViewSize in collectionViewSizeCache.keys {
             for id in ids {
-                collectionViewSizeCache[size]?[id] = nil
+                collectionViewSizeCache[collectionViewSize]?[id] = nil
             }
         }
     }
