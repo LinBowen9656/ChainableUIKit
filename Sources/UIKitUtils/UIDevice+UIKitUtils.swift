@@ -10,14 +10,6 @@ import UIKit
 public extension UIDevice {
     
     static var device: Device { Device(hardwareString: current.hardwareString) }
-    /// A Boolean value that indicates whether the process is an iPhone or iPad app running on a Mac.
-    var isiOSAppOnMac: Bool {
-        if #available(iOS 14.0, *) {
-            return ProcessInfo.processInfo.isiOSAppOnMac
-        } else {
-            return false
-        }
-    }
     /// Get the device model string.
     var hardwareString: String {
         var systemInfo = utsname()
@@ -66,6 +58,7 @@ public extension UIDevice {
         case iPhone13
         case iPhone13Pro
         case iPhone13ProMax
+        case iPhoneSE3
         case iPodtouch
         case iPodtouch2
         case iPodtouch3
@@ -92,6 +85,7 @@ public extension UIDevice {
         case iPadAir2
         case iPadAir3
         case iPadAir4
+        case iPadAir5
         case iPadPro9Inch
         case iPadPro12Inch
         case iPadPro12Inch2
@@ -132,30 +126,6 @@ public extension UIDevice {
         indirect case simulator(Device)
         case unknown(String)
         
-        /// UUID
-        public var uuid: String {
-            let searchQuery: [CFString: Any] = [kSecClass: kSecClassGenericPassword, kSecAttrService: "UniqueDeviceService", kSecAttrAccount: "UUID", kSecMatchLimit: kSecMatchLimitOne, kSecReturnAttributes: true, kSecReturnData: true]
-            var item: CFTypeRef?
-            let status = SecItemCopyMatching(searchQuery as CFDictionary, &item)
-            if status == errSecSuccess, let existingItem = item as? [String: AnyObject], let passwordData = existingItem[kSecValueData as String] as? Data {
-                if let password = String(data: passwordData, encoding: String.Encoding.utf8), !password.isEmpty {
-                    return password
-                } else {
-                    let uniqueString = UUID().uuidString
-                    let updateQuery: [CFString: Any] = [kSecClass: kSecClassGenericPassword, kSecAttrService: "UniqueDeviceService", kSecAttrAccount: "UUID"]
-                    let attributes: [CFString: Any] = [kSecValueData: uniqueString.data(using: .utf8)!]
-                    SecItemUpdate(updateQuery as CFDictionary, attributes as CFDictionary)
-                    return uniqueString
-                }
-            } else if status == errSecItemNotFound {
-                let uniqueString = UUID().uuidString
-                let addQuery: [CFString: Any] = [kSecClass: kSecClassGenericPassword, kSecAttrService: "UniqueDeviceService", kSecAttrAccount: "UUID", kSecValueData: uniqueString.data(using: .utf8)!]
-                SecItemAdd(addQuery as CFDictionary, nil)
-                return uniqueString
-            } else {
-                return UUID().uuidString
-            }
-        }
         public var description: String {
             #if os(iOS)
             switch self {
@@ -199,6 +169,7 @@ public extension UIDevice {
             case .iPhone13mini: return "iPhone 13 mini"
             case .iPhone13Pro: return "iPhone 13 Pro"
             case .iPhone13ProMax: return "iPhone 13 Pro Max"
+            case .iPhoneSE3: return "iPhone SE (2rd generation)"
             case .iPad: return "iPad"
             case .iPad2: return "iPad 2"
             case .iPad3: return "iPad (3rd generation)"
@@ -212,6 +183,7 @@ public extension UIDevice {
             case .iPad8: return "iPad (8th generation)"
             case .iPad9: return "iPad (9th generation)"
             case .iPadAir4: return "iPad Air (4th generation)"
+            case .iPadAir5: return "iPad Air (5th generation)"
             case .iPadmini: return "iPad mini"
             case .iPadmini2: return "iPad mini 2"
             case .iPadmini3: return "iPad mini 3"
@@ -349,6 +321,8 @@ public extension UIDevice {
                 self = .iPhone13Pro
             case "iPhone14,3":
                 self = .iPhone13ProMax
+            case "iPhone14,6":
+                self = .iPhoneSE3
             case "iPad1,1":
                 self = .iPad
             case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":
@@ -401,6 +375,8 @@ public extension UIDevice {
                 self = .iPadAir4
             case "iPad12,1", "iPad12,2":
                 self = .iPad9
+            case "iPad13,16", "iPad13,17":
+                self = .iPadAir5
             case "i386", "x86_64", "arm64":
                 self = .simulator(Device(hardwareString: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "iOS"))
             default:
