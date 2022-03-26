@@ -91,9 +91,9 @@ final class UISegmentedControlChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsApportionsSegmentWidthsByContent() {
+    func testApportionsSegmentWidthsByContent() {
         let result = UISegmentedControl().chainable
-            .isApportionsSegmentWidthsByContent(true)
+            .apportionsSegmentWidthsByContent(true)
             .wrapped.apportionsSegmentWidthsByContent
         XCTAssert(result)
     }

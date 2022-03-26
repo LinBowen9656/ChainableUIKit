@@ -19,10 +19,10 @@ final class UITableViewCellChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAutomaticallyUpdatesBackgroundConfiguration() {
+    func testAutomaticallyUpdatesBackgroundConfiguration() {
         if #available(iOS 14.0, *) {
             let result = UITableViewCell().chainable
-                .isAutomaticallyUpdatesBackgroundConfiguration(true)
+                .automaticallyUpdatesBackgroundConfiguration(true)
                 .wrapped.automaticallyUpdatesBackgroundConfiguration
             XCTAssert(result)
         } else {
@@ -63,10 +63,10 @@ final class UITableViewCellChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAutomaticallyUpdatesContentConfiguration() {
+    func testAutomaticallyUpdatesContentConfiguration() {
         if #available(iOS 14.0, *) {
             let result = UITableViewCell().chainable
-                .isAutomaticallyUpdatesContentConfiguration(true)
+                .automaticallyUpdatesContentConfiguration(true)
                 .wrapped.automaticallyUpdatesContentConfiguration
             XCTAssert(result)
         } else {
@@ -125,16 +125,16 @@ final class UITableViewCellChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsShowsReorderControl() {
+    func testShowsReorderControl() {
         let result = UITableViewCell().chainable
-            .isShowsReorderControl(true)
+            .showsReorderControl(true)
             .wrapped.showsReorderControl
         XCTAssert(result)
     }
     
-    func testIsUserInteractionEnabledWhileDragging() {
+    func testUserInteractionEnabledWhileDragging() {
         let result = UITableViewCell().chainable
-            .isUserInteractionEnabledWhileDragging(true)
+            .userInteractionEnabledWhileDragging(true)
             .wrapped.userInteractionEnabledWhileDragging
         XCTAssert(result)
     }
@@ -162,9 +162,9 @@ final class UITableViewCellChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsShouldIndentWhileEditing() {
+    func testShouldIndentWhileEditing() {
         let result = UITableViewCell().chainable
-            .isShouldIndentWhileEditing(true)
+            .shouldIndentWhileEditing(true)
             .wrapped.shouldIndentWhileEditing
         XCTAssert(result)
     }

@@ -47,9 +47,9 @@ final class UINavigationItemChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsHidesBackButton() {
+    func testHidesBackButton() {
         let result = UINavigationItem().chainable
-            .isHidesBackButton(true, isAnimated: false)
+            .hidesBackButton(true, isAnimated: false)
             .wrapped.hidesBackButton
         XCTAssert(result)
     }
@@ -61,9 +61,9 @@ final class UINavigationItemChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsLeftItemsSupplementBackButton() {
+    func testLeftItemsSupplementBackButton() {
         let result = UINavigationItem().chainable
-            .isLeftItemsSupplementBackButton(true)
+            .leftItemsSupplementBackButton(true)
             .wrapped.leftItemsSupplementBackButton
         XCTAssert(result)
     }
@@ -136,9 +136,9 @@ final class UINavigationItemChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsHidesSearchBarWhenScrolling() {
+    func testHidesSearchBarWhenScrolling() {
         let result = UINavigationItem().chainable
-            .isHidesSearchBarWhenScrolling(true)
+            .hidesSearchBarWhenScrolling(true)
             .wrapped.hidesSearchBarWhenScrolling
         XCTAssert(result)
     }

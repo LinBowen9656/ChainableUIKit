@@ -80,7 +80,7 @@ public extension ChainableWrapper where Wrapped: UIControl {
     }
     
     @discardableResult
-    func isShowsMenuAsPrimaryAction(_ value: Bool) -> Self {
+    func showsMenuAsPrimaryAction(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.showsMenuAsPrimaryAction = value
         }
@@ -97,7 +97,7 @@ public extension ChainableWrapper where Wrapped: UIControl {
     
     @discardableResult
     func toolTip(_ tip: String) -> Self {
-        if #available(iOS 15.0, macCatalyst 15.0, *), UIDevice.current.isiOSAppOnMac {
+        if #available(iOS 15.0, macCatalyst 15.0, *), UIApplication.shared.isiOSAppOnMac {
             wrapped.toolTip = tip
         }
         return self

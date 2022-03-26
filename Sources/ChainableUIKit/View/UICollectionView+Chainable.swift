@@ -162,7 +162,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func isDragInteractionEnabled(_ value: Bool) -> Self {
+    func dragInteractionEnabled(_ value: Bool) -> Self {
         wrapped.dragInteractionEnabled = value
         return self
     }
@@ -186,19 +186,19 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func isAllowsSelection(_ value: Bool) -> Self {
+    func allowsSelection(_ value: Bool) -> Self {
         wrapped.allowsSelection = value
         return self
     }
     
     @discardableResult
-    func isAllowsMultipleSelection(_ value: Bool) -> Self {
+    func allowsMultipleSelection(_ value: Bool) -> Self {
         wrapped.allowsMultipleSelection = value
         return self
     }
     
     @discardableResult
-    func isAllowsSelectionDuringEditing(_ value: Bool) -> Self {
+    func allowsSelectionDuringEditing(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.allowsSelectionDuringEditing = value
         }
@@ -206,7 +206,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func isAllowsMultipleSelectionDuringEditing(_ value: Bool) -> Self {
+    func allowsMultipleSelectionDuringEditing(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.allowsMultipleSelectionDuringEditing = value
         }
@@ -214,13 +214,13 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func isRemembersLastFocusedIndexPath(_ value: Bool) -> Self {
+    func remembersLastFocusedIndexPath(_ value: Bool) -> Self {
         wrapped.remembersLastFocusedIndexPath = value
         return self
     }
     
     @discardableResult
-    func isSelectionFollowsFocus(_ value: Bool) -> Self {
+    func selectionFollowsFocus(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.selectionFollowsFocus = value
         }
@@ -256,7 +256,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func isAllowsFocus(_ value: Bool) -> Self {
+    func allowsFocus(_ value: Bool) -> Self {
         if #available(iOS 15.0, *) {
             wrapped.allowsFocus = value
         }
@@ -264,7 +264,7 @@ public extension ChainableWrapper where Wrapped: UICollectionView {
     }
     
     @discardableResult
-    func isAllowsFocusDuringEditing(_ value: Bool) -> Self {
+    func allowsFocusDuringEditing(_ value: Bool) -> Self {
         if #available(iOS 15.0, *) {
             wrapped.allowsFocusDuringEditing = value
         }

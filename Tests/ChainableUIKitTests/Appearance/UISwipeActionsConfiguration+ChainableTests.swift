@@ -10,9 +10,9 @@ import XCTest
 
 final class UISwipeActionsConfigurationChainableTests: XCTestCase {
     
-    func testIsPerformsFirstActionWithFullSwipe() {
+    func testPerformsFirstActionWithFullSwipe() {
         let result = UISwipeActionsConfiguration(actions: []).chainable
-            .isPerformsFirstActionWithFullSwipe(true)
+            .performsFirstActionWithFullSwipe(true)
             .wrapped.performsFirstActionWithFullSwipe
         XCTAssert(result)
     }

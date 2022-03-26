@@ -53,19 +53,19 @@ public extension ChainableWrapper where Wrapped: UIButton {
     }
     
     @discardableResult
-    func isReversesTitleShadowWhenHighlighted(_ value: Bool) -> Self {
+    func reversesTitleShadowWhenHighlighted(_ value: Bool) -> Self {
         wrapped.reversesTitleShadowWhenHighlighted = value
         return self
     }
     
     @discardableResult
-    func isAdjustsImageWhenDisabled(_ value: Bool) -> Self {
+    func adjustsImageWhenDisabled(_ value: Bool) -> Self {
         wrapped.adjustsImageWhenDisabled = value
         return self
     }
     
     @discardableResult
-    func isShowsTouchWhenHighlighted(_ value: Bool) -> Self {
+    func showsTouchWhenHighlighted(_ value: Bool) -> Self {
         wrapped.showsTouchWhenHighlighted = value
         return self
     }
@@ -156,7 +156,7 @@ public extension ChainableWrapper where Wrapped: UIButton {
     }
     
     @discardableResult
-    func isChangesSelectionAsPrimaryAction(_ value: Bool) -> Self {
+    func changesSelectionAsPrimaryAction(_ value: Bool) -> Self {
         if #available(iOS 15.0, *) {
             wrapped.changesSelectionAsPrimaryAction = value
         }

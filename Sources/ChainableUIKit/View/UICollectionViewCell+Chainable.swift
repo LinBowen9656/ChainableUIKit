@@ -17,7 +17,7 @@ public extension ChainableWrapper where Wrapped: UICollectionViewCell {
     }
     
     @discardableResult
-    func isAutomaticallyUpdatesBackgroundConfiguration(_ value: Bool) -> Self {
+    func automaticallyUpdatesBackgroundConfiguration(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.automaticallyUpdatesBackgroundConfiguration = value
         }
@@ -44,7 +44,7 @@ public extension ChainableWrapper where Wrapped: UICollectionViewCell {
     }
     
     @discardableResult
-    func isAutomaticallyUpdatesContentConfiguration(_ value: Bool) -> Self {
+    func automaticallyUpdatesContentConfiguration(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.automaticallyUpdatesContentConfiguration = value
         }

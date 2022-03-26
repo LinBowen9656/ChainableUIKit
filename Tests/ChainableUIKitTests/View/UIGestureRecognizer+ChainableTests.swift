@@ -31,23 +31,23 @@ final class UIGestureRecognizerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsCancelsTouchesInView() {
+    func testCancelsTouchesInView() {
         let result = UIGestureRecognizer().chainable
-            .isCancelsTouchesInView(true)
+            .cancelsTouchesInView(true)
             .wrapped.cancelsTouchesInView
         XCTAssert(result)
     }
     
-    func testIsDelaysTouchesBegan() {
+    func testDelaysTouchesBegan() {
         let result = UIGestureRecognizer().chainable
-            .isDelaysTouchesBegan(true)
+            .delaysTouchesBegan(true)
             .wrapped.delaysTouchesBegan
         XCTAssert(result)
     }
     
-    func testIsDelaysTouchesEnded() {
+    func testDelaysTouchesEnded() {
         let result = UIGestureRecognizer().chainable
-            .isDelaysTouchesEnded(true)
+            .delaysTouchesEnded(true)
             .wrapped.delaysTouchesEnded
         XCTAssert(result)
     }
@@ -66,9 +66,9 @@ final class UIGestureRecognizerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsRequiresExclusiveTouchType() {
+    func testRequiresExclusiveTouchType() {
         let result = UIGestureRecognizer().chainable
-            .isRequiresExclusiveTouchType(true)
+            .requiresExclusiveTouchType(true)
             .wrapped.requiresExclusiveTouchType
         XCTAssert(result)
     }

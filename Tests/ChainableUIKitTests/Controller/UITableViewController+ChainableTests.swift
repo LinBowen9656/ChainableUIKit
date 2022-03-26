@@ -10,9 +10,9 @@ import XCTest
 
 final class UITableViewControllerChainableTests: XCTestCase {
     
-    func testIsClearsSelectionOnViewWillAppear() {
+    func testClearsSelectionOnViewWillAppear() {
         let result = UITableViewController().chainable
-            .isClearsSelectionOnViewWillAppear(true)
+            .clearsSelectionOnViewWillAppear(true)
             .wrapped.clearsSelectionOnViewWillAppear
         XCTAssert(result)
     }

@@ -63,23 +63,23 @@ final class UIButtonChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsReversesTitleShadowWhenHighlighted() {
+    func testReversesTitleShadowWhenHighlighted() {
         let result = UIButton(type: .custom).chainable
-            .isReversesTitleShadowWhenHighlighted(true)
+            .reversesTitleShadowWhenHighlighted(true)
             .wrapped.reversesTitleShadowWhenHighlighted
         XCTAssert(result)
     }
     
-    func testIsAdjustsImageWhenDisabled() {
+    func testAdjustsImageWhenDisabled() {
         let result = UIButton(type: .custom).chainable
-            .isAdjustsImageWhenDisabled(true)
+            .adjustsImageWhenDisabled(true)
             .wrapped.adjustsImageWhenDisabled
         XCTAssert(result)
     }
     
-    func testIsShowsTouchWhenHighlighted() {
+    func testShowsTouchWhenHighlighted() {
         let result = UIButton(type: .custom).chainable
-            .isShowsTouchWhenHighlighted(true)
+            .showsTouchWhenHighlighted(true)
             .wrapped.showsTouchWhenHighlighted
         XCTAssert(result)
     }
@@ -197,10 +197,10 @@ final class UIButtonChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsChangesSelectionAsPrimaryAction() {
+    func testChangesSelectionAsPrimaryAction() {
         if #available(iOS 15.0, *) {
             let result = UIButton(type: .custom).chainable
-                .isChangesSelectionAsPrimaryAction(true)
+                .changesSelectionAsPrimaryAction(true)
                 .wrapped.changesSelectionAsPrimaryAction
             XCTAssert(result)
         } else {

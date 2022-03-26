@@ -70,30 +70,30 @@ final class UINavigationControllerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsHidesBarsOnTap() {
+    func testHidesBarsOnTap() {
         let result = UINavigationController().chainable
-            .isHidesBarsOnTap(true)
+            .hidesBarsOnTap(true)
             .wrapped.hidesBarsOnTap
         XCTAssert(result)
     }
     
-    func testIsHidesBarsOnSwipe() {
+    func testHidesBarsOnSwipe() {
         let result = UINavigationController().chainable
-            .isHidesBarsOnSwipe(true)
+            .hidesBarsOnSwipe(true)
             .wrapped.hidesBarsOnSwipe
         XCTAssert(result)
     }
     
-    func testIsHidesBarsWhenVerticallyCompact() {
+    func testHidesBarsWhenVerticallyCompact() {
         let result = UINavigationController().chainable
-            .isHidesBarsWhenVerticallyCompact(true)
+            .hidesBarsWhenVerticallyCompact(true)
             .wrapped.hidesBarsWhenVerticallyCompact
         XCTAssert(result)
     }
     
-    func testIsHidesBarsWhenKeyboardAppears() {
+    func testHidesBarsWhenKeyboardAppears() {
         let result = UINavigationController().chainable
-            .isHidesBarsWhenKeyboardAppears(true)
+            .hidesBarsWhenKeyboardAppears(true)
             .wrapped.hidesBarsWhenKeyboardAppears
         XCTAssert(result)
     }

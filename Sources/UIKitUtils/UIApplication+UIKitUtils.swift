@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIApplication {
+public extension UIApplication {
     
     /// A Boolean value that indicates whether the process is an iPhone or iPad app running on a Mac.
     var isiOSAppOnMac: Bool {

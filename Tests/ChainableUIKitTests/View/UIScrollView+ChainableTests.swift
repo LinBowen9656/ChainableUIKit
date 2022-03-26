@@ -60,30 +60,30 @@ final class UIScrollViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsCanScrollsToTop() {
+    func testCanScrollsToTop() {
         let result = UIScrollView().chainable
-            .isCanScrollsToTop(true)
+            .scrollsToTop(true)
             .wrapped.scrollsToTop
         XCTAssert(result)
     }
     
-    func testIsBounces() {
+    func testBounces() {
         let result = UIScrollView().chainable
-            .isBounces(true)
+            .bounces(true)
             .wrapped.bounces
         XCTAssert(result)
     }
     
-    func testIsAlwaysBounceVertical() {
+    func testAlwaysBounceVertical() {
         let result = UIScrollView().chainable
-            .isAlwaysBounceVertical(true)
+            .alwaysBounceVertical(true)
             .wrapped.alwaysBounceVertical
         XCTAssert(result)
     }
     
-    func testIsAlwaysBounceHorizontal() {
+    func testAlwaysBounceHorizontal() {
         let result = UIScrollView().chainable
-            .isAlwaysBounceHorizontal(true)
+            .alwaysBounceHorizontal(true)
             .wrapped.alwaysBounceHorizontal
         XCTAssert(result)
     }
@@ -102,16 +102,16 @@ final class UIScrollViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsShowsHorizontalScrollIndicator() {
+    func testShowsHorizontalScrollIndicator() {
         let result = UIScrollView().chainable
-            .isShowsHorizontalScrollIndicator(true)
+            .showsHorizontalScrollIndicator(true)
             .wrapped.showsHorizontalScrollIndicator
         XCTAssert(result)
     }
     
-    func testIsShowsVerticalScrollIndicator() {
+    func testShowsVerticalScrollIndicator() {
         let result = UIScrollView().chainable
-            .isShowsVerticalScrollIndicator(true)
+            .showsVerticalScrollIndicator(true)
             .wrapped.showsVerticalScrollIndicator
         XCTAssert(result)
     }
@@ -138,9 +138,9 @@ final class UIScrollViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsBouncesZoom() {
+    func testBouncesZoom() {
         let result = UIScrollView().chainable
-            .isBouncesZoom(true)
+            .bouncesZoom(true)
             .wrapped.bouncesZoom
         XCTAssert(result)
     }
@@ -173,10 +173,10 @@ final class UIScrollViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAutomaticallyAdjustsScrollIndicatorInsets() {
+    func testAutomaticallyAdjustsScrollIndicatorInsets() {
         if #available(iOS 13.0, *) {
             let result = UIScrollView().chainable
-                .isAutomaticallyAdjustsScrollIndicatorInsets(true)
+                .automaticallyAdjustsScrollIndicatorInsets(true)
                 .wrapped.automaticallyAdjustsScrollIndicatorInsets
             XCTAssert(result)
         } else {

@@ -52,25 +52,25 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func isCanScrollsToTop(_ value: Bool) -> Self {
+    func scrollsToTop(_ value: Bool) -> Self {
         wrapped.scrollsToTop = value
         return self
     }
     
     @discardableResult
-    func isBounces(_ value: Bool) -> Self {
+    func bounces(_ value: Bool) -> Self {
         wrapped.bounces = value
         return self
     }
     
     @discardableResult
-    func isAlwaysBounceVertical(_ value: Bool) -> Self {
+    func alwaysBounceVertical(_ value: Bool) -> Self {
         wrapped.alwaysBounceVertical = value
         return self
     }
     
     @discardableResult
-    func isAlwaysBounceHorizontal(_ value: Bool) -> Self {
+    func alwaysBounceHorizontal(_ value: Bool) -> Self {
         wrapped.alwaysBounceHorizontal = value
         return self
     }
@@ -88,13 +88,13 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func isShowsHorizontalScrollIndicator(_ value: Bool) -> Self {
+    func showsHorizontalScrollIndicator(_ value: Bool) -> Self {
         wrapped.showsHorizontalScrollIndicator = value
         return self
     }
     
     @discardableResult
-    func isShowsVerticalScrollIndicator(_ value: Bool) -> Self {
+    func showsVerticalScrollIndicator(_ value: Bool) -> Self {
         wrapped.showsVerticalScrollIndicator = value
         return self
     }
@@ -118,7 +118,7 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func isBouncesZoom(_ value: Bool) -> Self {
+    func bouncesZoom(_ value: Bool) -> Self {
         wrapped.bouncesZoom = value
         return self
     }
@@ -148,7 +148,7 @@ public extension ChainableWrapper where Wrapped: UIScrollView {
     }
     
     @discardableResult
-    func isAutomaticallyAdjustsScrollIndicatorInsets(_ value: Bool) -> Self {
+    func automaticallyAdjustsScrollIndicatorInsets(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.automaticallyAdjustsScrollIndicatorInsets = value
         }

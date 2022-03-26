@@ -81,9 +81,9 @@ final class UICollectionViewChainableTests: XCTestCase {
         XCTAssert(result && isCompleted)
     }
     
-    func testIsDragInteractionEnabled() {
+    func testDragInteractionEnabled() {
         let result = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).chainable
-            .isDragInteractionEnabled(true)
+            .dragInteractionEnabled(true)
             .wrapped.dragInteractionEnabled
         XCTAssert(result)
     }
@@ -110,24 +110,24 @@ final class UICollectionViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAllowsSelection() {
+    func testAllowsSelection() {
         let result = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).chainable
-            .isAllowsSelection(true)
+            .allowsSelection(true)
             .wrapped.allowsSelection
         XCTAssert(result)
     }
     
-    func testIsAllowsMultipleSelection() {
+    func testAllowsMultipleSelection() {
         let result = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).chainable
-            .isAllowsMultipleSelection(true)
+            .allowsMultipleSelection(true)
             .wrapped.allowsMultipleSelection
         XCTAssert(result)
     }
     
-    func testIsAllowsSelectionDuringEditing() {
+    func testAllowsSelectionDuringEditing() {
         if #available(iOS 14.0, *) {
             let result = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).chainable
-                .isAllowsSelectionDuringEditing(true)
+                .allowsSelectionDuringEditing(true)
                 .wrapped.allowsSelectionDuringEditing
             XCTAssert(result)
         } else {
@@ -135,10 +135,10 @@ final class UICollectionViewChainableTests: XCTestCase {
         }
     }
     
-    func testIsAllowsMultipleSelectionDuringEditing() {
+    func testAllowsMultipleSelectionDuringEditing() {
         if #available(iOS 14.0, *) {
             let result = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).chainable
-                .isAllowsMultipleSelectionDuringEditing(true)
+                .allowsMultipleSelectionDuringEditing(true)
                 .wrapped.allowsMultipleSelectionDuringEditing
             XCTAssert(result)
         } else {
@@ -146,17 +146,17 @@ final class UICollectionViewChainableTests: XCTestCase {
         }
     }
     
-    func testIsRemembersLastFocusedIndexPath() {
+    func testRemembersLastFocusedIndexPath() {
         let result = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).chainable
-            .isRemembersLastFocusedIndexPath(true)
+            .remembersLastFocusedIndexPath(true)
             .wrapped.remembersLastFocusedIndexPath
         XCTAssert(result)
     }
     
-    func testIsSelectionFollowsFocus() {
+    func testSelectionFollowsFocus() {
         if #available(iOS 14.0, *) {
             let result = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).chainable
-                .isSelectionFollowsFocus(true)
+                .selectionFollowsFocus(true)
                 .wrapped.selectionFollowsFocus
             XCTAssert(result)
         } else {
@@ -189,10 +189,10 @@ final class UICollectionViewChainableTests: XCTestCase {
         }
     }
     
-    func testIsAllowsFocus() {
+    func testAllowsFocus() {
         if #available(iOS 15.0, *) {
             let result = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).chainable
-                .isAllowsFocus(true)
+                .allowsFocus(true)
                 .wrapped.allowsFocus
             XCTAssert(result)
         } else {
@@ -200,10 +200,10 @@ final class UICollectionViewChainableTests: XCTestCase {
         }
     }
     
-    func testIsAllowsFocusDuringEditing() {
+    func testAllowsFocusDuringEditing() {
         if #available(iOS 15.0, *) {
             let result = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).chainable
-                .isAllowsFocusDuringEditing(true)
+                .allowsFocusDuringEditing(true)
                 .wrapped.allowsFocusDuringEditing
             XCTAssert(result)
         } else {

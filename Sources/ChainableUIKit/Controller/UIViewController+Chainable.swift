@@ -28,7 +28,7 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func isViewRespectsSystemMinimumLayoutMargins(_ value: Bool) -> Self {
+    func viewRespectsSystemMinimumLayoutMargins(_ value: Bool) -> Self {
         wrapped.viewRespectsSystemMinimumLayoutMargins = value
         return self
     }
@@ -40,7 +40,7 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func isExtendedLayoutIncludesOpaqueBars(_ value: Bool) -> Self {
+    func extendedLayoutIncludesOpaqueBars(_ value: Bool) -> Self {
         wrapped.extendedLayoutIncludesOpaqueBars = value
         return self
     }
@@ -114,19 +114,19 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func isDefinesPresentationContext(_ value: Bool) -> Self {
+    func definesPresentationContext(_ value: Bool) -> Self {
         wrapped.definesPresentationContext = value
         return self
     }
     
     @discardableResult
-    func isProvidesPresentationContextTransitionStyle(_ value: Bool) -> Self {
+    func providesPresentationContextTransitionStyle(_ value: Bool) -> Self {
         wrapped.providesPresentationContextTransitionStyle = value
         return self
     }
     
     @discardableResult
-    func isRestoresFocusAfterTransition(_ value: Bool) -> Self {
+    func restoresFocusAfterTransition(_ value: Bool) -> Self {
         wrapped.restoresFocusAfterTransition = value
         return self
     }
@@ -157,7 +157,7 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func isHidesBottomBarWhenPushed(_ value: Bool) -> Self {
+    func hidesBottomBarWhenPushed(_ value: Bool) -> Self {
         wrapped.hidesBottomBarWhenPushed = value
         return self
     }
@@ -181,7 +181,7 @@ public extension ChainableWrapper where Wrapped: UIViewController {
     }
     
     @discardableResult
-    func isModalPresentationCapturesStatusBarAppearance(_ value: Bool) -> Self {
+    func modalPresentationCapturesStatusBarAppearance(_ value: Bool) -> Self {
         wrapped.modalPresentationCapturesStatusBarAppearance = value
         return self
     }

@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UIActivityIndicatorView {
     
     @discardableResult
-    func isHidesWhenStop(_ value: Bool) -> Self {
+    func hidesWhenStop(_ value: Bool) -> Self {
         wrapped.hidesWhenStopped = value
         return self
     }

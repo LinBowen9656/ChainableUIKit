@@ -19,10 +19,10 @@ final class UICollectionViewCellChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAutomaticallyUpdatesBackgroundConfiguration() {
+    func testAutomaticallyUpdatesBackgroundConfiguration() {
         if #available(iOS 14.0, *) {
             let result = UICollectionViewCell().chainable
-                .isAutomaticallyUpdatesBackgroundConfiguration(true)
+                .automaticallyUpdatesBackgroundConfiguration(true)
                 .wrapped.automaticallyUpdatesBackgroundConfiguration
             XCTAssert(result)
         } else {
@@ -55,10 +55,10 @@ final class UICollectionViewCellChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAutomaticallyUpdatesContentConfiguration() {
+    func testAutomaticallyUpdatesContentConfiguration() {
         if #available(iOS 14.0, *) {
             let result = UICollectionViewCell().chainable
-                .isAutomaticallyUpdatesContentConfiguration(true)
+                .automaticallyUpdatesContentConfiguration(true)
                 .wrapped.automaticallyUpdatesContentConfiguration
             XCTAssert(result)
         } else {

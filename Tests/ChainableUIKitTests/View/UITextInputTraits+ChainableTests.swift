@@ -45,9 +45,9 @@ extension UITextFieldChainableTests {
         XCTAssert(result)
     }
     
-    func testIsEnablesReturnKeyAutomatically() {
+    func testEnablesReturnKeyAutomatically() {
         let result = UITextField().chainable
-            .isEnablesReturnKeyAutomatically(true)
+            .enablesReturnKeyAutomatically(true)
             .wrapped.enablesReturnKeyAutomatically
         XCTAssert(result)
     }
@@ -142,9 +142,9 @@ extension UITextViewChainableTests {
         XCTAssert(result)
     }
     
-    func testIsEnablesReturnKeyAutomatically() {
+    func testEnablesReturnKeyAutomatically() {
         let result = UITextView().chainable
-            .isEnablesReturnKeyAutomatically(true)
+            .enablesReturnKeyAutomatically(true)
             .wrapped.enablesReturnKeyAutomatically
         XCTAssert(result)
     }

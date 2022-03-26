@@ -64,19 +64,19 @@ public extension ChainableWrapper where Wrapped: UITextField {
     }
     
     @discardableResult
-    func isClearsOnBeginEditing(_ value: Bool) -> Self {
+    func clearsOnBeginEditing(_ value: Bool) -> Self {
         wrapped.clearsOnBeginEditing = value
         return self
     }
     
     @discardableResult
-    func isClearsOnInsertion(_ value: Bool) -> Self {
+    func clearsOnInsertion(_ value: Bool) -> Self {
         wrapped.clearsOnInsertion = value
         return self
     }
     
     @discardableResult
-    func isAllowsEditingTextAttributes(_ value: Bool) -> Self {
+    func allowsEditingTextAttributes(_ value: Bool) -> Self {
         wrapped.allowsEditingTextAttributes = value
         return self
     }

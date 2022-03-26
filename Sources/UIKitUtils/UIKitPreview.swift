@@ -5,7 +5,7 @@
 //  Created by 林博文 on 2022/3/16.
 //
 
-#if canImport(SwiftUI)
+#if DEBUG && canImport(SwiftUI)
 
 import SwiftUI
 

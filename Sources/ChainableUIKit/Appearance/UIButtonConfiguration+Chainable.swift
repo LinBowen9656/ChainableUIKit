@@ -84,7 +84,7 @@ public extension ChainableWrapper where Wrapped == UIButton.Configuration {
     }
     
     @discardableResult
-    func isShowsActivityIndicator(_ value: Bool) -> Self {
+    func showsActivityIndicator(_ value: Bool) -> Self {
         var wrap = wrapped
         wrap.showsActivityIndicator = value
         return ChainableWrapper(wrapped: wrap)
@@ -154,7 +154,7 @@ public extension ChainableWrapper where Wrapped == UIButton.Configuration {
     }
     
     @discardableResult
-    func isAutomaticallyUpdateForSelection(_ value: Bool) -> Self {
+    func automaticallyUpdateForSelection(_ value: Bool) -> Self {
         var wrap = wrapped
         wrap.automaticallyUpdateForSelection = value
         return ChainableWrapper(wrapped: wrap)

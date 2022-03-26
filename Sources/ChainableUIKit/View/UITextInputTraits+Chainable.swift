@@ -40,7 +40,7 @@ public extension ChainableWrapper where Wrapped: UITextField {
     }
     
     @discardableResult
-    func isEnablesReturnKeyAutomatically(_ value: Bool) -> Self {
+    func enablesReturnKeyAutomatically(_ value: Bool) -> Self {
         wrapped.enablesReturnKeyAutomatically = value
         return self
     }
@@ -123,7 +123,7 @@ public extension ChainableWrapper where Wrapped: UITextView {
     }
     
     @discardableResult
-    func isEnablesReturnKeyAutomatically(_ value: Bool) -> Self {
+    func enablesReturnKeyAutomatically(_ value: Bool) -> Self {
         wrapped.enablesReturnKeyAutomatically = value
         return self
     }

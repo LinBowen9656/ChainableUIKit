@@ -21,16 +21,16 @@ final class UISearchTextFieldChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAllowsDeletingTokens() {
+    func testAllowsDeletingTokens() {
         let result = UISearchTextField().chainable
-            .isAllowsDeletingTokens(true)
+            .allowsDeletingTokens(true)
             .wrapped.allowsDeletingTokens
         XCTAssert(result)
     }
     
-    func testIsAllowsCopyingTokens() {
+    func testAllowsCopyingTokens() {
         let result = UISearchTextField().chainable
-            .isAllowsCopyingTokens(true)
+            .allowsCopyingTokens(true)
             .wrapped.allowsCopyingTokens
         XCTAssert(result)
     }

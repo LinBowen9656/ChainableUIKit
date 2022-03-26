@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UITableViewController {
     
     @discardableResult
-    func isClearsSelectionOnViewWillAppear(_ value: Bool) -> Self {
+    func clearsSelectionOnViewWillAppear(_ value: Bool) -> Self {
         wrapped.clearsSelectionOnViewWillAppear = value
         return self
     }

@@ -10,7 +10,7 @@ import UIKit
 public extension ChainableWrapper where Wrapped: UINavigationBar {
     
     @discardableResult
-    func isPrefersLargeTitles(_ value: Bool) -> Self {
+    func prefersLargeTitles(_ value: Bool) -> Self {
         wrapped.prefersLargeTitles = value
         return self
     }

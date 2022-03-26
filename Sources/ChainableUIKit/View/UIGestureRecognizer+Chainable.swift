@@ -30,19 +30,19 @@ public extension ChainableWrapper where Wrapped: UIGestureRecognizer {
     }
     
     @discardableResult
-    func isCancelsTouchesInView(_ value: Bool) -> Self {
+    func cancelsTouchesInView(_ value: Bool) -> Self {
         wrapped.cancelsTouchesInView = value
         return self
     }
     
     @discardableResult
-    func isDelaysTouchesBegan(_ value: Bool) -> Self {
+    func delaysTouchesBegan(_ value: Bool) -> Self {
         wrapped.delaysTouchesBegan = value
         return self
     }
     
     @discardableResult
-    func isDelaysTouchesEnded(_ value: Bool) -> Self {
+    func delaysTouchesEnded(_ value: Bool) -> Self {
         wrapped.delaysTouchesEnded = value
         return self
     }
@@ -60,7 +60,7 @@ public extension ChainableWrapper where Wrapped: UIGestureRecognizer {
     }
     
     @discardableResult
-    func isRequiresExclusiveTouchType(_ value: Bool) -> Self {
+    func requiresExclusiveTouchType(_ value: Bool) -> Self {
         wrapped.requiresExclusiveTouchType = value
         return self
     }

@@ -53,25 +53,25 @@ public extension ChainableWrapper where Wrapped: UINavigationController {
     }
     
     @discardableResult
-    func isHidesBarsOnTap(_ value: Bool) -> Self {
+    func hidesBarsOnTap(_ value: Bool) -> Self {
         wrapped.hidesBarsOnTap = value
         return self
     }
     
     @discardableResult
-    func isHidesBarsOnSwipe(_ value: Bool) -> Self {
+    func hidesBarsOnSwipe(_ value: Bool) -> Self {
         wrapped.hidesBarsOnSwipe = value
         return self
     }
     
     @discardableResult
-    func isHidesBarsWhenVerticallyCompact(_ value: Bool) -> Self {
+    func hidesBarsWhenVerticallyCompact(_ value: Bool) -> Self {
         wrapped.hidesBarsWhenVerticallyCompact = value
         return self
     }
     
     @discardableResult
-    func isHidesBarsWhenKeyboardAppears(_ value: Bool) -> Self {
+    func hidesBarsWhenKeyboardAppears(_ value: Bool) -> Self {
         wrapped.hidesBarsWhenKeyboardAppears = value
         return self
     }

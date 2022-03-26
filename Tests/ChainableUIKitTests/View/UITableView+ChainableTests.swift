@@ -76,16 +76,16 @@ final class UITableViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsCellLayoutMarginsFollowReadableWidth() {
+    func testCellLayoutMarginsFollowReadableWidth() {
         let result = UITableView().chainable
-            .isCellLayoutMarginsFollowReadableWidth(true)
+            .cellLayoutMarginsFollowReadableWidth(true)
             .wrapped.cellLayoutMarginsFollowReadableWidth
         XCTAssert(result)
     }
     
-    func testIsInsetsContentViewsToSafeArea() {
+    func testInsetsContentViewsToSafeArea() {
         let result = UITableView().chainable
-            .isInsetsContentViewsToSafeArea(true)
+            .insetsContentViewsToSafeArea(true)
             .wrapped.insetsContentViewsToSafeArea
         XCTAssert(result)
     }
@@ -169,45 +169,45 @@ final class UITableViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAllowsSelection() {
+    func testAllowsSelection() {
         let result = UITableView().chainable
-            .isAllowsSelection(true)
+            .allowsSelection(true)
             .wrapped.allowsSelection
         XCTAssert(result)
     }
     
-    func testIsAllowsMultipleSelection() {
+    func testAllowsMultipleSelection() {
         let result = UITableView().chainable
-            .isAllowsMultipleSelection(true)
+            .allowsMultipleSelection(true)
             .wrapped.allowsMultipleSelection
         XCTAssert(result)
     }
     
-    func testIsAllowsSelectionDuringEditing() {
+    func testAllowsSelectionDuringEditing() {
         let result = UITableView().chainable
-            .isAllowsSelectionDuringEditing(true)
+            .allowsSelectionDuringEditing(true)
             .wrapped.allowsSelectionDuringEditing
         XCTAssert(result)
     }
     
-    func testIsAllowsMultipleSelectionDuringEditing() {
+    func testAllowsMultipleSelectionDuringEditing() {
         let result = UITableView().chainable
-            .isAllowsMultipleSelectionDuringEditing(true)
+            .allowsMultipleSelectionDuringEditing(true)
             .wrapped.allowsMultipleSelectionDuringEditing
         XCTAssert(result)
     }
     
-    func testIsRemembersLastFocusedIndexPath() {
+    func testRemembersLastFocusedIndexPath() {
         let result = UITableView().chainable
-            .isRemembersLastFocusedIndexPath(true)
+            .remembersLastFocusedIndexPath(true)
             .wrapped.remembersLastFocusedIndexPath
         XCTAssert(result)
     }
     
-    func testIsSelectionFollowsFocus() {
+    func testSelectionFollowsFocus() {
         if #available(iOS 14.0, *) {
             let result = UITableView().chainable
-                .isSelectionFollowsFocus(true)
+                .selectionFollowsFocus(true)
                 .wrapped.selectionFollowsFocus
             XCTAssert(result)
         } else {
@@ -263,9 +263,9 @@ final class UITableViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsDragInteractionEnabled() {
+    func testDragInteractionEnabled() {
         let result = UITableView().chainable
-            .isDragInteractionEnabled(true)
+            .dragInteractionEnabled(true)
             .wrapped.dragInteractionEnabled
         XCTAssert(result)
     }
@@ -320,10 +320,10 @@ final class UITableViewChainableTests: XCTestCase {
         }
     }
     
-    func testIsAllowsFocus() {
+    func testAllowsFocus() {
         if #available(iOS 15.0, *) {
             let result = UITableView().chainable
-                .isAllowsFocus(true)
+                .allowsFocus(true)
                 .wrapped.allowsFocus
             XCTAssert(result)
         } else {
@@ -331,10 +331,10 @@ final class UITableViewChainableTests: XCTestCase {
         }
     }
     
-    func testIsAllowsFocusDuringEditing() {
+    func testAllowsFocusDuringEditing() {
         if #available(iOS 15.0, *) {
             let result = UITableView().chainable
-                .isAllowsFocusDuringEditing(true)
+                .allowsFocusDuringEditing(true)
                 .wrapped.allowsFocusDuringEditing
             XCTAssert(result)
         } else {

@@ -17,13 +17,13 @@ public extension ChainableWrapper where Wrapped: UISearchTextField {
     }
     
     @discardableResult
-    func isAllowsDeletingTokens(_ value: Bool) -> Self {
+    func allowsDeletingTokens(_ value: Bool) -> Self {
         wrapped.allowsDeletingTokens = value
         return self
     }
     
     @discardableResult
-    func isAllowsCopyingTokens(_ value: Bool) -> Self {
+    func allowsCopyingTokens(_ value: Bool) -> Self {
         wrapped.allowsCopyingTokens = value
         return self
     }

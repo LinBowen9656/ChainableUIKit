@@ -10,9 +10,9 @@ import XCTest
 
 final class UIActivityIndicatorViewChainableTests: XCTestCase {
     
-    func testIsHidesWhenStop() {
+    func testHidesWhenStop() {
         let result = UIActivityIndicatorView(style: .white).chainable
-            .isHidesWhenStop(true)
+            .hidesWhenStop(true)
             .wrapped.hidesWhenStopped
         XCTAssert(result)
     }

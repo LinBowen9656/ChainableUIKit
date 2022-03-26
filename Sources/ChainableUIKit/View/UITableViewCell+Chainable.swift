@@ -17,7 +17,7 @@ public extension ChainableWrapper where Wrapped: UITableViewCell {
     }
     
     @discardableResult
-    func isAutomaticallyUpdatesBackgroundConfiguration(_ value: Bool) -> Self {
+    func automaticallyUpdatesBackgroundConfiguration(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.automaticallyUpdatesBackgroundConfiguration = value
         }
@@ -50,7 +50,7 @@ public extension ChainableWrapper where Wrapped: UITableViewCell {
     }
     
     @discardableResult
-    func isAutomaticallyUpdatesContentConfiguration(_ value: Bool) -> Self {
+    func automaticallyUpdatesContentConfiguration(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.automaticallyUpdatesContentConfiguration = value
         }
@@ -100,13 +100,13 @@ public extension ChainableWrapper where Wrapped: UITableViewCell {
     }
     
     @discardableResult
-    func isShowsReorderControl(_ value: Bool) -> Self {
+    func showsReorderControl(_ value: Bool) -> Self {
         wrapped.showsReorderControl = value
         return self
     }
     
     @discardableResult
-    func isUserInteractionEnabledWhileDragging(_ value: Bool) -> Self {
+    func userInteractionEnabledWhileDragging(_ value: Bool) -> Self {
         wrapped.userInteractionEnabledWhileDragging = value
         return self
     }
@@ -130,7 +130,7 @@ public extension ChainableWrapper where Wrapped: UITableViewCell {
     }
     
     @discardableResult
-    func isShouldIndentWhileEditing(_ value: Bool) -> Self {
+    func shouldIndentWhileEditing(_ value: Bool) -> Self {
         wrapped.shouldIndentWhileEditing = value
         return self
     }

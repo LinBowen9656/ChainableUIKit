@@ -31,9 +31,9 @@ final class UIViewControllerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsViewRespectsSystemMinimumLayoutMargins() {
+    func testViewRespectsSystemMinimumLayoutMargins() {
         let result = UIViewController().chainable
-            .isViewRespectsSystemMinimumLayoutMargins(true)
+            .viewRespectsSystemMinimumLayoutMargins(true)
             .wrapped.viewRespectsSystemMinimumLayoutMargins
         XCTAssert(result)
     }
@@ -45,9 +45,9 @@ final class UIViewControllerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsExtendedLayoutIncludesOpaqueBars() {
+    func testExtendedLayoutIncludesOpaqueBars() {
         let result = UIViewController().chainable
-            .isExtendedLayoutIncludesOpaqueBars(true)
+            .extendedLayoutIncludesOpaqueBars(true)
             .wrapped.extendedLayoutIncludesOpaqueBars
         XCTAssert(result)
     }
@@ -148,23 +148,23 @@ final class UIViewControllerChainableTests: XCTestCase {
         }
     }
     
-    func testIsDefinesPresentationContext() {
+    func testDefinesPresentationContext() {
         let result = UIViewController().chainable
-            .isDefinesPresentationContext(true)
+            .definesPresentationContext(true)
             .wrapped.definesPresentationContext
         XCTAssert(result)
     }
     
-    func testIsProvidesPresentationContextTransitionStyle() {
+    func testProvidesPresentationContextTransitionStyle() {
         let result = UIViewController().chainable
-            .isProvidesPresentationContextTransitionStyle(true)
+            .providesPresentationContextTransitionStyle(true)
             .wrapped.providesPresentationContextTransitionStyle
         XCTAssert(result)
     }
     
-    func testIsRestoresFocusAfterTransition() {
+    func testRestoresFocusAfterTransition() {
         let result = UIViewController().chainable
-            .isRestoresFocusAfterTransition(true)
+            .restoresFocusAfterTransition(true)
             .wrapped.restoresFocusAfterTransition
         XCTAssert(result)
     }
@@ -204,9 +204,9 @@ final class UIViewControllerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsHidesBottomBarWhenPushed() {
+    func testHidesBottomBarWhenPushed() {
         let result = UIViewController().chainable
-            .isHidesBottomBarWhenPushed(true)
+            .hidesBottomBarWhenPushed(true)
             .wrapped.hidesBottomBarWhenPushed
         XCTAssert(result)
     }
@@ -233,9 +233,9 @@ final class UIViewControllerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsModalPresentationCapturesStatusBarAppearance() {
+    func testModalPresentationCapturesStatusBarAppearance() {
         let result = UIViewController().chainable
-            .isModalPresentationCapturesStatusBarAppearance(true)
+            .modalPresentationCapturesStatusBarAppearance(true)
             .wrapped.modalPresentationCapturesStatusBarAppearance
         XCTAssert(result)
     }

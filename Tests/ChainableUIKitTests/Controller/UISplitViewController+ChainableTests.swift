@@ -62,17 +62,17 @@ final class UISplitViewControllerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsPresentsWithGesture() {
+    func testPresentsWithGesture() {
         let result = UISplitViewController().chainable
-            .isPresentsWithGesture(true)
+            .presentsWithGesture(true)
             .wrapped.presentsWithGesture
         XCTAssert(result)
     }
     
-    func testIsShowsSecondaryOnlyButton() {
+    func testShowsSecondaryOnlyButton() {
         if #available(iOS 14.0, *) {
             let result = UISplitViewController(style: .tripleColumn).chainable
-                .isShowsSecondaryOnlyButton(true)
+                .showsSecondaryOnlyButton(true)
                 .wrapped.showsSecondaryOnlyButton
             XCTAssert(result)
         } else {

@@ -25,9 +25,9 @@ final class UIPageControlChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsHidesForSinglePage() {
+    func testHidesForSinglePage() {
         let result = UIPageControl().chainable
-            .isHidesForSinglePage(true)
+            .hidesForSinglePage(true)
             .wrapped.hidesForSinglePage
         XCTAssert(result)
     }
@@ -54,10 +54,10 @@ final class UIPageControlChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAllowsContinuousInteraction() {
+    func testAllowsContinuousInteraction() {
         if #available(iOS 14.0, *) {
             let result = UIPageControl().chainable
-                .isAllowsContinuousInteraction(true)
+                .allowsContinuousInteraction(true)
                 .wrapped.allowsContinuousInteraction
             XCTAssert(result)
         } else {

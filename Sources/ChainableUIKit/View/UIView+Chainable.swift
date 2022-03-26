@@ -87,7 +87,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func isTranslatesAutoresizingMaskIntoConstraints(_ value: Bool) -> Self {
+    func translatesAutoresizingMaskIntoConstraints(_ value: Bool) -> Self {
         wrapped.translatesAutoresizingMaskIntoConstraints = value
         return self
     }
@@ -175,13 +175,13 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func isPreservesSuperviewLayoutMargins(_ value: Bool) -> Self {
+    func preservesSuperviewLayoutMargins(_ value: Bool) -> Self {
         wrapped.preservesSuperviewLayoutMargins = value
         return self
     }
     
     @discardableResult
-    func isInsetsLayoutMarginsFromSafeArea(_ value: Bool) -> Self {
+    func insetsLayoutMarginsFromSafeArea(_ value: Bool) -> Self {
         wrapped.insetsLayoutMarginsFromSafeArea = value
         return self
     }
@@ -223,7 +223,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func isClipsToBounds(_ value: Bool) -> Self {
+    func clipsToBounds(_ value: Bool) -> Self {
         wrapped.clipsToBounds = value
         return self
     }
@@ -399,7 +399,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func isAutoresizesSubviews(_ value: Bool) -> Self {
+    func autoresizesSubviews(_ value: Bool) -> Self {
         wrapped.autoresizesSubviews = value
         return self
     }
@@ -478,7 +478,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func isAccessibilityIgnoresInvertColors(_ value: Bool) -> Self {
+    func accessibilityIgnoresInvertColors(_ value: Bool) -> Self {
         wrapped.accessibilityIgnoresInvertColors = value
         return self
     }
@@ -528,7 +528,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func isScalesLargeContentImage(_ value: Bool) -> Self {
+    func scalesLargeContentImage(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.scalesLargeContentImage = value
         }
@@ -536,7 +536,7 @@ public extension ChainableWrapper where Wrapped: UIView {
     }
     
     @discardableResult
-    func isShowsLargeContentViewer(_ value: Bool) -> Self {
+    func showsLargeContentViewer(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.showsLargeContentViewer = value
         }

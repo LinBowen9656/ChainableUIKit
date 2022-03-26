@@ -92,9 +92,9 @@ final class UIButtonConfigurationChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsShowsActivityIndicator() {
+    func testShowsActivityIndicator() {
         let result = UIButton.Configuration.plain().chainable
-            .isShowsActivityIndicator(true)
+            .showsActivityIndicator(true)
             .wrapped.showsActivityIndicator
         XCTAssert(result)
     }
@@ -167,9 +167,9 @@ final class UIButtonConfigurationChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAutomaticallyUpdateForSelection() {
+    func testAutomaticallyUpdateForSelection() {
         let result = UIButton.Configuration.plain().chainable
-            .isAutomaticallyUpdateForSelection(true)
+            .automaticallyUpdateForSelection(true)
             .wrapped.automaticallyUpdateForSelection
         XCTAssert(result)
     }

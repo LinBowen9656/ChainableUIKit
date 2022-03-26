@@ -101,9 +101,9 @@ final class UIViewChainableTests: XCTestCase {
         }
     }
     
-    func testIsTranslatesAutoresizingMaskIntoConstraints() {
+    func testTranslatesAutoresizingMaskIntoConstraints() {
         let result = UIView().chainable
-            .isTranslatesAutoresizingMaskIntoConstraints(true)
+            .translatesAutoresizingMaskIntoConstraints(true)
             .wrapped.translatesAutoresizingMaskIntoConstraints
         XCTAssert(result)
     }
@@ -224,16 +224,16 @@ final class UIViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsPreservesSuperviewLayoutMargins() {
+    func testPreservesSuperviewLayoutMargins() {
         let result = UIView().chainable
-            .isPreservesSuperviewLayoutMargins(true)
+            .preservesSuperviewLayoutMargins(true)
             .wrapped.preservesSuperviewLayoutMargins
         XCTAssert(result)
     }
     
-    func testIsInsetsLayoutMarginsFromSafeArea() {
+    func testInsetsLayoutMarginsFromSafeArea() {
         let result = UIView().chainable
-            .isInsetsLayoutMarginsFromSafeArea(true)
+            .insetsLayoutMarginsFromSafeArea(true)
             .wrapped.insetsLayoutMarginsFromSafeArea
         XCTAssert(result)
     }
@@ -282,9 +282,9 @@ final class UIViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsClipsToBounds() {
+    func testClipsToBounds() {
         let result = UIView().chainable
-            .isClipsToBounds(true)
+            .clipsToBounds(true)
             .wrapped.clipsToBounds
         XCTAssert(result)
     }
@@ -492,9 +492,9 @@ final class UIViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAutoresizesSubviews() {
+    func testAutoresizesSubviews() {
         let result = UIView().chainable
-            .isAutoresizesSubviews(true)
+            .autoresizesSubviews(true)
             .wrapped.autoresizesSubviews
         XCTAssert(result)
     }
@@ -590,9 +590,9 @@ final class UIViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAccessibilityIgnoresInvertColors() {
+    func testAccessibilityIgnoresInvertColors() {
         let result = UIView().chainable
-            .isAccessibilityIgnoresInvertColors(true)
+            .accessibilityIgnoresInvertColors(true)
             .wrapped.accessibilityIgnoresInvertColors
         XCTAssert(result)
     }
@@ -656,10 +656,10 @@ final class UIViewChainableTests: XCTestCase {
         }
     }
     
-    func testIsScalesLargeContentImage() {
+    func testScalesLargeContentImage() {
         if #available(iOS 13.0, *) {
             let result = UIView().chainable
-                .isScalesLargeContentImage(true)
+                .scalesLargeContentImage(true)
                 .wrapped.scalesLargeContentImage
             XCTAssert(result)
         } else {
@@ -667,10 +667,10 @@ final class UIViewChainableTests: XCTestCase {
         }
     }
     
-    func testIsShowsLargeContentViewer() {
+    func testShowsLargeContentViewer() {
         if #available(iOS 13.0, *) {
             let result = UIView().chainable
-                .isShowsLargeContentViewer(true)
+                .showsLargeContentViewer(true)
                 .wrapped.showsLargeContentViewer
             XCTAssert(result)
         } else {

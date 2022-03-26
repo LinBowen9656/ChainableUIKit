@@ -16,19 +16,19 @@ public extension ChainableWrapper where Wrapped: UISearchController {
     }
     
     @discardableResult
-    func isObscuresBackgroundDuringPresentation(_ value: Bool) -> Self {
+    func obscuresBackgroundDuringPresentation(_ value: Bool) -> Self {
         wrapped.obscuresBackgroundDuringPresentation = value
         return self
     }
     
     @discardableResult
-    func isHidesNavigationBarDuringPresentation(_ value: Bool) -> Self {
+    func hidesNavigationBarDuringPresentation(_ value: Bool) -> Self {
         wrapped.hidesNavigationBarDuringPresentation = value
         return self
     }
     
     @discardableResult
-    func isAutomaticallyShowsCancelButton(_ value: Bool) -> Self {
+    func automaticallyShowsCancelButton(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.automaticallyShowsCancelButton = value
         }
@@ -36,7 +36,7 @@ public extension ChainableWrapper where Wrapped: UISearchController {
     }
     
     @discardableResult
-    func isAutomaticallyShowsScopeBar(_ value: Bool) -> Self {
+    func automaticallyShowsScopeBar(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.automaticallyShowsScopeBar = value
         }
@@ -44,7 +44,7 @@ public extension ChainableWrapper where Wrapped: UISearchController {
     }
     
     @discardableResult
-    func isAutomaticallyShowsSearchResultsController(_ value: Bool) -> Self {
+    func automaticallyShowsSearchResultsController(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.automaticallyShowsSearchResultsController = value
         }
@@ -52,7 +52,7 @@ public extension ChainableWrapper where Wrapped: UISearchController {
     }
     
     @discardableResult
-    func isShowsSearchResultsController(_ value: Bool) -> Self {
+    func showsSearchResultsController(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.showsSearchResultsController = value
         }

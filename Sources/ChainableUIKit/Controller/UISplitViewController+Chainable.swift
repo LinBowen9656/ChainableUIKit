@@ -52,13 +52,13 @@ public extension ChainableWrapper where Wrapped: UISplitViewController {
     }
     
     @discardableResult
-    func isPresentsWithGesture(_ value: Bool) -> Self {
+    func presentsWithGesture(_ value: Bool) -> Self {
         wrapped.presentsWithGesture = value
         return self
     }
     
     @discardableResult
-    func isShowsSecondaryOnlyButton(_ value: Bool) -> Self {
+    func showsSecondaryOnlyButton(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.showsSecondaryOnlyButton = value
         }

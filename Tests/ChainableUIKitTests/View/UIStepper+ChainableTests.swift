@@ -17,9 +17,9 @@ final class UIStepperChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAutorepeat() {
+    func testAutorepeat() {
         let result = UIStepper().chainable
-            .isAutorepeat(true)
+            .autorepeat(true)
             .wrapped.autorepeat
         XCTAssert(result)
     }
@@ -45,9 +45,9 @@ final class UIStepperChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsWraps() {
+    func testWraps() {
         let result = UIStepper().chainable
-            .isWraps(true)
+            .wraps(true)
             .wrapped.wraps
         XCTAssert(result)
     }

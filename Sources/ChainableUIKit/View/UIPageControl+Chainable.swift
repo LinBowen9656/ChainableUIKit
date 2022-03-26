@@ -22,7 +22,7 @@ public extension ChainableWrapper where Wrapped: UIPageControl {
     }
     
     @discardableResult
-    func isHidesForSinglePage(_ value: Bool) -> Self {
+    func hidesForSinglePage(_ value: Bool) -> Self {
         wrapped.hidesForSinglePage = value
         return self
     }
@@ -47,7 +47,7 @@ public extension ChainableWrapper where Wrapped: UIPageControl {
     }
     
     @discardableResult
-    func isAllowsContinuousInteraction(_ value: Bool) -> Self {
+    func allowsContinuousInteraction(_ value: Bool) -> Self {
         if #available(iOS 14.0, *) {
             wrapped.allowsContinuousInteraction = value
         }

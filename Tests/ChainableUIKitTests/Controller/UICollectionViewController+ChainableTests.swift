@@ -10,23 +10,23 @@ import XCTest
 
 final class UICollectionViewControllerChainableTests: XCTestCase {
     
-    func testIsClearsSelectionOnViewWillAppear() {
+    func testClearsSelectionOnViewWillAppear() {
         let result = UICollectionViewController().chainable
-            .isClearsSelectionOnViewWillAppear(true)
+            .clearsSelectionOnViewWillAppear(true)
             .wrapped.clearsSelectionOnViewWillAppear
         XCTAssert(result)
     }
     
-    func testIsInstallsStandardGestureForInteractiveMovement() {
+    func testInstallsStandardGestureForInteractiveMovement() {
         let result = UICollectionViewController().chainable
-            .isInstallsStandardGestureForInteractiveMovement(true)
+            .installsStandardGestureForInteractiveMovement(true)
             .wrapped.installsStandardGestureForInteractiveMovement
         XCTAssert(result)
     }
     
-    func testIsUseLayoutToLayoutNavigationTransitions() {
+    func testUseLayoutToLayoutNavigationTransitions() {
         let result = UICollectionViewController().chainable
-            .isUseLayoutToLayoutNavigationTransitions(true)
+            .useLayoutToLayoutNavigationTransitions(true)
             .wrapped.useLayoutToLayoutNavigationTransitions
         XCTAssert(result)
     }

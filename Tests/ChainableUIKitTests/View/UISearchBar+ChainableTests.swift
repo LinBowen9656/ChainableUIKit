@@ -59,23 +59,23 @@ final class UISearchBarChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsShowsBookmarkButton() {
+    func testShowsBookmarkButton() {
         let result = UISearchBar().chainable
-            .isShowsBookmarkButton(true)
+            .showsBookmarkButton(true)
             .wrapped.showsBookmarkButton
         XCTAssert(result)
     }
     
-    func testIsShowsCancelButton() {
+    func testShowsCancelButton() {
         let result = UISearchBar().chainable
-            .isShowsCancelButton(true, isAnimated: false)
+            .showsCancelButton(true, isAnimated: false)
             .wrapped.showsCancelButton
         XCTAssert(result)
     }
     
-    func testIsShowsSearchResultsButton() {
+    func testShowsSearchResultsButton() {
         let result = UISearchBar().chainable
-            .isShowsSearchResultsButton(true)
+            .showsSearchResultsButton(true)
             .wrapped.showsSearchResultsButton
         XCTAssert(result)
     }
@@ -102,9 +102,9 @@ final class UISearchBarChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsShowsScopeBar() {
+    func testShowsScopeBar() {
         let result = UISearchBar().chainable
-            .isShowsScopeBar(true, isAnimated: false)
+            .showsScopeBar(true, isAnimated: false)
             .wrapped.showsScopeBar
         XCTAssert(result)
     }

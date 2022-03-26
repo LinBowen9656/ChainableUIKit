@@ -92,9 +92,9 @@ final class UIListContentConfigurationChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsPrefersSideBySideTextAndSecondaryText() {
+    func testPrefersSideBySideTextAndSecondaryText() {
         let result = UIListContentConfiguration.cell().chainable
-            .isPrefersSideBySideTextAndSecondaryText(true)
+            .prefersSideBySideTextAndSecondaryText(true)
             .wrapped.prefersSideBySideTextAndSecondaryText
         XCTAssert(result)
     }
@@ -169,9 +169,9 @@ final class UIListContentConfigurationImagePropertiesChainableTests: XCTestCase 
         XCTAssert(result)
     }
     
-    func testIsAccessibilityIgnoresInvertColors() {
+    func testAccessibilityIgnoresInvertColors() {
         let result = UIListContentConfiguration.cell().imageProperties.chainable
-            .isAccessibilityIgnoresInvertColors(true)
+            .accessibilityIgnoresInvertColors(true)
             .wrapped.accessibilityIgnoresInvertColors
         XCTAssert(result)
     }
@@ -224,9 +224,9 @@ final class UIListContentConfigurationTextPropertiesChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAdjustsFontSizeToFitWidth() {
+    func testAdjustsFontSizeToFitWidth() {
         let result = UIListContentConfiguration.cell().textProperties.chainable
-            .isAdjustsFontSizeToFitWidth(true)
+            .adjustsFontSizeToFitWidth(true)
             .wrapped.adjustsFontSizeToFitWidth
         XCTAssert(result)
     }
@@ -238,16 +238,16 @@ final class UIListContentConfigurationTextPropertiesChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAllowsDefaultTighteningForTruncation() {
+    func testAllowsDefaultTighteningForTruncation() {
         let result = UIListContentConfiguration.cell().textProperties.chainable
-            .isAllowsDefaultTighteningForTruncation(true)
+            .allowsDefaultTighteningForTruncation(true)
             .wrapped.allowsDefaultTighteningForTruncation
         XCTAssert(result)
     }
     
-    func testIsAdjustsFontForContentSizeCategory() {
+    func testAdjustsFontForContentSizeCategory() {
         let result = UIListContentConfiguration.cell().textProperties.chainable
-            .isAdjustsFontForContentSizeCategory(true)
+            .adjustsFontForContentSizeCategory(true)
             .wrapped.adjustsFontForContentSizeCategory
         XCTAssert(result)
     }

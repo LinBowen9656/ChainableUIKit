@@ -17,24 +17,24 @@ final class UISearchControllerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsObscuresBackgroundDuringPresentation() {
+    func testObscuresBackgroundDuringPresentation() {
         let result = UISearchController().chainable
-            .isObscuresBackgroundDuringPresentation(true)
+            .obscuresBackgroundDuringPresentation(true)
             .wrapped.obscuresBackgroundDuringPresentation
         XCTAssert(result)
     }
     
-    func testIsHidesNavigationBarDuringPresentation() {
+    func testHidesNavigationBarDuringPresentation() {
         let result = UISearchController().chainable
-            .isHidesNavigationBarDuringPresentation(true)
+            .hidesNavigationBarDuringPresentation(true)
             .wrapped.hidesNavigationBarDuringPresentation
         XCTAssert(result)
     }
     
-    func testIsAutomaticallyShowsCancelButton() {
+    func testAutomaticallyShowsCancelButton() {
         if #available(iOS 13.0, *) {
             let result = UISearchController().chainable
-                .isAutomaticallyShowsCancelButton(true)
+                .automaticallyShowsCancelButton(true)
                 .wrapped.automaticallyShowsCancelButton
             XCTAssert(result)
         } else {
@@ -42,10 +42,10 @@ final class UISearchControllerChainableTests: XCTestCase {
         }
     }
     
-    func testIsAutomaticallyShowsScopeBar() {
+    func testAutomaticallyShowsScopeBar() {
         if #available(iOS 13.0, *) {
             let result = UISearchController().chainable
-                .isAutomaticallyShowsScopeBar(true)
+                .automaticallyShowsScopeBar(true)
                 .wrapped.automaticallyShowsScopeBar
             XCTAssert(result)
         } else {
@@ -53,10 +53,10 @@ final class UISearchControllerChainableTests: XCTestCase {
         }
     }
     
-    func testIsAutomaticallyShowsSearchResultsController() {
+    func testAutomaticallyShowsSearchResultsController() {
         if #available(iOS 13.0, *) {
             let result = UISearchController().chainable
-                .isAutomaticallyShowsSearchResultsController(true)
+                .automaticallyShowsSearchResultsController(true)
                 .wrapped.automaticallyShowsSearchResultsController
             XCTAssert(result)
         } else {
@@ -64,10 +64,10 @@ final class UISearchControllerChainableTests: XCTestCase {
         }
     }
     
-    func testIsShowsSearchResultsController() {
+    func testShowsSearchResultsController() {
         if #available(iOS 13.0, *) {
             let result = UISearchController().chainable
-                .isShowsSearchResultsController(true)
+                .showsSearchResultsController(true)
                 .wrapped.showsSearchResultsController
             XCTAssert(result)
         } else {

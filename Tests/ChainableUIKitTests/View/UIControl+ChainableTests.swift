@@ -95,10 +95,10 @@ final class UIControlChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsShowsMenuAsPrimaryAction() {
+    func testShowsMenuAsPrimaryAction() {
         if #available(iOS 14.0, *) {
             let result = TestButton().chainable
-                .isShowsMenuAsPrimaryAction(true)
+                .showsMenuAsPrimaryAction(true)
                 .wrapped.showsMenuAsPrimaryAction
             XCTAssert(result)
         } else {
@@ -118,7 +118,7 @@ final class UIControlChainableTests: XCTestCase {
     }
     
     func testToolTip() {
-        if #available(iOS 15.0, macCatalyst 15.0, *), UIDevice.current.isiOSAppOnMac {
+        if #available(iOS 15.0, macCatalyst 15.0, *), UIApplication.shared.isiOSAppOnMac {
             let result = TestButton().chainable
                 .toolTip("Test")
                 .wrapped.toolTip == "Test"

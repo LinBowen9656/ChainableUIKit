@@ -87,10 +87,10 @@ final class UIDatePickerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsRoundsToMinuteInterval() {
+    func testRoundsToMinuteInterval() {
         if #available(iOS 15.0, *) {
             let result = UIDatePicker().chainable
-                .isRoundsToMinuteInterval(true)
+                .roundsToMinuteInterval(true)
                 .wrapped.roundsToMinuteInterval
             XCTAssert(result)
         } else {

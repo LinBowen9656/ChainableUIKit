@@ -133,10 +133,10 @@ final class UIBarButtonItemChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsChangesSelectionAsPrimaryAction() {
+    func testChangesSelectionAsPrimaryAction() {
         if #available(iOS 15.0, *) {
             let result = UIBarButtonItem().chainable
-                .isChangesSelectionAsPrimaryAction(true)
+                .changesSelectionAsPrimaryAction(true)
                 .wrapped.changesSelectionAsPrimaryAction
             XCTAssert(result)
         } else {

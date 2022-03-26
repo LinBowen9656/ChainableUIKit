@@ -73,23 +73,23 @@ final class UITextFieldChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsClearsOnBeginEditing() {
+    func testClearsOnBeginEditing() {
         let result = UITextField().chainable
-            .isClearsOnBeginEditing(true)
+            .clearsOnBeginEditing(true)
             .wrapped.clearsOnBeginEditing
         XCTAssert(result)
     }
     
-    func testIsClearsOnInsertion() {
+    func testClearsOnInsertion() {
         let result = UITextField().chainable
-            .isClearsOnInsertion(true)
+            .clearsOnInsertion(true)
             .wrapped.clearsOnInsertion
         XCTAssert(result)
     }
     
-    func testIsAllowsEditingTextAttributes() {
+    func testAllowsEditingTextAttributes() {
         let result = UITextField().chainable
-            .isAllowsEditingTextAttributes(true)
+            .allowsEditingTextAttributes(true)
             .wrapped.allowsEditingTextAttributes
         XCTAssert(result)
     }

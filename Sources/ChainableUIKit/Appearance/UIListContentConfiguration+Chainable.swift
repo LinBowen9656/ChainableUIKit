@@ -84,7 +84,7 @@ public extension ChainableWrapper where Wrapped == UIListContentConfiguration {
     }
     
     @discardableResult
-    func isPrefersSideBySideTextAndSecondaryText(_ value: Bool) -> Self {
+    func prefersSideBySideTextAndSecondaryText(_ value: Bool) -> Self {
         var wrap = wrapped
         wrap.prefersSideBySideTextAndSecondaryText = value
         return ChainableWrapper(wrapped: wrap)
@@ -162,7 +162,7 @@ public extension ChainableWrapper where Wrapped == UIListContentConfiguration.Im
     }
     
     @discardableResult
-    func isAccessibilityIgnoresInvertColors(_ value: Bool) -> Self {
+    func accessibilityIgnoresInvertColors(_ value: Bool) -> Self {
         var wrap = wrapped
         wrap.accessibilityIgnoresInvertColors = value
         return ChainableWrapper(wrapped: wrap)
@@ -219,7 +219,7 @@ public extension ChainableWrapper where Wrapped == UIListContentConfiguration.Te
     }
     
     @discardableResult
-    func isAdjustsFontSizeToFitWidth(_ value: Bool) -> Self {
+    func adjustsFontSizeToFitWidth(_ value: Bool) -> Self {
         var wrap = wrapped
         wrap.adjustsFontSizeToFitWidth = value
         return ChainableWrapper(wrapped: wrap)
@@ -233,14 +233,14 @@ public extension ChainableWrapper where Wrapped == UIListContentConfiguration.Te
     }
     
     @discardableResult
-    func isAllowsDefaultTighteningForTruncation(_ value: Bool) -> Self {
+    func allowsDefaultTighteningForTruncation(_ value: Bool) -> Self {
         var wrap = wrapped
         wrap.allowsDefaultTighteningForTruncation = value
         return ChainableWrapper(wrapped: wrap)
     }
     
     @discardableResult
-    func isAdjustsFontForContentSizeCategory(_ value: Bool) -> Self {
+    func adjustsFontForContentSizeCategory(_ value: Bool) -> Self {
         var wrap = wrapped
         wrap.adjustsFontForContentSizeCategory = value
         return ChainableWrapper(wrapped: wrap)

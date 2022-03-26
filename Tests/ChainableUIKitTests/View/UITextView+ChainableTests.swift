@@ -52,9 +52,9 @@ final class UITextViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsAllowsEditingTextAttributes() {
+    func testAllowsEditingTextAttributes() {
         let result = UITextView().chainable
-            .isAllowsEditingTextAttributes(true)
+            .allowsEditingTextAttributes(true)
             .wrapped.allowsEditingTextAttributes
         XCTAssert(result)
     }
@@ -103,9 +103,9 @@ final class UITextViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsClearsOnInsertion() {
+    func testClearsOnInsertion() {
         let result = UITextView().chainable
-            .isClearsOnInsertion(true)
+            .clearsOnInsertion(true)
             .wrapped.clearsOnInsertion
         XCTAssert(result)
     }
@@ -133,10 +133,10 @@ final class UITextViewChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsUsesStandardTextScaling() {
+    func testUsesStandardTextScaling() {
         if #available(iOS 13.0, *) {
             let result = UITextView().chainable
-                .isUsesStandardTextScaling(true)
+                .usesStandardTextScaling(true)
                 .wrapped.usesStandardTextScaling
             XCTAssert(result)
         } else {

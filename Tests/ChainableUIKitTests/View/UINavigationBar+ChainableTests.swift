@@ -10,9 +10,9 @@ import XCTest
 
 final class UINavigationBarChainableTests: XCTestCase {
     
-    func testIsPrefersLargeTitles() {
+    func testPrefersLargeTitles() {
         let result = UINavigationBar().chainable
-            .isPrefersLargeTitles(true)
+            .prefersLargeTitles(true)
             .wrapped.prefersLargeTitles
         XCTAssert(result)
     }

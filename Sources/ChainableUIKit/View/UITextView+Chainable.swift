@@ -46,7 +46,7 @@ public extension ChainableWrapper where Wrapped: UITextView {
     }
     
     @discardableResult
-    func isAllowsEditingTextAttributes(_ value: Bool) -> Self {
+    func allowsEditingTextAttributes(_ value: Bool) -> Self {
         wrapped.allowsEditingTextAttributes = value
         return self
     }
@@ -88,7 +88,7 @@ public extension ChainableWrapper where Wrapped: UITextView {
     }
     
     @discardableResult
-    func isClearsOnInsertion(_ value: Bool) -> Self {
+    func clearsOnInsertion(_ value: Bool) -> Self {
         wrapped.clearsOnInsertion = value
         return self
     }
@@ -112,7 +112,7 @@ public extension ChainableWrapper where Wrapped: UITextView {
     }
     
     @discardableResult
-    func isUsesStandardTextScaling(_ value: Bool) -> Self {
+    func usesStandardTextScaling(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.usesStandardTextScaling = value
         }

@@ -71,7 +71,7 @@ public extension ChainableWrapper where Wrapped: UIDatePicker {
     }
     
     @discardableResult
-    func isRoundsToMinuteInterval(_ value: Bool) -> Self {
+    func roundsToMinuteInterval(_ value: Bool) -> Self {
         if #available(iOS 15.0, *) {
             wrapped.roundsToMinuteInterval = value
         }

@@ -16,7 +16,7 @@ public extension ChainableWrapper where Wrapped: UIStepper {
     }
     
     @discardableResult
-    func isAutorepeat(_ value: Bool) -> Self {
+    func autorepeat(_ value: Bool) -> Self {
         wrapped.autorepeat = value
         return self
     }
@@ -40,7 +40,7 @@ public extension ChainableWrapper where Wrapped: UIStepper {
     }
     
     @discardableResult
-    func isWraps(_ value: Bool) -> Self {
+    func wraps(_ value: Bool) -> Self {
         wrapped.wraps = value
         return self
     }

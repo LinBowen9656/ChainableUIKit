@@ -111,7 +111,7 @@ public extension ChainableWrapper where Wrapped: UIBarButtonItem {
     }
     
     @discardableResult
-    func isChangesSelectionAsPrimaryAction(_ value: Bool) -> Self {
+    func changesSelectionAsPrimaryAction(_ value: Bool) -> Self {
         if #available(iOS 15.0, *) {
             wrapped.changesSelectionAsPrimaryAction = value
         }

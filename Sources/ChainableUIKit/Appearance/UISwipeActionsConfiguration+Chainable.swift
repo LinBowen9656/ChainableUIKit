@@ -12,7 +12,7 @@ extension UISwipeActionsConfiguration: ChainableType {}
 public extension ChainableWrapper where Wrapped: UISwipeActionsConfiguration {
     
     @discardableResult
-    func isPerformsFirstActionWithFullSwipe(_ value: Bool) -> Self {
+    func performsFirstActionWithFullSwipe(_ value: Bool) -> Self {
         wrapped.performsFirstActionWithFullSwipe = value
         return self
     }

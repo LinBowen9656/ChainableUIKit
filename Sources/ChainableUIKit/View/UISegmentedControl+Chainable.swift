@@ -83,7 +83,7 @@ public extension ChainableWrapper where Wrapped: UISegmentedControl {
     }
     
     @discardableResult
-    func isApportionsSegmentWidthsByContent(_ value: Bool) -> Self {
+    func apportionsSegmentWidthsByContent(_ value: Bool) -> Self {
         wrapped.apportionsSegmentWidthsByContent = value
         return self
     }

@@ -22,7 +22,7 @@ public extension ChainableWrapper where Wrapped: UIWindow {
     }
     
     @discardableResult
-    func isCanResizeToFitContent(_ value: Bool) -> Self {
+    func canResizeToFitContent(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
             wrapped.canResizeToFitContent = value
         }

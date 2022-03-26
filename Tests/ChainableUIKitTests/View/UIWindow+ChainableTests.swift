@@ -25,10 +25,10 @@ final class UIWindowChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsCanResizeToFitContent() {
+    func testCanResizeToFitContent() {
         if #available(iOS 13.0, *) {
             let result = UIWindow().chainable
-                .isCanResizeToFitContent(true)
+                .canResizeToFitContent(true)
                 .wrapped.canResizeToFitContent
             XCTAssert(result)
         } else {

@@ -53,7 +53,7 @@ public extension ChainableWrapper where Wrapped: UILabel {
     
     #if os(tvOS)
     @discardableResult
-    func isEnablesMarqueeWhenAncestorFocused(_ value: Bool) -> Self {
+    func enablesMarqueeWhenAncestorFocused(_ value: Bool) -> Self {
         if #available(tvOS 12.0, *) {
             wrapped.enablesMarqueeWhenAncestorFocused = value
         }
@@ -62,13 +62,13 @@ public extension ChainableWrapper where Wrapped: UILabel {
     #endif
     
     @discardableResult
-    func isAdjustsFontSizeToFitWidth(_ value: Bool) -> Self {
+    func adjustsFontSizeToFitWidth(_ value: Bool) -> Self {
         wrapped.adjustsFontSizeToFitWidth = value
         return self
     }
     
     @discardableResult
-    func isAllowsDefaultTighteningForTruncation(_ value: Bool) -> Self {
+    func allowsDefaultTighteningForTruncation(_ value: Bool) -> Self {
         wrapped.allowsDefaultTighteningForTruncation = value
         return self
     }
@@ -122,7 +122,7 @@ public extension ChainableWrapper where Wrapped: UILabel {
     }
     
     @discardableResult
-    func isShowsExpansionTextWhenTruncated(_ value: Bool) -> Self {
+    func showsExpansionTextWhenTruncated(_ value: Bool) -> Self {
         if #available(iOS 15.0, *) {
             wrapped.showsExpansionTextWhenTruncated = value
         }

@@ -43,7 +43,7 @@ public extension ChainableWrapper where Wrapped: UINavigationItem {
     }
     
     @discardableResult
-    func isHidesBackButton(_ value: Bool, isAnimated: Bool = false) -> Self {
+    func hidesBackButton(_ value: Bool, isAnimated: Bool = false) -> Self {
         wrapped.setHidesBackButton(value, animated: isAnimated)
         return self
     }
@@ -55,7 +55,7 @@ public extension ChainableWrapper where Wrapped: UINavigationItem {
     }
     
     @discardableResult
-    func isLeftItemsSupplementBackButton(_ value: Bool) -> Self {
+    func leftItemsSupplementBackButton(_ value: Bool) -> Self {
         wrapped.leftItemsSupplementBackButton = value
         return self
     }
@@ -109,7 +109,7 @@ public extension ChainableWrapper where Wrapped: UINavigationItem {
     }
     
     @discardableResult
-    func isHidesSearchBarWhenScrolling(_ value: Bool) -> Self {
+    func hidesSearchBarWhenScrolling(_ value: Bool) -> Self {
         wrapped.hidesSearchBarWhenScrolling = value
         return self
     }

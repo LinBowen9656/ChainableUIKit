@@ -60,10 +60,10 @@ final class UILabelChainableTests: XCTestCase {
     }
     
     #if os(tvOS)
-    func testIsEnablesMarqueeWhenAncestorFocused() {
+    func testEnablesMarqueeWhenAncestorFocused() {
         if #available(tvOS 12.0, *) {
             let result = UILabel().chainable
-                .isEnablesMarqueeWhenAncestorFocused(true)
+                .enablesMarqueeWhenAncestorFocused(true)
                 .wrapped.enablesMarqueeWhenAncestorFocused
             XCTAssert(result)
         } else {
@@ -72,16 +72,16 @@ final class UILabelChainableTests: XCTestCase {
     }
     #endif
     
-    func testIsAdjustsFontSizeToFitWidth() {
+    func testAdjustsFontSizeToFitWidth() {
         let result = UILabel().chainable
-            .isAdjustsFontSizeToFitWidth(true)
+            .adjustsFontSizeToFitWidth(true)
             .wrapped.adjustsFontSizeToFitWidth
         XCTAssert(result)
     }
     
-    func testIsAllowsDefaultTighteningForTruncation() {
+    func testAllowsDefaultTighteningForTruncation() {
         let result = UILabel().chainable
-            .isAllowsDefaultTighteningForTruncation(true)
+            .allowsDefaultTighteningForTruncation(true)
             .wrapped.allowsDefaultTighteningForTruncation
         XCTAssert(result)
     }
@@ -142,10 +142,10 @@ final class UILabelChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
-    func testIsShowsExpansionTextWhenTruncated() {
+    func testShowsExpansionTextWhenTruncated() {
         if #available(iOS 15.0, *) {
             let result = UILabel().chainable
-                .isShowsExpansionTextWhenTruncated(true)
+                .showsExpansionTextWhenTruncated(true)
                 .wrapped.showsExpansionTextWhenTruncated
             XCTAssert(result)
         } else {
