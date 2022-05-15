@@ -2,6 +2,14 @@
 
 -----
 
+## 4.0.0
+
+* Rename function.
+* Add the interpolation of the animation.
+* Add support for new devices.
+
+-----
+
 ## 3.1.1
 
 * Fix the bug of not being able to get the average color of the image.
