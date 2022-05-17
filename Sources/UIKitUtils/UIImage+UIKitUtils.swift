@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 public extension UIImage {
     
@@ -219,6 +220,44 @@ public extension UIImage {
     func scaleImage(scaleSize: CGFloat) -> UIImage? {
         let reSize = CGSize(width: size.width * scaleSize, height: size.height * scaleSize)
         return reSizeImage(reSize: reSize)
+    }
+    
+    /// Returns a data object that contains the specified image in HEIC format.
+    /// - Parameter compressionQuality: The quality of the resulting HEIC image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality).
+    /// - Returns: A data object containing the HEIC data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
+    func heicData(compressionQuality: CGFloat = 1) -> Data? {
+        let heicUTType = AVFileType.heic.rawValue
+        guard let typeIdentifiers = CGImageDestinationCopyTypeIdentifiers() as? [String],
+              typeIdentifiers.contains(heicUTType),
+              let mutableData = CFDataCreateMutable(nil, 0),
+              let destination = CGImageDestinationCreateWithData(mutableData, heicUTType as CFString, 1, nil),
+              let cgImage = cgImage else {
+            return nil
+        }
+        let cgOrientation: CGImagePropertyOrientation
+        switch imageOrientation {
+        case .up:
+            cgOrientation = .up
+        case .upMirrored:
+            cgOrientation = .upMirrored
+        case .down:
+            cgOrientation = .down
+        case .downMirrored:
+            cgOrientation = .downMirrored
+        case .left:
+            cgOrientation = .left
+        case .leftMirrored:
+            cgOrientation = .leftMirrored
+        case .right:
+            cgOrientation = .right
+        case .rightMirrored:
+            cgOrientation = .rightMirrored
+        @unknown default:
+            cgOrientation = .up
+        }
+        CGImageDestinationAddImage(destination, cgImage, [kCGImageDestinationLossyCompressionQuality: compressionQuality, kCGImagePropertyOrientation: cgOrientation.rawValue] as CFDictionary)
+        guard CGImageDestinationFinalize(destination) else { return nil }
+        return mutableData as Data
     }
     
 }

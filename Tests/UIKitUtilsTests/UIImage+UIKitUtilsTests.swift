@@ -25,4 +25,13 @@ class UIImageUIKitUtilsTests: XCTestCase {
         XCTAssert(image?.size == CGSize(width: 50, height: 50))
     }
     
+    func testHEICData() {
+        guard let data = UIImage(color: .black, size: CGSize(width: 5, height: 5)).heicData() else {
+            XCTFail()
+            return
+        }
+        let image = UIImage(data: data)
+        XCTAssert(image?.size == CGSize(width: 5, height: 5))
+    }
+    
 }
