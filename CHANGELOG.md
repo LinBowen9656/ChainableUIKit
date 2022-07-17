@@ -2,6 +2,12 @@
 
 -----
 
+## 4.1.0
+
+* Add function to get HEIC format data from UIImage.
+
+-----
+
 ## 4.0.0
 
 * Rename function.
