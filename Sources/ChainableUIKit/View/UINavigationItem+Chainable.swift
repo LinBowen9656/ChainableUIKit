@@ -7,8 +7,6 @@
 
 import UIKit
 
-extension UINavigationItem: ChainableType {}
-
 public extension ChainableWrapper where Wrapped: UINavigationItem {
     
     @discardableResult

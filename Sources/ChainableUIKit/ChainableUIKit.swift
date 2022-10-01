@@ -30,6 +30,8 @@ public extension ChainableType {
     
 }
 
+extension NSObject: ChainableType {}
+
 public enum DataSourceOperation {
     case diff([DataSourceDiffOperation])
     case reload

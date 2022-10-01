@@ -7,8 +7,6 @@
 
 import UIKit
 
-extension UIContextualAction: ChainableType {}
-
 public extension ChainableWrapper where Wrapped: UIContextualAction {
     
     @discardableResult

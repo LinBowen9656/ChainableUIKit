@@ -9,7 +9,6 @@ import XCTest
 @testable import ChainableUIKit
 
 final class UISearchBarChainableTests: XCTestCase {
-    
     func testPlaceholder() {
         let result = UISearchBar().chainable
             .placeholder("Test")
@@ -103,9 +102,9 @@ final class UISearchBarChainableTests: XCTestCase {
     }
     
     func testShowsScopeBar() {
-        let result = UISearchBar().chainable
+        let result = TestSearchBar().chainable
             .showsScopeBar(true, isAnimated: false)
-            .wrapped.showsScopeBar
+            .wrapped.isCallShowsScopeBar
         XCTAssert(result)
     }
     
@@ -195,5 +194,16 @@ final class UISearchBarChainableTests: XCTestCase {
             .wrapped.searchTextPositionAdjustment == UIOffset(horizontal: 5, vertical: 5)
         XCTAssert(result)
     }
-    
+}
+
+extension UISearchBarChainableTests {
+    class TestSearchBar: UISearchBar {
+        var isCallShowsScopeBar = false
+        
+        @available(iOS 13.0, *)
+        override func setShowsScope(_ show: Bool, animated animate: Bool) {
+            isCallShowsScopeBar = true
+            super.setShowsScope(show, animated: animate)
+        }
+    }
 }

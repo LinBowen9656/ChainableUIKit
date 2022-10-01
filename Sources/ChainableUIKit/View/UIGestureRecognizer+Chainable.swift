@@ -7,8 +7,6 @@
 
 import UIKit
 
-extension UIGestureRecognizer: ChainableType {}
-
 public extension ChainableWrapper where Wrapped: UIGestureRecognizer {
     
     @discardableResult

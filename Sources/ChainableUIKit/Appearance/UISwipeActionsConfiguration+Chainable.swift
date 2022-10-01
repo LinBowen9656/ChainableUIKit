@@ -7,8 +7,6 @@
 
 import UIKit
 
-extension UISwipeActionsConfiguration: ChainableType {}
-
 public extension ChainableWrapper where Wrapped: UISwipeActionsConfiguration {
     
     @discardableResult

@@ -7,8 +7,6 @@
 
 import UIKit
 
-extension UIResponder: ChainableType {}
-
 public extension ChainableWrapper where Wrapped: UIResponder {
     
     @discardableResult

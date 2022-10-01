@@ -59,6 +59,10 @@ public extension UIDevice {
         case iPhone13Pro
         case iPhone13ProMax
         case iPhoneSE3
+        case iPhone14
+        case iPhone14Plus
+        case iPhone14Pro
+        case iPhone14ProMax
         case iPodtouch
         case iPodtouch2
         case iPodtouch3
@@ -116,6 +120,13 @@ public extension UIDevice {
         case appleWatchSeries6_44mm
         case appleWatchSeries7_41mm
         case appleWatchSeries7_45mm
+        case appleWatchSeries7_41mm
+        case appleWatchSeries7_45mm
+        case appleWatchSeries8_41mm
+        case appleWatchSeries8_45mm
+        case appleWatchSE2_40mm
+        case appleWatchSE2_44mm
+        case appleWatchUltra
         #elseif os(tvOS)
         case appleTV2
         case appleTV3
@@ -170,6 +181,10 @@ public extension UIDevice {
             case .iPhone13Pro: return "iPhone 13 Pro"
             case .iPhone13ProMax: return "iPhone 13 Pro Max"
             case .iPhoneSE3: return "iPhone SE (2rd generation)"
+            case .iPhone14: return "iPhone 14"
+            case .iPhone14Plus: return "iPhone 14 Plus"
+            case .iPhone14Pro: return "iPhone 14 Pro"
+            case .iPhone14ProMax: return "iPhone 14 Pro Max"
             case .iPad: return "iPad"
             case .iPad2: return "iPad 2"
             case .iPad3: return "iPad (3rd generation)"
@@ -224,6 +239,11 @@ public extension UIDevice {
             case .appleWatchSE_44mm: return "Apple Watch SE 44mm"
             case .appleWatchSeries7_41mm: return "Apple Watch Series 7 41mm"
             case .appleWatchSeries7_45mm: return "Apple Watch Series 7 45mm"
+            case .appleWatchSeries8_41mm: return "Apple Watch Series 8 41mm"
+            case .appleWatchSeries8_45mm: return "Apple Watch Series 8 45mm"
+            case .appleWatchSE2_40mm: return "Apple Watch SE (2nd generation) 40mm"
+            case .appleWatchSE2_44mm: return "Apple Watch SE (2nd generation) 44mm"
+            case .appleWatchUltra: return "Apple Watch Ultra"
             case .simulator(let model): return "Simulator (\(model.description))"
             case .unknown(let identifier): return identifier
             }
@@ -323,6 +343,14 @@ public extension UIDevice {
                 self = .iPhone13ProMax
             case "iPhone14,6":
                 self = .iPhoneSE3
+            case "iPhone14,7":
+                self = .iPhone14
+            case "iPhone14,8":
+                self = .iPhone14Plus
+            case "iPhone15,2":
+                self = .iPhone14Pro
+            case "iPhone15,3":
+                self = .iPhone14ProMax
             case "iPad1,1":
                 self = .iPad
             case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":
@@ -420,6 +448,16 @@ public extension UIDevice {
                 self = .appleWatchSeries7_41mm
             case "Watch6,7", "Watch6,9":
                 self = .appleWatchSeries7_45mm
+            case "Watch6,14", "Watch6,16":
+                return .appleWatchSeries8_41mm
+            case "Watch6,15", "Watch6,17":
+                return .appleWatchSeries8_45mm
+            case "Watch6,10", "Watch6,12":
+                return .appleWatchSE2_40mm
+            case "Watch6,11", "Watch6,13":
+                return .appleWatchSE2_44mm
+            case "Watch6,18":
+                return .appleWatchUltra
             case "i386", "x86_64", "arm64":
                 self = .simulator(Device(hardwareString: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "watchOS"))
             default:
