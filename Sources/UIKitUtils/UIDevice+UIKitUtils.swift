@@ -79,6 +79,7 @@ public extension UIDevice {
         case iPad7
         case iPad8
         case iPad9
+        case iPad10
         case iPadmini
         case iPadmini2
         case iPadmini3
@@ -100,6 +101,8 @@ public extension UIDevice {
         case iPadPro12Inch4
         case iPadPro11Inch3
         case iPadPro12Inch5
+        case iPadPro11Inch4
+        case iPadPro12Inch6
         case homePod
         #elseif os(watchOS)
         case appleWatch_38mm
@@ -130,7 +133,7 @@ public extension UIDevice {
         #elseif os(tvOS)
         case appleTV2
         case appleTV3
-        case appleTV4
+        case appleTVHD
         case appleTV4K
         case appleTV4K2
         #endif
@@ -197,6 +200,7 @@ public extension UIDevice {
             case .iPad7: return "iPad (7th generation)"
             case .iPad8: return "iPad (8th generation)"
             case .iPad9: return "iPad (9th generation)"
+            case .iPad10: return "iPad (10th generation)"
             case .iPadAir4: return "iPad Air (4th generation)"
             case .iPadAir5: return "iPad Air (5th generation)"
             case .iPadmini: return "iPad mini"
@@ -215,6 +219,8 @@ public extension UIDevice {
             case .iPadPro12Inch4: return "iPad Pro (12.9-inch) (4th generation)"
             case .iPadPro11Inch3: return "iPad Pro (11-inch) (3rd generation)"
             case .iPadPro12Inch5: return "iPad Pro (12.9-inch) (5th generation)"
+            case .iPadPro11Inch4: return "iPad Pro (11-inch) (4th generation)"
+            case .iPadPro12Inch6: return "iPad Pro (12.9-inch) (6th generation)"
             case .homePod: return "HomePod"
             case .simulator(let model): return "Simulator (\(model.description))"
             case .unknown(let identifier): return identifier
@@ -249,6 +255,8 @@ public extension UIDevice {
             }
             #elseif os(tvOS)
             switch self {
+            case .appleTV2: return "Apple TV (2nd generation)"
+            case .appleTV3: return "Apple TV (3rd generation)"
             case .appleTVHD: return "Apple TV HD"
             case .appleTV4K: return "Apple TV 4K"
             case .appleTV4K2: return "Apple TV 4K (2nd generation)"
@@ -403,8 +411,18 @@ public extension UIDevice {
                 self = .iPadAir4
             case "iPad12,1", "iPad12,2":
                 self = .iPad9
+            case "iPad13,4", "iPad13,5", "iPad13,6", "iPad13,7":
+                self = .iPadPro11Inch3
+            case "iPad13,8", "iPad13,9", "iPad13,10", "iPad13,11":
+                self = .iPadPro12Inch5
+            case "iPad13,18", "iPad13,19":
+                self = .iPad10
             case "iPad13,16", "iPad13,17":
                 self = .iPadAir5
+            case "iPad14,3", "iPad14,4":
+                self = .iPadPro11Inch4
+            case "iPad14,5", "iPad14,6":
+                self = .iPadPro12Inch6
             case "i386", "x86_64", "arm64":
                 self = .simulator(Device(hardwareString: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "iOS"))
             default:
@@ -470,9 +488,11 @@ public extension UIDevice {
             case "AppleTV3,1", "AppleTV3,2":
                 self = .appleTV3
             case "AppleTV5,3":
-                self = .appleTV4
+                self = .appleTVHD
             case "AppleTV6,2":
                 self = .appleTV4K
+            case "AppleTV11,1":
+                self = .appleTV4K2
             case "i386", "x86_64", "arm64":
                 self = .simulator(Device(hardwareString: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "tvOS"))
             default:

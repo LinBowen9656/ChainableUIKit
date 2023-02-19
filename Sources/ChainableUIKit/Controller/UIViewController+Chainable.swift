@@ -168,6 +168,13 @@ public extension ChainableWrapper where Wrapped: UIViewController {
         return self
     }
     
+    @available(iOS 15.0, *)
+    @discardableResult
+    func contentScrollView(_ scrollView: UIScrollView?, for edge: NSDirectionalRectEdge) -> Self {
+        wrapped.setContentScrollView(scrollView, for: edge)
+        return self
+    }
+    
     @discardableResult
     func updateScreenEdgesDeferringSystemGestures() -> Self {
         wrapped.setNeedsUpdateOfScreenEdgesDeferringSystemGestures()

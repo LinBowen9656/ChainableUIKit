@@ -219,6 +219,15 @@ final class UIViewControllerChainableTests: XCTestCase {
         XCTAssert(result)
     }
     
+    @available(iOS 15.0, *)
+    func testContentScrollView() {
+        let scrollView = UIScrollView()
+        let result = UIViewController().chainable
+            .contentScrollView(scrollView, for: .bottom)
+            .wrapped.contentScrollView(for: .bottom) == scrollView
+        XCTAssert(result)
+    }
+    
     func testUpdateScreenEdgesDeferringSystemGestures() {
         let result = TestViewController().chainable
             .updateScreenEdgesDeferringSystemGestures()

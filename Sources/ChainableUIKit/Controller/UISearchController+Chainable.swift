@@ -8,7 +8,6 @@
 import UIKit
 
 public extension ChainableWrapper where Wrapped: UISearchController {
-    
     @discardableResult
     func isActive(_ value: Bool) -> Self {
         wrapped.isActive = value
@@ -35,6 +34,7 @@ public extension ChainableWrapper where Wrapped: UISearchController {
         return self
     }
     
+    @available(iOS, deprecated: 16.0)
     @discardableResult
     func automaticallyShowsScopeBar(_ value: Bool) -> Self {
         if #available(iOS 13.0, *) {
@@ -59,4 +59,25 @@ public extension ChainableWrapper where Wrapped: UISearchController {
         return self
     }
     
+    @discardableResult
+    func ignoresSearchSuggestionsForSearchBarPlacementStacked(_ value: Bool) -> Self {
+        if #available(iOS 16.0, *) {
+            wrapped.ignoresSearchSuggestionsForSearchBarPlacementStacked = value
+        }
+        return self
+    }
+    
+    @available(iOS 16.0, *)
+    @discardableResult
+    func scopeBarActivation(_ value: UISearchController.ScopeBarActivation) -> Self {
+        wrapped.scopeBarActivation = value
+        return self
+    }
+    
+    @available(iOS 16.0, *)
+    @discardableResult
+    func searchSuggestions(_ suggestions: [UISearchSuggestion]?) -> Self {
+        wrapped.searchSuggestions = suggestions
+        return self
+    }
 }

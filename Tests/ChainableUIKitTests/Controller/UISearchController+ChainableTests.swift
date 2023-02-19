@@ -75,12 +75,44 @@ final class UISearchControllerChainableTests: XCTestCase {
         }
     }
     
+    func testIgnoresSearchSuggestionsForSearchBarPlacementStacked() {
+        if #available(iOS 16.0, *) {
+            let result = UISearchController().chainable
+                .ignoresSearchSuggestionsForSearchBarPlacementStacked(true)
+                .wrapped.ignoresSearchSuggestionsForSearchBarPlacementStacked
+            XCTAssert(result)
+        } else {
+            XCTAssert(true)
+        }
+    }
+    
+    func testScopeBarActivation() {
+        if #available(iOS 16.0, *) {
+            let result = UISearchController().chainable
+                .scopeBarActivation(.manual)
+                .wrapped.scopeBarActivation == .manual
+            XCTAssert(result)
+        } else {
+            XCTAssert(true)
+        }
+    }
+    
+    func testSearchSuggestions() {
+        if #available(iOS 16.0, *) {
+            let result = TestSearchController().chainable
+                .ignoresSearchSuggestionsForSearchBarPlacementStacked(true)
+                .searchSuggestions([UISearchSuggestionItem()])
+                .wrapped.isCallSearchSuggestions
+            XCTAssert(result)
+        } else {
+            XCTAssert(true)
+        }
+    }
 }
 
 extension UISearchControllerChainableTests {
     
     class TestSearchController: UISearchController {
-        
         var isCallIsActive = false
         override var isActive: Bool {
             get {
@@ -91,7 +123,15 @@ extension UISearchControllerChainableTests {
                 super.isActive = newValue
             }
         }
-        
+        var isCallSearchSuggestions = false
+        @available(iOS 16.0, *)
+        override var searchSuggestions: [UISearchSuggestion]? {
+            get { super.searchSuggestions }
+            set {
+                isCallSearchSuggestions = true
+                super.searchSuggestions = newValue
+            }
+        }
     }
     
 }
