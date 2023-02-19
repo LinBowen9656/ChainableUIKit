@@ -9,8 +9,8 @@ Make UIKit chain-able.
 ## Requirements
 
 - iOS 11.0+
-- Xcode 13.0+
-- Swift 5.5+
+- Xcode 14.0+
+- Swift 5.7+
 
 ## Usage
 

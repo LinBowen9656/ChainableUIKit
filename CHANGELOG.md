@@ -2,6 +2,13 @@
 
 -----
 
+## 4.2.0
+
+* Add new device support.
+* Support some new APIs.
+
+-----
+
 ## 4.1.0
 
 * Add function to get HEIC format data from UIImage.
