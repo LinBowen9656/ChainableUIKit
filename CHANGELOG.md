@@ -2,6 +2,12 @@
 
 -----
 
+## 4.2.1
+
+* Fix the bug of incorrect drawing of rounded Bezier curves.
+
+-----
+
 ## 4.2.0
 
 * Add new device support.
